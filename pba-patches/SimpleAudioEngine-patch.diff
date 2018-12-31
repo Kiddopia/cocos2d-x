@@ -1,0 +1,457 @@
+diff --git a/cocos/audio/include/SimpleAudioEngine.h b/cocos/audio/include/SimpleAudioEngine.h
+index 7f7e7a3750..2a6664b544 100644
+--- a/cocos/audio/include/SimpleAudioEngine.h
++++ b/cocos/audio/include/SimpleAudioEngine.h
+@@ -241,7 +241,13 @@ public:
+      * @param filePath The path of the effect file.
+      * @js NA
+      */
++#if CC_TARGET_PLATFORM != CC_PLATFORM_IOS
+     virtual void preloadEffect(const char* filePath);
++#else
++    virtual unsigned int preloadEffect(const char* filePath);
++    virtual float durationForEffect(unsigned int soundId);
++    virtual void unloadAllEffects();
++#endif
+ 
+     /**
+      * Unload the preloaded effect from internal buffer.
+diff --git a/cocos/audio/ios/CDAudioManager.h b/cocos/audio/ios/CDAudioManager.h
+index 110f799cc5..ced6f74d71 100644
+--- a/cocos/audio/ios/CDAudioManager.h
++++ b/cocos/audio/ios/CDAudioManager.h
+@@ -242,6 +242,7 @@ static const int kCDNoBuffer = -1;
+ -(id) initWithEngine:(CDSoundEngine *) theSoundEngine;
+ -(int) bufferForFile:(NSString*) filePath create:(BOOL) create;
+ -(void) releaseBufferForFile:(NSString *) filePath;
++-(void) releaseAllBuffers;
+ 
+ @end
+ 
+diff --git a/cocos/audio/ios/CDAudioManager.m b/cocos/audio/ios/CDAudioManager.m
+index b0d4ceec30..0d080a9306 100644
+--- a/cocos/audio/ios/CDAudioManager.m
++++ b/cocos/audio/ios/CDAudioManager.m
+@@ -331,15 +331,7 @@ static BOOL configured = FALSE;
+ 
+ -(BOOL) isOtherAudioPlaying
+ {
+-    // AudioSessionGetProperty removed from tvOS 9.1
+-#if defined(CC_TARGET_OS_TVOS)
+-    return false;
+-#else
+-    UInt32 isPlaying = 0;
+-    UInt32 varSize = sizeof(isPlaying);
+-    AudioSessionGetProperty (kAudioSessionProperty_OtherAudioIsPlaying, &varSize, &isPlaying);
+-    return (isPlaying != 0);
+-#endif
++    return [[AVAudioSession sharedInstance] isOtherAudioPlaying];
+ }
+ 
+ -(void) setMode:(tAudioManagerMode) mode {
+@@ -417,7 +409,7 @@ static BOOL configured = FALSE;
+     if ((self = [super init])) {
+    
+          [[NSNotificationCenter defaultCenter] addObserver: self
+-         selector:    NSSelectorFromString(@"handleInterruption:")
++                                                  selector:@selector(handleInterruption:)
+          name:        AVAudioSessionInterruptionNotification
+          object:      [AVAudioSession sharedInstance]];
+     
+@@ -488,33 +480,7 @@ static BOOL configured = FALSE;
+ //ringer mute switch to off (i.e. enables sound) therefore polling is the only reliable way to
+ //determine ringer switch state
+ -(BOOL) isDeviceMuted {
+-
+-#if TARGET_IPHONE_SIMULATOR || defined(CC_TARGET_OS_TVOS)
+-    //Calling audio route stuff on the simulator causes problems
+     return NO;
+-#else    
+-    CFStringRef newAudioRoute;
+-    UInt32 propertySize = sizeof (CFStringRef);
+-    
+-    AudioSessionGetProperty (
+-                             kAudioSessionProperty_AudioRoute,
+-                             &propertySize,
+-                             &newAudioRoute
+-                             );
+-    
+-    if (newAudioRoute == NULL) {
+-        //Don't expect this to happen but playing safe otherwise a null in the CFStringCompare will cause a crash
+-        return YES;
+-    } else {    
+-        CFComparisonResult newDeviceIsMuted =    CFStringCompare (
+-                                                                 newAudioRoute,
+-                                                                 (CFStringRef) @"",
+-                                                                 0
+-                                                                 );
+-        
+-        return (newDeviceIsMuted == kCFCompareEqualTo);
+-    }    
+-#endif
+ }    
+ 
+ #pragma mark Audio Interrupt Protocol
+@@ -873,8 +839,8 @@ static BOOL configured = FALSE;
+             NSNumber* bufferId = nil;
+             //First try to get a buffer from the free buffers
+             if ([freedBuffers count] > 0) {
+-                bufferId = [[[freedBuffers lastObject] retain] autorelease];
+-                [freedBuffers removeLastObject]; 
++                bufferId = [[[freedBuffers firstObject] retain] autorelease];
++                [freedBuffers removeObjectAtIndex:0];
+                 CDLOGINFO(@"Denshion::CDBufferManager reusing buffer id %i",[bufferId intValue]);
+             } else {
+                 bufferId = [[NSNumber alloc] initWithInt:nextBufferId];
+@@ -905,13 +871,29 @@ static BOOL configured = FALSE;
+ -(void) releaseBufferForFile:(NSString *) filePath {
+     int bufferId = [self bufferForFile:filePath create:NO];
+     if (bufferId != kCDNoBuffer) {
+-        [soundEngine unloadBuffer:bufferId];
+-        [loadedBuffers removeObjectForKey:filePath];
+-        NSNumber *freedBufferId = [[NSNumber alloc] initWithInt:bufferId];
+-        [freedBufferId autorelease];
+-        [freedBuffers addObject:freedBufferId];
+-    }    
+-}    
++        if([soundEngine unloadBuffer:bufferId]) {
++            [loadedBuffers removeObjectForKey:filePath];
++            NSNumber *freedBufferId = [[NSNumber alloc] initWithInt:bufferId];
++            [freedBufferId autorelease];
++            [freedBuffers addObject:freedBufferId];
++        }
++    }
++}
++
++-(void) releaseAllBuffers {
++    for(NSString *key in [loadedBuffers allKeys]) {
++        int bufferId = [self bufferForFile:key create:NO];
++        if (bufferId != kCDNoBuffer) {
++            if([soundEngine unloadBuffer:bufferId]) {
++                NSNumber *freedBufferId = [[NSNumber alloc] initWithInt:bufferId];
++                [freedBufferId autorelease];
++                [freedBuffers addObject:freedBufferId];
++            }
++        }
++    }
++    [loadedBuffers removeAllObjects];
++}
++
+ @end
+ 
+ 
+diff --git a/cocos/audio/ios/CDConfig.h b/cocos/audio/ios/CDConfig.h
+index 2bd8f760c1..db095d7b0b 100644
+--- a/cocos/audio/ios/CDConfig.h
++++ b/cocos/audio/ios/CDConfig.h
+@@ -36,7 +36,7 @@
+ //Number of buffers slots that will be initially created
+ #define CD_BUFFERS_START 64
+ //Number of buffers that will be added 
+-#define CD_BUFFERS_INCREMENT 16
++#define CD_BUFFERS_INCREMENT 2
+ 
+ /**
+  If enabled, OpenAL code will use static buffers. When static buffers are used the audio
+diff --git a/cocos/audio/ios/CocosDenshion.h b/cocos/audio/ios/CocosDenshion.h
+index 60232b4ab7..9a356487cd 100644
+--- a/cocos/audio/ios/CocosDenshion.h
++++ b/cocos/audio/ios/CocosDenshion.h
+@@ -91,7 +91,7 @@ Requirements:
+ #import "audio/ios/CDOpenALSupport.h"
+ 
+ //Tested source limit on 2.2.1 and 3.1.2 with up to 128 sources and appears to work. Older OS versions e.g 2.2 may support only 32
+-#define CD_SOURCE_LIMIT 32 //Total number of sources we will ever want, may actually get less
++#define CD_SOURCE_LIMIT 24 //Total number of sources we will ever want, may actually get less
+ #define CD_NO_SOURCE 0xFEEDFAC //Return value indicating playback failed i.e. no source
+ #define CD_IGNORE_AUDIO_SESSION 0xBEEFBEE //Used internally to indicate audio session will not be handled
+ #define CD_MUTE      0xFEEDBAB //Return value indicating sound engine is muted or non functioning
+diff --git a/cocos/audio/ios/SimpleAudioEngine.mm b/cocos/audio/ios/SimpleAudioEngine.mm
+index e7344d9ce7..c6e44f6b61 100644
+--- a/cocos/audio/ios/SimpleAudioEngine.mm
++++ b/cocos/audio/ios/SimpleAudioEngine.mm
+@@ -1,6 +1,5 @@
+ /****************************************************************************
+ Copyright (c) 2010 cocos2d-x.org
+-Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
+ 
+ http://www.cocos2d-x.org
+ 
+@@ -57,7 +56,6 @@ static void static_stopBackgroundMusic()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+ }
+ 
+@@ -65,7 +63,6 @@ static void static_pauseBackgroundMusic()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+      [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+ }
+ 
+@@ -73,7 +70,6 @@ static void static_resumeBackgroundMusic()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+ } 
+ 
+@@ -81,7 +77,6 @@ static void static_rewindBackgroundMusic()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] rewindBackgroundMusic];
+ }
+ 
+@@ -89,7 +84,6 @@ static bool static_willPlayBackgroundMusic()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return false;
+-
+     return [[SimpleAudioEngine sharedEngine] willPlayBackgroundMusic];
+ }
+ 
+@@ -97,7 +91,6 @@ static bool static_isBackgroundMusicPlaying()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return false;
+-
+     return [[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying];
+ }
+ 
+@@ -105,7 +98,6 @@ static float static_getBackgroundMusicVolume()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return 0.0f;
+-
+     return [[SimpleAudioEngine sharedEngine] backgroundMusicVolume];
+ }
+ 
+@@ -113,7 +105,6 @@ static void static_setBackgroundMusicVolume(float volume)
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     volume = MAX( MIN(volume, 1.0), 0 );
+     [SimpleAudioEngine sharedEngine].backgroundMusicVolume = volume;
+ }
+@@ -122,7 +113,6 @@ static float static_getEffectsVolume()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return 0.0f;
+-
+     return [[SimpleAudioEngine sharedEngine] effectsVolume];
+ }
+      
+@@ -130,7 +120,6 @@ static void static_setEffectsVolume(float volume)
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     volume = MAX( MIN(volume, 1.0), 0 );
+     [SimpleAudioEngine sharedEngine].effectsVolume = volume;
+ }
+@@ -145,29 +134,40 @@ static void static_stopEffect(int nSoundId)
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] stopEffect: nSoundId];
+ }
+-     
+-static void static_preloadEffect(const char* pszFilePath)
++
++static unsigned int static_preloadEffect(const char* pszFilePath)
+ {
+     __isAudioPreloadOrPlayed = true;
+-    [[SimpleAudioEngine sharedEngine] preloadEffect: [NSString stringWithUTF8String: pszFilePath]];
++    return [[SimpleAudioEngine sharedEngine] preloadEffect: [NSString stringWithUTF8String: pszFilePath]];
++}
++     
++static float static_durationForEffect(ALuint soundId)
++{
++    if (!__isAudioPreloadOrPlayed)
++        return 0.0f;
++    return [[SimpleAudioEngine sharedEngine] durationForEffect:soundId];
+ }
+      
+ static void static_unloadEffect(const char* pszFilePath)
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] unloadEffect: [NSString stringWithUTF8String: pszFilePath]];
+ }
+ 
+-static void static_pauseEffect(unsigned int uSoundId)
++static void static_unloadAllEffects()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
++    [[SimpleAudioEngine sharedEngine] unloadAllEffects];
++}
+ 
++static void static_pauseEffect(unsigned int uSoundId)
++{
++    if (!__isAudioPreloadOrPlayed)
++        return;
+     [[SimpleAudioEngine sharedEngine] pauseEffect: uSoundId];
+ }
+ 
+@@ -175,7 +175,6 @@ static void static_pauseAllEffects()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] pauseAllEffects];
+ }
+ 
+@@ -183,7 +182,6 @@ static void static_resumeEffect(unsigned int uSoundId)
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] resumeEffect: uSoundId];
+ }
+ 
+@@ -191,7 +189,6 @@ static void static_resumeAllEffects()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] resumeAllEffects];
+ }
+ 
+@@ -199,13 +196,12 @@ static void static_stopAllEffects()
+ {
+     if (!__isAudioPreloadOrPlayed)
+         return;
+-
+     [[SimpleAudioEngine sharedEngine] stopAllEffects];
+ }
+ 
+ namespace CocosDenshion {
+ 
+-static SimpleAudioEngine *s_pEngine = nullptr;
++static SimpleAudioEngine *s_pEngine;
+ 
+ SimpleAudioEngine::SimpleAudioEngine()
+ {
+@@ -315,11 +311,16 @@ void SimpleAudioEngine::stopEffect(unsigned int nSoundId)
+     static_stopEffect(nSoundId);
+ }
+ 
+-void SimpleAudioEngine::preloadEffect(const char* pszFilePath)
++unsigned int SimpleAudioEngine::preloadEffect(const char* pszFilePath)
+ {
+     // Changing file path to full path
+     std::string fullPath = FileUtils::getInstance()->fullPathForFilename(pszFilePath);
+-    static_preloadEffect(fullPath.c_str());
++    return static_preloadEffect(fullPath.c_str());
++}
++
++float SimpleAudioEngine::durationForEffect(unsigned int soundId)
++{
++    return static_durationForEffect(soundId);
+ }
+ 
+ void SimpleAudioEngine::unloadEffect(const char* pszFilePath)
+@@ -329,6 +330,10 @@ void SimpleAudioEngine::unloadEffect(const char* pszFilePath)
+     static_unloadEffect(fullPath.c_str());
+ }
+ 
++void SimpleAudioEngine::unloadAllEffects() {
++    static_unloadAllEffects();
++}
++
+ void SimpleAudioEngine::pauseEffect(unsigned int uSoundId)
+ {
+     static_pauseEffect(uSoundId);
+diff --git a/cocos/audio/ios/SimpleAudioEngine_objc.h b/cocos/audio/ios/SimpleAudioEngine_objc.h
+index bfceac2862..0ba26e3bec 100644
+--- a/cocos/audio/ios/SimpleAudioEngine_objc.h
++++ b/cocos/audio/ios/SimpleAudioEngine_objc.h
+@@ -72,6 +72,7 @@
+ -(BOOL) isBackgroundMusicPlaying;
+ 
+ /** plays an audio effect with a file path*/
++-(ALuint) playEffect:(NSString*) filePath;
+ -(ALuint) playEffect:(NSString*) filePath loop:(BOOL) loop;
+ /** stop a sound that is playing, note you must pass in the soundId that is returned when you started playing the sound with playEffect */
+ -(void) stopEffect:(ALuint) soundId;
+@@ -88,9 +89,14 @@
+ /** stop all audioes */
+ -(void) stopAllEffects;
+ /** preloads an audio effect */
+--(void) preloadEffect:(NSString*) filePath;
++-(ALuint) preloadEffect:(NSString*) filePath;
++-(void) preloadEffects: (NSString*) filePath, ... NS_REQUIRES_NIL_TERMINATION;
+ /** unloads an audio effect from memory */
+ -(void) unloadEffect:(NSString*) filePath;
++/** unloads an audio effect from memory */
++-(void) unloadAllEffects;
++/** returns the duraiton of a preloaded effect */
++- (float) durationForEffect:(ALuint)soundId;
+ /** Gets a CDSoundSource object set up to play the specified file. */
+ -(CDSoundSource *) soundSourceForFile:(NSString*) filePath;
+ 
+diff --git a/cocos/audio/ios/SimpleAudioEngine_objc.m b/cocos/audio/ios/SimpleAudioEngine_objc.m
+index 2c4cec0c97..fa47e9ca90 100644
+--- a/cocos/audio/ios/SimpleAudioEngine_objc.m
++++ b/cocos/audio/ios/SimpleAudioEngine_objc.m
+@@ -122,6 +122,10 @@ static CDBufferManager *bufferManager = nil;
+ }
+ 
+ #pragma mark SimpleAudioEngine - sound effects
++-(ALuint) playEffect:(NSString*) filePath
++{
++    return [self playEffect:filePath loop:NO];
++}
+ 
+ -(ALuint) playEffect:(NSString*) filePath loop:(BOOL) loop
+ {
+@@ -162,12 +166,26 @@ static CDBufferManager *bufferManager = nil;
+   [soundEngine stopAllSounds];
+ }
+ 
+--(void) preloadEffect:(NSString*) filePath
++-(ALuint) preloadEffect:(NSString*) filePath
+ {
+     int soundId = [bufferManager bufferForFile:filePath create:YES];
+     if (soundId == kCDNoBuffer) {
+         CDLOG(@"Denshion::SimpleAudioEngine sound failed to preload %@",filePath);
+     }
++    return soundId;
++}
++
++-(void) preloadEffects: (NSString*) filePath, ... {
++    va_list args;
++    va_start(args, filePath);
++    for (NSString *arg = filePath; arg != nil; arg = va_arg(args, NSString*)) {
++        [self preloadEffect:arg];
++    }
++    va_end(args);
++}
++
++- (float) durationForEffect:(ALuint)soundId {
++    return [soundEngine bufferDurationInSeconds:soundId];
+ }
+ 
+ -(void) unloadEffect:(NSString*) filePath
+@@ -176,6 +194,10 @@ static CDBufferManager *bufferManager = nil;
+     [bufferManager releaseBufferForFile:filePath];
+ }
+ 
++-(void) unloadAllEffects {
++    [bufferManager releaseAllBuffers];
++}
++
+ #pragma mark Audio Interrupt Protocol
+ -(BOOL) mute
+ {
