@@ -1,0 +1,22 @@
+diff --git a/cocos/audio/android/AudioEngine-inl.cpp b/cocos/audio/android/AudioEngine-inl.cpp
+index 2c6e26a6a3..a6592c0211 100644
+--- a/cocos/audio/android/AudioEngine-inl.cpp
++++ b/cocos/audio/android/AudioEngine-inl.cpp
+@@ -54,6 +54,8 @@
+ #include "audio/android/cutils/log.h"
+ #include "audio/android/UrlAudioPlayer.h"
+ 
++#include "base/ZipUtils.h"
++
+ using namespace cocos2d;
+ using namespace cocos2d::experimental;
+ 
+@@ -93,7 +95,7 @@ static CallerThreadUtils __callerThreadUtils;
+ static int fdGetter(const std::string& url, off_t* start, off_t* length)
+ {
+     int fd = -1;
+-    if (cocos2d::FileUtilsAndroid::getObbFile() != nullptr)
++    if (cocos2d::FileUtilsAndroid::getObbFile() != nullptr && cocos2d::FileUtilsAndroid::getObbFile()->fileExists(url))    {
+     {
+         fd = getObbAssetFileDescriptorJNI(url.c_str(), start, length);
+     } 
