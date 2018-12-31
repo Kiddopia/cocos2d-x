@@ -533,11 +533,11 @@ AudioProfile* AudioEngine::getProfile(const std::string &name)
     }
 }
 
-void AudioEngine::preload(const std::string& filePath, std::function<void(bool isSuccess)> callback)
+void AudioEngine::preload(const std::string& filePath, std::function<void(bool isSuccess,float duration)> callback)
 {
     if (!isEnabled())
     {
-        callback(false);
+        callback(false,0.0f);
         return;
     }
     
@@ -548,7 +548,7 @@ void AudioEngine::preload(const std::string& filePath, std::function<void(bool i
         if (!FileUtils::getInstance()->isFileExist(filePath)){
             if (callback)
             {
-                callback(false);
+                callback(false,0.0f);
             }
             return;
         }

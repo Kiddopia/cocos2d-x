@@ -427,7 +427,7 @@ void AudioEngineImpl::setFinishCallback(int audioID, const std::function<void (i
     _callbackMap[audioID] = callback;
 }
 
-void AudioEngineImpl::preload(const std::string& filePath, const std::function<void(bool)>& callback)
+void AudioEngineImpl::preload(const std::string& filePath, const std::function<void(bool,float)>& callback)
 {
     if (_audioPlayerProvider != nullptr)
     {
@@ -435,7 +435,7 @@ void AudioEngineImpl::preload(const std::string& filePath, const std::function<v
         _audioPlayerProvider->preloadEffect(fullPath, [callback](bool succeed, PcmData data){
             if (callback != nullptr)
             {
-                callback(succeed);
+                callback(succeed,data.duration);
             }
         });
     }
@@ -443,7 +443,7 @@ void AudioEngineImpl::preload(const std::string& filePath, const std::function<v
     {
         if (callback != nullptr)
         {
-            callback(false);
+            callback(false,0.0f);
         }
     }
 }

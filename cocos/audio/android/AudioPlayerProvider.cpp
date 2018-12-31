@@ -230,10 +230,10 @@ void AudioPlayerProvider::preloadEffect(const std::string &audioFilePath, const 
     auto info = getFileInfo(audioFilePath);
     preloadEffect(info, [this, cb, audioFilePath](bool succeed, PcmData data){
 
-        _callerThreadUtils->performFunctionInCallerThread([this, succeed, data, cb](){
-            cb(succeed, data);
-        });
-
+//        _callerThreadUtils->performFunctionInCallerThread([this, succeed, data, cb](){
+//            cb(succeed, data);
+//        });
+        cb(succeed, data);
     }, false);
 }
 

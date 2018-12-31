@@ -389,7 +389,7 @@ void AudioCache::invokingPlayCallbacks()
     _playCallbacks.clear();
 }
 
-void AudioCache::addLoadCallback(const std::function<void(bool)>& callback)
+void AudioCache::addLoadCallback(const std::function<void(bool,float)>& callback)
 {
     switch (_state)
     {
@@ -399,10 +399,10 @@ void AudioCache::addLoadCallback(const std::function<void(bool)>& callback)
             break;
 
         case State::READY:
-            callback(true);
+            callback(true,_duration);
             break;
         case State::FAILED:
-            callback(false);
+            callback(false,0.0f);
             break;
 
         default:
@@ -419,22 +419,30 @@ void AudioCache::invokingLoadCallbacks()
         return;
     }
 
-    auto isDestroyed = _isDestroyed;
-    auto scheduler = Director::getInstance()->getScheduler();
-    scheduler->performFunctionInCocosThread([&, isDestroyed](){
-        if (*isDestroyed)
-        {
-            ALOGV("invokingLoadCallbacks perform in cocos thread, AudioCache (%p) was destroyed!", this);
-            return;
-        }
-
-        for (auto&& cb : _loadCallbacks)
-        {
-            cb(_state == State::READY);
-        }
-
-        _loadCallbacks.clear();
-    });
+//    auto isDestroyed = _isDestroyed;
+//    auto scheduler = Director::getInstance()->getScheduler();
+//    scheduler->performFunctionInCocosThread([&, isDestroyed](){
+//        if (*isDestroyed)
+//        {
+//            ALOGV("invokingLoadCallbacks perform in cocos thread, AudioCache (%p) was destroyed!", this);
+//            return;
+//        }
+//
+//        for (auto&& cb : _loadCallbacks)
+//        {
+//            cb(_state == State::READY,this->_duration);
+//        }
+//
+//        _loadCallbacks.clear();
+//    });
+    
+    //Calling load call backs on the thread
+    for (auto&& cb : _loadCallbacks)
+    {
+        cb(_state == State::READY,this->_duration);
+    }
+    
+    _loadCallbacks.clear();
 }
 
 #endif
