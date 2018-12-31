@@ -1,0 +1,224 @@
+diff --git a/cocos/audio/AudioEngine.cpp b/cocos/audio/AudioEngine.cpp
+index f4f7d98767..822a3f0685 100644
+--- a/cocos/audio/AudioEngine.cpp
++++ b/cocos/audio/AudioEngine.cpp
+@@ -533,11 +533,11 @@ AudioProfile* AudioEngine::getProfile(const std::string &name)
+     }
+ }
+ 
+-void AudioEngine::preload(const std::string& filePath, std::function<void(bool isSuccess)> callback)
++void AudioEngine::preload(const std::string& filePath, std::function<void(bool isSuccess,float duration)> callback)
+ {
+     if (!isEnabled())
+     {
+-        callback(false);
++        callback(false,0.0f);
+         return;
+     }
+     
+@@ -548,7 +548,7 @@ void AudioEngine::preload(const std::string& filePath, std::function<void(bool i
+         if (!FileUtils::getInstance()->isFileExist(filePath)){
+             if (callback)
+             {
+-                callback(false);
++                callback(false,0.0f);
+             }
+             return;
+         }
+diff --git a/cocos/audio/android/AudioEngine-inl.cpp b/cocos/audio/android/AudioEngine-inl.cpp
+index 81bd20f335..2c6e26a6a3 100644
+--- a/cocos/audio/android/AudioEngine-inl.cpp
++++ b/cocos/audio/android/AudioEngine-inl.cpp
+@@ -427,7 +427,7 @@ void AudioEngineImpl::setFinishCallback(int audioID, const std::function<void (i
+     _callbackMap[audioID] = callback;
+ }
+ 
+-void AudioEngineImpl::preload(const std::string& filePath, const std::function<void(bool)>& callback)
++void AudioEngineImpl::preload(const std::string& filePath, const std::function<void(bool,float)>& callback)
+ {
+     if (_audioPlayerProvider != nullptr)
+     {
+@@ -435,7 +435,7 @@ void AudioEngineImpl::preload(const std::string& filePath, const std::function<v
+         _audioPlayerProvider->preloadEffect(fullPath, [callback](bool succeed, PcmData data){
+             if (callback != nullptr)
+             {
+-                callback(succeed);
++                callback(succeed,data.duration);
+             }
+         });
+     }
+@@ -443,7 +443,7 @@ void AudioEngineImpl::preload(const std::string& filePath, const std::function<v
+     {
+         if (callback != nullptr)
+         {
+-            callback(false);
++            callback(false,0.0f);
+         }
+     }
+ }
+diff --git a/cocos/audio/android/AudioEngine-inl.h b/cocos/audio/android/AudioEngine-inl.h
+index 9b68d43d25..d5ad907525 100644
+--- a/cocos/audio/android/AudioEngine-inl.h
++++ b/cocos/audio/android/AudioEngine-inl.h
+@@ -71,7 +71,7 @@ public:
+ 
+     void uncache(const std::string& filePath);
+     void uncacheAll();
+-    void preload(const std::string& filePath, const std::function<void(bool)>& callback);
++    void preload(const std::string& filePath, const std::function<void(bool,float)>& callback);
+ 
+     void setAudioFocusForAllPlayers(bool isFocus);
+ private:
+diff --git a/cocos/audio/android/AudioPlayerProvider.cpp b/cocos/audio/android/AudioPlayerProvider.cpp
+index e42506482f..e7c6dd9aab 100644
+--- a/cocos/audio/android/AudioPlayerProvider.cpp
++++ b/cocos/audio/android/AudioPlayerProvider.cpp
+@@ -230,10 +230,10 @@ void AudioPlayerProvider::preloadEffect(const std::string &audioFilePath, const
+     auto info = getFileInfo(audioFilePath);
+     preloadEffect(info, [this, cb, audioFilePath](bool succeed, PcmData data){
+ 
+-        _callerThreadUtils->performFunctionInCallerThread([this, succeed, data, cb](){
+-            cb(succeed, data);
+-        });
+-
++//        _callerThreadUtils->performFunctionInCallerThread([this, succeed, data, cb](){
++//            cb(succeed, data);
++//        });
++        cb(succeed, data);
+     }, false);
+ }
+ 
+diff --git a/cocos/audio/apple/AudioCache.h b/cocos/audio/apple/AudioCache.h
+index 6174dcbdef..30c77f3294 100644
+--- a/cocos/audio/apple/AudioCache.h
++++ b/cocos/audio/apple/AudioCache.h
+@@ -60,7 +60,7 @@ public:
+ 
+     void addPlayCallback(const std::function<void()>& callback);
+ 
+-    void addLoadCallback(const std::function<void(bool)>& callback);
++    void addLoadCallback(const std::function<void(bool,float)>& callback);
+ 
+ protected:
+     void setSkipReadDataTask(bool isSkip) { _isSkipReadDataTask = isSkip; };
+@@ -94,7 +94,7 @@ protected:
+     std::vector< std::function<void()> > _playCallbacks;
+ 
+     // loadCallbacks doesn't need mutex since it's invoked only in Cocos thread.
+-    std::vector< std::function<void(bool)> > _loadCallbacks;
++    std::vector< std::function<void(bool,float)> > _loadCallbacks;
+ 
+     std::mutex _readDataTaskMutex;
+ 
+diff --git a/cocos/audio/apple/AudioCache.mm b/cocos/audio/apple/AudioCache.mm
+index 67df4a2481..9d25639302 100644
+--- a/cocos/audio/apple/AudioCache.mm
++++ b/cocos/audio/apple/AudioCache.mm
+@@ -389,7 +389,7 @@ void AudioCache::invokingPlayCallbacks()
+     _playCallbacks.clear();
+ }
+ 
+-void AudioCache::addLoadCallback(const std::function<void(bool)>& callback)
++void AudioCache::addLoadCallback(const std::function<void(bool,float)>& callback)
+ {
+     switch (_state)
+     {
+@@ -399,10 +399,10 @@ void AudioCache::addLoadCallback(const std::function<void(bool)>& callback)
+             break;
+ 
+         case State::READY:
+-            callback(true);
++            callback(true,_duration);
+             break;
+         case State::FAILED:
+-            callback(false);
++            callback(false,0.0f);
+             break;
+ 
+         default:
+@@ -419,22 +419,30 @@ void AudioCache::invokingLoadCallbacks()
+         return;
+     }
+ 
+-    auto isDestroyed = _isDestroyed;
+-    auto scheduler = Director::getInstance()->getScheduler();
+-    scheduler->performFunctionInCocosThread([&, isDestroyed](){
+-        if (*isDestroyed)
+-        {
+-            ALOGV("invokingLoadCallbacks perform in cocos thread, AudioCache (%p) was destroyed!", this);
+-            return;
+-        }
+-
+-        for (auto&& cb : _loadCallbacks)
+-        {
+-            cb(_state == State::READY);
+-        }
+-
+-        _loadCallbacks.clear();
+-    });
++//    auto isDestroyed = _isDestroyed;
++//    auto scheduler = Director::getInstance()->getScheduler();
++//    scheduler->performFunctionInCocosThread([&, isDestroyed](){
++//        if (*isDestroyed)
++//        {
++//            ALOGV("invokingLoadCallbacks perform in cocos thread, AudioCache (%p) was destroyed!", this);
++//            return;
++//        }
++//
++//        for (auto&& cb : _loadCallbacks)
++//        {
++//            cb(_state == State::READY,this->_duration);
++//        }
++//
++//        _loadCallbacks.clear();
++//    });
++    
++    //Calling load call backs on the thread
++    for (auto&& cb : _loadCallbacks)
++    {
++        cb(_state == State::READY,this->_duration);
++    }
++    
++    _loadCallbacks.clear();
+ }
+ 
+ #endif
+diff --git a/cocos/audio/apple/AudioEngine-inl.h b/cocos/audio/apple/AudioEngine-inl.h
+index 4176b6df09..e6db8a7a84 100644
+--- a/cocos/audio/apple/AudioEngine-inl.h
++++ b/cocos/audio/apple/AudioEngine-inl.h
+@@ -63,7 +63,7 @@ public:
+ 
+     void uncache(const std::string& filePath);
+     void uncacheAll();
+-    AudioCache* preload(const std::string& filePath, std::function<void(bool)> callback);
++    AudioCache* preload(const std::string& filePath, std::function<void(bool,float)> callback);
+     void update(float dt);
+ 
+ private:
+diff --git a/cocos/audio/apple/AudioEngine-inl.mm b/cocos/audio/apple/AudioEngine-inl.mm
+index 4c53db0e6c..48d15c7a63 100644
+--- a/cocos/audio/apple/AudioEngine-inl.mm
++++ b/cocos/audio/apple/AudioEngine-inl.mm
+@@ -377,7 +377,7 @@ bool AudioEngineImpl::init()
+     return ret;
+ }
+ 
+-AudioCache* AudioEngineImpl::preload(const std::string& filePath, std::function<void(bool)> callback)
++AudioCache* AudioEngineImpl::preload(const std::string& filePath, std::function<void(bool,float)> callback)
+ {
+     AudioCache* audioCache = nullptr;
+ 
+diff --git a/cocos/audio/include/AudioEngine.h b/cocos/audio/include/AudioEngine.h
+index 81bd3668a8..b7a707a9d0 100644
+--- a/cocos/audio/include/AudioEngine.h
++++ b/cocos/audio/include/AudioEngine.h
+@@ -291,7 +291,7 @@ public:
+      * @param filePath The file path of an audio.
+      * @param callback A callback which will be called after loading is finished.
+      */
+-    static void preload(const std::string& filePath, std::function<void(bool isSuccess)> callback);
++    static void preload(const std::string& filePath, std::function<void(bool isSuccess,float duration)> callback);
+ 
+     /**
+      * Gets playing audio count.
