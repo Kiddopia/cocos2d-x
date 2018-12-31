@@ -1,6 +1,5 @@
 /****************************************************************************
 Copyright (c) 2010 cocos2d-x.org
-Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
 http://www.cocos2d-x.org
 
@@ -57,7 +56,6 @@ static void static_stopBackgroundMusic()
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 
@@ -65,7 +63,6 @@ static void static_pauseBackgroundMusic()
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
      [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
 }
 
@@ -73,7 +70,6 @@ static void static_resumeBackgroundMusic()
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
 } 
 
@@ -81,7 +77,6 @@ static void static_rewindBackgroundMusic()
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] rewindBackgroundMusic];
 }
 
@@ -89,7 +84,6 @@ static bool static_willPlayBackgroundMusic()
 {
     if (!__isAudioPreloadOrPlayed)
         return false;
-
     return [[SimpleAudioEngine sharedEngine] willPlayBackgroundMusic];
 }
 
@@ -97,7 +91,6 @@ static bool static_isBackgroundMusicPlaying()
 {
     if (!__isAudioPreloadOrPlayed)
         return false;
-
     return [[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying];
 }
 
@@ -105,7 +98,6 @@ static float static_getBackgroundMusicVolume()
 {
     if (!__isAudioPreloadOrPlayed)
         return 0.0f;
-
     return [[SimpleAudioEngine sharedEngine] backgroundMusicVolume];
 }
 
@@ -113,7 +105,6 @@ static void static_setBackgroundMusicVolume(float volume)
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     volume = MAX( MIN(volume, 1.0), 0 );
     [SimpleAudioEngine sharedEngine].backgroundMusicVolume = volume;
 }
@@ -122,7 +113,6 @@ static float static_getEffectsVolume()
 {
     if (!__isAudioPreloadOrPlayed)
         return 0.0f;
-
     return [[SimpleAudioEngine sharedEngine] effectsVolume];
 }
      
@@ -130,7 +120,6 @@ static void static_setEffectsVolume(float volume)
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     volume = MAX( MIN(volume, 1.0), 0 );
     [SimpleAudioEngine sharedEngine].effectsVolume = volume;
 }
@@ -145,29 +134,40 @@ static void static_stopEffect(int nSoundId)
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] stopEffect: nSoundId];
 }
-     
-static void static_preloadEffect(const char* pszFilePath)
+
+static unsigned int static_preloadEffect(const char* pszFilePath)
 {
     __isAudioPreloadOrPlayed = true;
-    [[SimpleAudioEngine sharedEngine] preloadEffect: [NSString stringWithUTF8String: pszFilePath]];
+    return [[SimpleAudioEngine sharedEngine] preloadEffect: [NSString stringWithUTF8String: pszFilePath]];
+}
+     
+static float static_durationForEffect(ALuint soundId)
+{
+    if (!__isAudioPreloadOrPlayed)
+        return 0.0f;
+    return [[SimpleAudioEngine sharedEngine] durationForEffect:soundId];
 }
      
 static void static_unloadEffect(const char* pszFilePath)
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] unloadEffect: [NSString stringWithUTF8String: pszFilePath]];
+}
+
+static void static_unloadAllEffects()
+{
+    if (!__isAudioPreloadOrPlayed)
+        return;
+    [[SimpleAudioEngine sharedEngine] unloadAllEffects];
 }
 
 static void static_pauseEffect(unsigned int uSoundId)
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] pauseEffect: uSoundId];
 }
 
@@ -175,7 +175,6 @@ static void static_pauseAllEffects()
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] pauseAllEffects];
 }
 
@@ -183,7 +182,6 @@ static void static_resumeEffect(unsigned int uSoundId)
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] resumeEffect: uSoundId];
 }
 
@@ -191,7 +189,6 @@ static void static_resumeAllEffects()
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] resumeAllEffects];
 }
 
@@ -199,13 +196,12 @@ static void static_stopAllEffects()
 {
     if (!__isAudioPreloadOrPlayed)
         return;
-
     [[SimpleAudioEngine sharedEngine] stopAllEffects];
 }
 
 namespace CocosDenshion {
 
-static SimpleAudioEngine *s_pEngine = nullptr;
+static SimpleAudioEngine *s_pEngine;
 
 SimpleAudioEngine::SimpleAudioEngine()
 {
@@ -315,11 +311,16 @@ void SimpleAudioEngine::stopEffect(unsigned int nSoundId)
     static_stopEffect(nSoundId);
 }
 
-void SimpleAudioEngine::preloadEffect(const char* pszFilePath)
+unsigned int SimpleAudioEngine::preloadEffect(const char* pszFilePath)
 {
     // Changing file path to full path
     std::string fullPath = FileUtils::getInstance()->fullPathForFilename(pszFilePath);
-    static_preloadEffect(fullPath.c_str());
+    return static_preloadEffect(fullPath.c_str());
+}
+
+float SimpleAudioEngine::durationForEffect(unsigned int soundId)
+{
+    return static_durationForEffect(soundId);
 }
 
 void SimpleAudioEngine::unloadEffect(const char* pszFilePath)
@@ -327,6 +328,10 @@ void SimpleAudioEngine::unloadEffect(const char* pszFilePath)
     // Changing file path to full path
     std::string fullPath = FileUtils::getInstance()->fullPathForFilename(pszFilePath);
     static_unloadEffect(fullPath.c_str());
+}
+
+void SimpleAudioEngine::unloadAllEffects() {
+    static_unloadAllEffects();
 }
 
 void SimpleAudioEngine::pauseEffect(unsigned int uSoundId)

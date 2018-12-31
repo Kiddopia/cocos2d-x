@@ -36,7 +36,7 @@
 //Number of buffers slots that will be initially created
 #define CD_BUFFERS_START 64
 //Number of buffers that will be added 
-#define CD_BUFFERS_INCREMENT 16
+#define CD_BUFFERS_INCREMENT 2
 
 /**
  If enabled, OpenAL code will use static buffers. When static buffers are used the audio

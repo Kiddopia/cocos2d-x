@@ -241,7 +241,13 @@ public:
      * @param filePath The path of the effect file.
      * @js NA
      */
+#if CC_TARGET_PLATFORM != CC_PLATFORM_IOS
     virtual void preloadEffect(const char* filePath);
+#else
+    virtual unsigned int preloadEffect(const char* filePath);
+    virtual float durationForEffect(unsigned int soundId);
+    virtual void unloadAllEffects();
+#endif
 
     /**
      * Unload the preloaded effect from internal buffer.

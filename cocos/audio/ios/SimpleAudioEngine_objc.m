@@ -122,6 +122,10 @@ static CDBufferManager *bufferManager = nil;
 }
 
 #pragma mark SimpleAudioEngine - sound effects
+-(ALuint) playEffect:(NSString*) filePath
+{
+    return [self playEffect:filePath loop:NO];
+}
 
 -(ALuint) playEffect:(NSString*) filePath loop:(BOOL) loop
 {
@@ -162,18 +166,36 @@ static CDBufferManager *bufferManager = nil;
   [soundEngine stopAllSounds];
 }
 
--(void) preloadEffect:(NSString*) filePath
+-(ALuint) preloadEffect:(NSString*) filePath
 {
     int soundId = [bufferManager bufferForFile:filePath create:YES];
     if (soundId == kCDNoBuffer) {
         CDLOG(@"Denshion::SimpleAudioEngine sound failed to preload %@",filePath);
     }
+    return soundId;
+}
+
+-(void) preloadEffects: (NSString*) filePath, ... {
+    va_list args;
+    va_start(args, filePath);
+    for (NSString *arg = filePath; arg != nil; arg = va_arg(args, NSString*)) {
+        [self preloadEffect:arg];
+    }
+    va_end(args);
+}
+
+- (float) durationForEffect:(ALuint)soundId {
+    return [soundEngine bufferDurationInSeconds:soundId];
 }
 
 -(void) unloadEffect:(NSString*) filePath
 {
     CDLOGINFO(@"Denshion::SimpleAudioEngine unloadedEffect %@",filePath);
     [bufferManager releaseBufferForFile:filePath];
+}
+
+-(void) unloadAllEffects {
+    [bufferManager releaseAllBuffers];
 }
 
 #pragma mark Audio Interrupt Protocol

@@ -72,6 +72,7 @@
 -(BOOL) isBackgroundMusicPlaying;
 
 /** plays an audio effect with a file path*/
+-(ALuint) playEffect:(NSString*) filePath;
 -(ALuint) playEffect:(NSString*) filePath loop:(BOOL) loop;
 /** stop a sound that is playing, note you must pass in the soundId that is returned when you started playing the sound with playEffect */
 -(void) stopEffect:(ALuint) soundId;
@@ -88,9 +89,14 @@
 /** stop all audioes */
 -(void) stopAllEffects;
 /** preloads an audio effect */
--(void) preloadEffect:(NSString*) filePath;
+-(ALuint) preloadEffect:(NSString*) filePath;
+-(void) preloadEffects: (NSString*) filePath, ... NS_REQUIRES_NIL_TERMINATION;
 /** unloads an audio effect from memory */
 -(void) unloadEffect:(NSString*) filePath;
+/** unloads an audio effect from memory */
+-(void) unloadAllEffects;
+/** returns the duraiton of a preloaded effect */
+- (float) durationForEffect:(ALuint)soundId;
 /** Gets a CDSoundSource object set up to play the specified file. */
 -(CDSoundSource *) soundSourceForFile:(NSString*) filePath;
 

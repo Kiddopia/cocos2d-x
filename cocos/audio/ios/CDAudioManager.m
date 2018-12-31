@@ -331,15 +331,7 @@ static BOOL configured = FALSE;
 
 -(BOOL) isOtherAudioPlaying
 {
-    // AudioSessionGetProperty removed from tvOS 9.1
-#if defined(CC_TARGET_OS_TVOS)
-    return false;
-#else
-    UInt32 isPlaying = 0;
-    UInt32 varSize = sizeof(isPlaying);
-    AudioSessionGetProperty (kAudioSessionProperty_OtherAudioIsPlaying, &varSize, &isPlaying);
-    return (isPlaying != 0);
-#endif
+    return [[AVAudioSession sharedInstance] isOtherAudioPlaying];
 }
 
 -(void) setMode:(tAudioManagerMode) mode {
@@ -417,7 +409,7 @@ static BOOL configured = FALSE;
     if ((self = [super init])) {
    
          [[NSNotificationCenter defaultCenter] addObserver: self
-         selector:    NSSelectorFromString(@"handleInterruption:")
+                                                  selector:@selector(handleInterruption:)
          name:        AVAudioSessionInterruptionNotification
          object:      [AVAudioSession sharedInstance]];
     
@@ -488,33 +480,7 @@ static BOOL configured = FALSE;
 //ringer mute switch to off (i.e. enables sound) therefore polling is the only reliable way to
 //determine ringer switch state
 -(BOOL) isDeviceMuted {
-
-#if TARGET_IPHONE_SIMULATOR || defined(CC_TARGET_OS_TVOS)
-    //Calling audio route stuff on the simulator causes problems
     return NO;
-#else    
-    CFStringRef newAudioRoute;
-    UInt32 propertySize = sizeof (CFStringRef);
-    
-    AudioSessionGetProperty (
-                             kAudioSessionProperty_AudioRoute,
-                             &propertySize,
-                             &newAudioRoute
-                             );
-    
-    if (newAudioRoute == NULL) {
-        //Don't expect this to happen but playing safe otherwise a null in the CFStringCompare will cause a crash
-        return YES;
-    } else {    
-        CFComparisonResult newDeviceIsMuted =    CFStringCompare (
-                                                                 newAudioRoute,
-                                                                 (CFStringRef) @"",
-                                                                 0
-                                                                 );
-        
-        return (newDeviceIsMuted == kCFCompareEqualTo);
-    }    
-#endif
 }    
 
 #pragma mark Audio Interrupt Protocol
@@ -873,8 +839,8 @@ static BOOL configured = FALSE;
             NSNumber* bufferId = nil;
             //First try to get a buffer from the free buffers
             if ([freedBuffers count] > 0) {
-                bufferId = [[[freedBuffers lastObject] retain] autorelease];
-                [freedBuffers removeLastObject]; 
+                bufferId = [[[freedBuffers firstObject] retain] autorelease];
+                [freedBuffers removeObjectAtIndex:0];
                 CDLOGINFO(@"Denshion::CDBufferManager reusing buffer id %i",[bufferId intValue]);
             } else {
                 bufferId = [[NSNumber alloc] initWithInt:nextBufferId];
@@ -905,13 +871,29 @@ static BOOL configured = FALSE;
 -(void) releaseBufferForFile:(NSString *) filePath {
     int bufferId = [self bufferForFile:filePath create:NO];
     if (bufferId != kCDNoBuffer) {
-        [soundEngine unloadBuffer:bufferId];
-        [loadedBuffers removeObjectForKey:filePath];
-        NSNumber *freedBufferId = [[NSNumber alloc] initWithInt:bufferId];
-        [freedBufferId autorelease];
-        [freedBuffers addObject:freedBufferId];
-    }    
-}    
+        if([soundEngine unloadBuffer:bufferId]) {
+            [loadedBuffers removeObjectForKey:filePath];
+            NSNumber *freedBufferId = [[NSNumber alloc] initWithInt:bufferId];
+            [freedBufferId autorelease];
+            [freedBuffers addObject:freedBufferId];
+        }
+    }
+}
+
+-(void) releaseAllBuffers {
+    for(NSString *key in [loadedBuffers allKeys]) {
+        int bufferId = [self bufferForFile:key create:NO];
+        if (bufferId != kCDNoBuffer) {
+            if([soundEngine unloadBuffer:bufferId]) {
+                NSNumber *freedBufferId = [[NSNumber alloc] initWithInt:bufferId];
+                [freedBufferId autorelease];
+                [freedBuffers addObject:freedBufferId];
+            }
+        }
+    }
+    [loadedBuffers removeAllObjects];
+}
+
 @end
 
 
