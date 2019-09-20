@@ -289,6 +289,11 @@ public class Cocos2dxHelper {
         return Build.MODEL;
     }
 
+    public static void setAssetManager(AssetManager newAssetManager) {
+        sAssetManager = newAssetManager;
+        nativeSetContext((Context)sActivity,sAssetManager);
+    }
+
     public static AssetManager getAssetManager() {
         return Cocos2dxHelper.sAssetManager;
     }
