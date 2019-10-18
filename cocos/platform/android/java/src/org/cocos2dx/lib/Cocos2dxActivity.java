@@ -137,6 +137,9 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
             return;
         }
 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         this.hideVirtualButton();
 
         onLoadNativeLibraries();
