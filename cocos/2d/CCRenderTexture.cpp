@@ -826,9 +826,11 @@ void RenderTexture::begin()
 
     _groupCommand.init(_globalZOrder);
 
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     Renderer *renderer =  Director::getInstance()->getRenderer();
     renderer->addCommand(&_groupCommand);
     renderer->pushGroup(_groupCommand.getRenderQueueID());
+#endif
 
     _beginCommand.init(_globalZOrder);
     _beginCommand.func = CC_CALLBACK_0(RenderTexture::onBegin, this);
@@ -846,7 +848,10 @@ void RenderTexture::end()
     
     Renderer *renderer = director->getRenderer();
     renderer->addCommand(&_endCommand);
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     renderer->popGroup();
+#endif
     
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_PROJECTION);
     director->popMatrix(MATRIX_STACK_TYPE::MATRIX_STACK_MODELVIEW);
