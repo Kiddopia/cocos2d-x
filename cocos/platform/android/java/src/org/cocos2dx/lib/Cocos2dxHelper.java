@@ -108,6 +108,7 @@ public class Cocos2dxHelper {
     
     // The OBB file
     private static ZipResourceFile sOBBFile = null;
+    public static int obbVersion = 1;
 
     // ===========================================================
     // Constructors
@@ -207,18 +208,11 @@ public class Cocos2dxHelper {
         
         return Cocos2dxHelper.sAssetsPath;
     }
-    
+
     public static ZipResourceFile getObbFile() {
         if (null == sOBBFile) {
-            int versionCode = 1;
             try {
-                versionCode = Cocos2dxActivity.getContext().getPackageManager().getPackageInfo(Cocos2dxHelper.getCocos2dxPackageName(), 0).versionCode;
-            } catch (NameNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                sOBBFile = APKExpansionSupport.getAPKExpansionZipFile(Cocos2dxActivity.getContext(), versionCode, 0);
+                sOBBFile = APKExpansionSupport.getAPKExpansionZipFile(Cocos2dxActivity.getContext(), obbVersion, 0);
             } catch (IOException e) {
                 e.printStackTrace();
             }
