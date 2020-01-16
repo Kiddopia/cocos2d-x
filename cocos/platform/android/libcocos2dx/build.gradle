@@ -26,4 +26,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: '../java/libs', include: ['*.jar'])
+    implementation project(path: ':zip_file')
 }
