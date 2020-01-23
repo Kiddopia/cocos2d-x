@@ -315,7 +315,11 @@ std::vector<std::string> FileUtilsAndroid::listFiles(const std::string& dirPath)
         relativePath = fullPath;
     }
 
-    if(obbfile) return obbfile->listFiles(relativePath);
+    if(obbfile) {
+        std::vector<std::string> ret = obbfile->listFiles(relativePath);
+        if(ret.size() > 0)
+            return ret;
+    }
 
     if (nullptr == assetmanager) {
         LOGD("... FileUtilsAndroid::assetmanager is nullptr");
