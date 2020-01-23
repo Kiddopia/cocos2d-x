@@ -34,7 +34,7 @@
 #include "base/CCRef.h"
 #include "base/ccUtils.h"
 
-#define MAX_AUDIOINSTANCES 24
+#define MAX_AUDIOINSTANCES 32
 
 #define ERRORLOG(msg) log("fun:%s,line:%d,msg:%s",__func__,__LINE__,#msg)
 
@@ -71,7 +71,7 @@ public:
 
     void uncache(const std::string& filePath);
     void uncacheAll();
-    void preload(const std::string& filePath, const std::function<void(bool,float)>& callback);
+    void preload(const std::string& filePath, const std::function<void(bool,float)>& callback,bool blockThread);
 
     void setAudioFocusForAllPlayers(bool isFocus);
 private:

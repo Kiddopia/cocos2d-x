@@ -206,7 +206,7 @@ IAudioPlayer *AudioPlayerProvider::getAudioPlayer(const std::string &audioFilePa
     return player;
 }
 
-void AudioPlayerProvider::preloadEffect(const std::string &audioFilePath, const PreloadCallback& cb)
+void AudioPlayerProvider::preloadEffect(const std::string &audioFilePath, const PreloadCallback& cb,bool blockThread)
 {
     // Pcm data decoding by OpenSLES API only supports in API level 17 and later.
     if (getSystemAPILevel() < 17)
@@ -228,12 +228,14 @@ void AudioPlayerProvider::preloadEffect(const std::string &audioFilePath, const 
     _pcmCacheMutex.unlock();
 
     auto info = getFileInfo(audioFilePath);
-    preloadEffect(info, [this, cb, audioFilePath](bool succeed, PcmData data){
-
-//        _callerThreadUtils->performFunctionInCallerThread([this, succeed, data, cb](){
-//            cb(succeed, data);
-//        });
-        cb(succeed, data);
+    preloadEffect(info, [this, cb, audioFilePath,blockThread](bool succeed, PcmData data){
+        if(blockThread){
+            cb(succeed, data);
+        }else {
+            _callerThreadUtils->performFunctionInCallerThread([this, succeed, data, cb](){
+                cb(succeed, data);
+            });
+        }
     }, false);
 }
 

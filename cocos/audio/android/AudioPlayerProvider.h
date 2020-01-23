@@ -56,7 +56,7 @@ public:
     IAudioPlayer *getAudioPlayer(const std::string &audioFilePath);
 
     typedef std::function<void(bool/* succeed */, PcmData /* data */)> PreloadCallback;
-    void preloadEffect(const std::string &audioFilePath, const PreloadCallback& cb);
+    void preloadEffect(const std::string &audioFilePath, const PreloadCallback& cb,bool blockThread = false);
 
     void clearPcmCache(const std::string &audioFilePath);
 

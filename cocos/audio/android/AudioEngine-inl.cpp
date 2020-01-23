@@ -429,7 +429,7 @@ void AudioEngineImpl::setFinishCallback(int audioID, const std::function<void (i
     _callbackMap[audioID] = callback;
 }
 
-void AudioEngineImpl::preload(const std::string& filePath, const std::function<void(bool,float)>& callback)
+void AudioEngineImpl::preload(const std::string& filePath, const std::function<void(bool,float)>& callback,bool blockThread)
 {
     if (_audioPlayerProvider != nullptr)
     {
@@ -439,7 +439,7 @@ void AudioEngineImpl::preload(const std::string& filePath, const std::function<v
             {
                 callback(succeed,data.duration);
             }
-        });
+        }, blockThread);
     }
     else
     {
