@@ -73,12 +73,14 @@ public class Cocos2dxRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(final GL10 GL10, final EGLConfig EGLConfig) {
         Cocos2dxRenderer.nativeInit(this.mScreenWidth, this.mScreenHeight);
         this.mLastTickInNanoSeconds = System.nanoTime();
+        GL10.glClearColor(0,0,0,0);
         mNativeInitCompleted = true;
     }
 
     @Override
     public void onSurfaceChanged(final GL10 GL10, final int width, final int height) {
         Cocos2dxRenderer.nativeOnSurfaceChanged(width, height);
+        GL10.glClearColor(0,0,0,0);
     }
 
     @Override
@@ -87,6 +89,7 @@ public class Cocos2dxRenderer implements GLSurfaceView.Renderer {
          * No need to use algorithm in default(60 FPS) situation,
          * since onDrawFrame() was called by system 60 times per second by default.
          */
+        gl.glClearColor(0,0,0,0);
 
         if (Cocos2dxRenderer.sAnimationInterval <= 1.0f / 60f * Cocos2dxRenderer.NANOSECONDSPERSECOND) {
             Cocos2dxRenderer.nativeRender();
