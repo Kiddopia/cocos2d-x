@@ -63,7 +63,7 @@ public:
 
     void uncache(const std::string& filePath);
     void uncacheAll();
-    AudioCache* preload(const std::string& filePath, std::function<void(bool,float)> callback);
+    AudioCache* preload(const std::string& filePath, std::function<void(bool,float)> callback, bool blockThread = false);
     void update(float dt);
 
 private:
