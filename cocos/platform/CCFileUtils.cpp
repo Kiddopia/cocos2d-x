@@ -1514,11 +1514,6 @@ long FileUtils::getFileSize(const std::string &filepath) const
     }
 }
 
-std::vector<std::string> FileUtils::listFilePaths(const std::string& dirPath) const
-{
-    return listFiles(dirPath);
-}
-
 std::vector<std::string> FileUtils::listFiles(const std::string& dirPath) const
 {
     std::vector<std::string> files;
