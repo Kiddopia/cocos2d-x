@@ -816,6 +816,14 @@ public:
     virtual std::vector<std::string> listFiles(const std::string& dirPath) const;
 
     /**
+     *  List all file paths in a directory.
+     *
+     *  @param dirPath The path of the directory, it could be a relative or an absolute path.
+     *  @return File paths in a string vector
+     */
+    virtual std::vector<std::string> listFilePaths(const std::string& dirPath) const;
+
+    /**
      * List all files in a directory async, off of the main cocos thread.
      *
      * @param dirPath The path of the directory, it could be a relative or an absolute path.
