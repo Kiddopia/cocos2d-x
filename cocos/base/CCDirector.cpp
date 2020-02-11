@@ -899,6 +899,8 @@ void Director::pushScene(Scene *scene)
 {
     CCASSERT(scene, "the scene should not null");
 
+    if(_nextScene != nullptr)
+        return;
     _sendCleanupToScene = false;
 
 #if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
@@ -910,6 +912,7 @@ void Director::pushScene(Scene *scene)
 #endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
     _scenesStack.pushBack(scene);
     _nextScene = scene;
+    CCLOG("Director pushScene : %ld",_scenesStack.size());
 }
 
 void Director::popScene(void)
@@ -923,7 +926,10 @@ void Director::popScene(void)
         sEngine->releaseScriptObject(this, _scenesStack.back());
     }
 #endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+    if(_nextScene != nullptr)
+        return;
     _scenesStack.popBack();
+    CCLOG("Director popScene : %ld",_scenesStack.size());
     ssize_t c = _scenesStack.size();
 
     if (c == 0)
