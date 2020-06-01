@@ -1,73 +1,54 @@
-cmake_minimum_required(VERSION 3.6)
-
-if(WIN32)
-set(GAF_PLATFORM_INCLUDE_DIR
-  ${COCOS_ROOT}/../external/${PLATFORM_FOLDER}-specific/gles/include/OGLES
-  )
-elseif(MACOSX OR APPLE)
-elseif(LINUX)
-elseif(ANDROID)
-else()
-endif()
-
 set(GAFPLAYER_SRC
 
-    GAFAnimationFrame.cpp
-    GAFAnimationSequence.cpp
-    GAFAsset.cpp
-    GAFAssetTextureManager.cpp
-    GAFCachedTexture.cpp
-    GAFFile.cpp
-    GAFFilterData.cpp
-    GAFFilterManager.cpp
-    GAFLoader.cpp
-    GAFMask.cpp
-    GAFMovieClip.cpp
-    GAFObject.cpp
-    GAFPrecompiled.cpp
-    GAFQuadCommand.cpp
-    GAFShaderManager.cpp
-    GAFSoundInfo.cpp
-    GAFSprite.cpp
-    GAFStream.cpp
-    GAFSubobjectState.cpp
-    GAFTextData.cpp
-    GAFTextField.cpp
-    GAFTextureAtlas.cpp
-    GAFTextureAtlasElement.cpp
-    GAFTimeline.cpp
-    GAFTimelineAction.cpp
-    MySprite.cpp
-    PrimitiveDeserializer.cpp
-    TagDefineAnimationFrames.cpp
-    TagDefineAnimationFrames2.cpp
-    TagDefineAnimationMasks.cpp
-    TagDefineAnimationObjects.cpp
-    TagDefineAtlas.cpp
-    TagDefineAtlas3.cpp
-    TagDefineNamedParts.cpp
-    TagDefineSequences.cpp
-    TagDefineSounds.cpp
-    TagDefineStage.cpp
-    TagDefineTextField.cpp
-    TagDefineTimeline.cpp    
-    )
+        ${GAF_ROOT}/GAFAnimationFrame.cpp
+        ${GAF_ROOT}/GAFAnimationSequence.cpp
+        ${GAF_ROOT}/GAFAsset.cpp
+        ${GAF_ROOT}/GAFAssetTextureManager.cpp
+        ${GAF_ROOT}/GAFCachedTexture.cpp
+        ${GAF_ROOT}/GAFFile.cpp
+        ${GAF_ROOT}/GAFFilterData.cpp
+        ${GAF_ROOT}/GAFFilterManager.cpp
+        ${GAF_ROOT}/GAFLoader.cpp
+        ${GAF_ROOT}/GAFMask.cpp
+        ${GAF_ROOT}/GAFMovieClip.cpp
+        ${GAF_ROOT}/GAFObject.cpp
+        ${GAF_ROOT}/GAFPrecompiled.cpp
+        ${GAF_ROOT}/GAFQuadCommand.cpp
+        ${GAF_ROOT}/GAFShaderManager.cpp
+        ${GAF_ROOT}/GAFSoundInfo.cpp
+        ${GAF_ROOT}/GAFSprite.cpp
+        ${GAF_ROOT}/GAFStream.cpp
+        ${GAF_ROOT}/GAFSubobjectState.cpp
+        ${GAF_ROOT}/GAFTextData.cpp
+        ${GAF_ROOT}/GAFTextField.cpp
+        ${GAF_ROOT}/GAFTextureAtlas.cpp
+        ${GAF_ROOT}/GAFTextureAtlasElement.cpp
+        ${GAF_ROOT}/GAFTimeline.cpp
+        ${GAF_ROOT}/GAFTimelineAction.cpp
+        ${GAF_ROOT}/MySprite.cpp
+        ${GAF_ROOT}/PrimitiveDeserializer.cpp
+        ${GAF_ROOT}/TagDefineAnimationFrames.cpp
+        ${GAF_ROOT}/TagDefineAnimationFrames2.cpp
+        ${GAF_ROOT}/TagDefineAnimationMasks.cpp
+        ${GAF_ROOT}/TagDefineAnimationObjects.cpp
+        ${GAF_ROOT}/TagDefineAtlas.cpp
+        ${GAF_ROOT}/TagDefineAtlas3.cpp
+        ${GAF_ROOT}/TagDefineNamedParts.cpp
+        ${GAF_ROOT}/TagDefineSequences.cpp
+        ${GAF_ROOT}/TagDefineSounds.cpp
+        ${GAF_ROOT}/TagDefineStage.cpp
+        ${GAF_ROOT}/TagDefineTextField.cpp
+        ${GAF_ROOT}/TagDefineTimeline.cpp
+        )
 
 include_directories(
-  ${GAF_PLATFORM_INCLUDE_DIR}
-  ${GAF_ROOT}
-  ${COCOS2DX_ROOT_PATH}
-  ${COCOS2DX_ROOT_PATH}/2d
-  ${COCOS2DX_ROOT_PATH}/platform/${PLATFORM_FOLDER}
-  ${COCOS2DX_ROOT_PATH}/../external/${PLATFORM_FOLDER}-specific/zlib/include
-  ${COCOS2DX_ROOT_PATH}/../external/glfw3/include/${PLATFORM_FOLDER}
-  ${COCOS2DX_ROOT_PATH}/math
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${GAF_ROOT}
+        ${COCOS2DX_ROOT_PATH}
+        ${COCOS2DX_ROOT_PATH}/cocos
+        ${COCOS2DX_ROOT_PATH}/cocos/2d
+        ${COCOS2DX_ROOT_PATH}/cocos/math
+        ${COCOS2DX_ROOT_PATH}/external
 )
 
 add_library(extgaf STATIC ${GAFPLAYER_SRC})
-
-set_target_properties(extgaf
-    PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-)
