@@ -348,6 +348,61 @@ std::vector<std::string> FileUtilsAndroid::listFiles(const std::string& dirPath)
     return fileList;
 }
 
+    std::vector<std::string> FileUtilsAndroid::listFilePaths(const std::string& dirPath) const
+    {
+        if(!dirPath.empty() && dirPath[0] == '/')
+            return FileUtils::listFilePaths(dirPath);
+
+        std::vector<std::string> fileList;
+        string fullPath = fullPathForDirectory(dirPath);
+
+        static const std::string apkprefix("assets/");
+        string relativePath;
+        size_t position = fullPath.find(apkprefix);
+        if (0 == position) {
+            // "assets/" is at the beginning of the path and we don't want it
+            relativePath += fullPath.substr(apkprefix.size());
+        } else {
+            relativePath = fullPath;
+        }
+
+        if (!assetmanager)
+        {
+            LOGD("... FileUtilsAndroid::assetmanager is nullptr");
+            return fileList;
+        }
+
+        string assetDirPath;
+        unsigned int lastIndex = relativePath.length() - 1;
+        if (relativePath[lastIndex] == '/')
+        {
+            assetDirPath = relativePath.substr(0, lastIndex);
+        }
+        else
+        {
+            assetDirPath = relativePath;
+            relativePath.append("/");
+        }
+
+        auto *dir = AAssetManager_openDir(assetmanager, assetDirPath.c_str());
+        if(!dir)
+        {
+            LOGD("... FileUtilsAndroid::failed to open dir %s", assetDirPath.c_str());
+            AAssetDir_close(dir);
+            return fileList;
+        }
+
+        const char *tmpDir = nullptr;
+        while((tmpDir = AAssetDir_getNextFileName(dir))!= nullptr)
+        {
+            string filepath(tmpDir);
+            fileList.push_back(relativePath + filepath);
+        }
+        AAssetDir_close(dir);
+        return fileList;
+    }
+
+
 FileUtils::Status FileUtilsAndroid::getContents(const std::string& filename, ResizableBuffer* buffer) const
 {
     static const std::string apkprefix("assets/");

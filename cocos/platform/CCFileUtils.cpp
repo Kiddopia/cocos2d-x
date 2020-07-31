@@ -814,7 +814,13 @@ std::string FileUtils::getPathForFilename(const std::string& filename, const std
     return path;
 }
 
-std::string FileUtils::fullPathForFilename(const std::string &filename) const
+std::vector<std::string> FileUtils::listFilePaths(const std::string& dirPath) const
+{
+    return listFiles(dirPath);
+}
+
+
+    std::string FileUtils::fullPathForFilename(const std::string &filename) const
 {
     
     DECLARE_GUARD;
