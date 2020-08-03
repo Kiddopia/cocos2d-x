@@ -331,7 +331,7 @@ string FileUtilsWin32::getWritablePath() const
         return _writablePath;
     }
 
-    // Get full path of executable, e.g. c:\Program Files (x86)\My Game Folder\MyGame.exe
+    // Get full path of executable, e.g. c:\Program Files (x86)\My Game Folder\KiddKart.exe
     WCHAR full_path[CC_MAX_PATH + 1] = { 0 };
     ::GetModuleFileName(nullptr, full_path, CC_MAX_PATH + 1);
 
