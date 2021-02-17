@@ -1,0 +1,54 @@
+set(GAFPLAYER_SRC
+
+        ${GAF_ROOT}/GAFAnimationFrame.cpp
+        ${GAF_ROOT}/GAFAnimationSequence.cpp
+        ${GAF_ROOT}/GAFAsset.cpp
+        ${GAF_ROOT}/GAFAssetTextureManager.cpp
+        ${GAF_ROOT}/GAFCachedTexture.cpp
+        ${GAF_ROOT}/GAFFile.cpp
+        ${GAF_ROOT}/GAFFilterData.cpp
+        ${GAF_ROOT}/GAFFilterManager.cpp
+        ${GAF_ROOT}/GAFLoader.cpp
+        ${GAF_ROOT}/GAFMask.cpp
+        ${GAF_ROOT}/GAFMovieClip.cpp
+        ${GAF_ROOT}/GAFObject.cpp
+        ${GAF_ROOT}/GAFPrecompiled.cpp
+        ${GAF_ROOT}/GAFQuadCommand.cpp
+        ${GAF_ROOT}/GAFShaderManager.cpp
+        ${GAF_ROOT}/GAFSoundInfo.cpp
+        ${GAF_ROOT}/GAFSprite.cpp
+        ${GAF_ROOT}/GAFStream.cpp
+        ${GAF_ROOT}/GAFSubobjectState.cpp
+        ${GAF_ROOT}/GAFTextData.cpp
+        ${GAF_ROOT}/GAFTextField.cpp
+        ${GAF_ROOT}/GAFTextureAtlas.cpp
+        ${GAF_ROOT}/GAFTextureAtlasElement.cpp
+        ${GAF_ROOT}/GAFTimeline.cpp
+        ${GAF_ROOT}/GAFTimelineAction.cpp
+        ${GAF_ROOT}/MySprite.cpp
+        ${GAF_ROOT}/PrimitiveDeserializer.cpp
+        ${GAF_ROOT}/TagDefineAnimationFrames.cpp
+        ${GAF_ROOT}/TagDefineAnimationFrames2.cpp
+        ${GAF_ROOT}/TagDefineAnimationMasks.cpp
+        ${GAF_ROOT}/TagDefineAnimationObjects.cpp
+        ${GAF_ROOT}/TagDefineAtlas.cpp
+        ${GAF_ROOT}/TagDefineAtlas3.cpp
+        ${GAF_ROOT}/TagDefineNamedParts.cpp
+        ${GAF_ROOT}/TagDefineSequences.cpp
+        ${GAF_ROOT}/TagDefineSounds.cpp
+        ${GAF_ROOT}/TagDefineStage.cpp
+        ${GAF_ROOT}/TagDefineTextField.cpp
+        ${GAF_ROOT}/TagDefineTimeline.cpp
+        )
+
+include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${GAF_ROOT}
+        ${COCOS2DX_ROOT_PATH}
+        ${COCOS2DX_ROOT_PATH}/cocos
+        ${COCOS2DX_ROOT_PATH}/cocos/2d
+        ${COCOS2DX_ROOT_PATH}/cocos/math
+        ${COCOS2DX_ROOT_PATH}/external
+)
+
+add_library(extgaf STATIC ${GAFPLAYER_SRC})

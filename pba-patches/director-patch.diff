@@ -1,0 +1,46 @@
+From 367cd393e0e41c94768e644501c0b3267b52c125 Mon Sep 17 00:00:00 2001
+From: Kaushik <kaushik@paperboatapps.com>
+Date: Tue, 11 Feb 2020 11:08:11 +0530
+Subject: [PATCH] checking if there is nextScene defined then ignore all push
+ and pop scene
+
+(cherry picked from commit 0da59bbbce3c5ed374d5cac7ca2d869ce327353c)
+---
+ cocos/base/CCDirector.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/cocos/base/CCDirector.cpp b/cocos/base/CCDirector.cpp
+index b682b43326..0cce02b160 100644
+--- a/cocos/base/CCDirector.cpp
++++ b/cocos/base/CCDirector.cpp
+@@ -899,6 +899,8 @@ void Director::pushScene(Scene *scene)
+ {
+     CCASSERT(scene, "the scene should not null");
+ 
++    if(_nextScene != nullptr)
++        return;
+     _sendCleanupToScene = false;
+ 
+ #if CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+@@ -910,6 +912,7 @@ void Director::pushScene(Scene *scene)
+ #endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
+     _scenesStack.pushBack(scene);
+     _nextScene = scene;
++    CCLOG("Director pushScene : %ld",_scenesStack.size());
+ }
+ 
+ void Director::popScene(void)
+@@ -923,7 +926,10 @@ void Director::popScene(void)
+         sEngine->releaseScriptObject(this, _scenesStack.back());
+     }
+ #endif // CC_ENABLE_GC_FOR_NATIVE_OBJECTS
++    if(_nextScene != nullptr)
++        return;
+     _scenesStack.popBack();
++    CCLOG("Director popScene : %ld",_scenesStack.size());
+     ssize_t c = _scenesStack.size();
+ 
+     if (c == 0)
+-- 
+2.20.1
+

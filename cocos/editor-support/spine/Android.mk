@@ -1,10 +1,10 @@
-	
+
 
 
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := spine
+LOCAL_MODULE := spine_static
 
 LOCAL_MODULE_FILENAME := libspine
 
@@ -20,8 +20,7 @@ LOCAL_SRC_FILES += $(C_FILES:$(LOCAL_PATH)/%=%)
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/..
-LOCAL_EXPORT_C_INCLUDES += $(LOCAL_PATH)/include
 
-LOCAL_STATIC_LIBRARIES := cc_core
+LOCAL_STATIC_LIBRARIES := cocos2dx_internal_static
 
 include $(BUILD_STATIC_LIBRARY)
