@@ -181,5 +181,5 @@ tmp/
 temp/
 
 # external libs zip
-*.zip
+#*.zip
 **/simulator/
