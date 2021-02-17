@@ -27,7 +27,13 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *****************************************************************************/
 
+<<<<<<< HEAD:cocos/editor-support/spine/src/spine/SkeletonBatch.cpp
 #include <spine/SkeletonBatch.h>
+=======
+#include <spine/spine-cocos2dx.h>
+#if COCOS2D_VERSION < 0x00040000
+
+>>>>>>> upstream/v4:cocos/editor-support/spine/v3/SkeletonBatch.cpp
 #include <spine/Extension.h>
 #include <algorithm>
 
@@ -149,3 +155,6 @@ cocos2d::TrianglesCommand* SkeletonBatch::nextFreeCommand() {
 	return _commandsPool[_nextFreeCommand++];
 }
 }
+
+#endif
+

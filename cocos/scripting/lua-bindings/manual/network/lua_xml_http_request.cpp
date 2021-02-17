@@ -213,7 +213,10 @@ void LuaMinXmlHttpRequest::_gotHeader(const std::string& header)
                 mystream << pch;
                 
                 pch = strtok (NULL, "\n");
-                mystream << " " << pch;
+                //Send request to a url on Tomcat9. It just returned http response code '200' only,not '200 OK'
+                if (nullptr != pch) {
+                    mystream << " " << pch;
+                }
                 
                 _statusText = mystream.str();
                 
@@ -382,6 +385,9 @@ static int lua_cocos2dx_XMLHttpRequest_constructor(lua_State* L)
     if (argc == 0)
     {
         self = new (std::nothrow) LuaMinXmlHttpRequest();
+#if COCOS2D_DEBUG >= 1
+        if (self == nullptr) goto tolua_lerror;
+#endif
         tolua_pushusertype(L, (void*)self, "cc.XMLHttpRequest");
         tolua_register_gc(L, lua_gettop(L));
         return 1;
@@ -772,7 +778,7 @@ static int lua_get_XMLHttpRequest_response(lua_State* L)
         
         self->getByteData(tmpData);
         
-        for (int i = 0 ; i < self->getDataSize(); i++)
+        for (size_t i = 0 ; i < self->getDataSize(); i++)
         {
             LuaValue value = LuaValue::intValue(tmpData[i]);
             array.push_back(value);

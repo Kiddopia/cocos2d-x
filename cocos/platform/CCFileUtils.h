@@ -147,12 +147,6 @@ public:
      */
     static void setDelegate(FileUtils *delegate);
 
-    /** @deprecated Use getInstance() instead */
-    CC_DEPRECATED_ATTRIBUTE static FileUtils* sharedFileUtils() { return getInstance(); }
-
-    /** @deprecated Use destroyInstance() instead */
-    CC_DEPRECATED_ATTRIBUTE static void purgeFileUtils() { destroyInstance(); }
-
     /**
      *  The destructor of FileUtils.
      * @js NA
@@ -273,17 +267,6 @@ public:
         return getContents(filename, &buf);
     }
     virtual Status getContents(const std::string& filename, ResizableBuffer* buffer) const;
-
-    /**
-     *  Gets resource file data
-     *
-     *  @param[in]  filename The resource file name which contains the path.
-     *  @param[in]  mode The read mode of the file.
-     *  @param[out] size If the file read operation succeeds, it will be the data size, otherwise 0.
-     *  @return Upon success, a pointer to the data is returned, otherwise NULL.
-     *  @warning Recall: you are responsible for calling free() on any Non-NULL pointer returned.
-     */
-    CC_DEPRECATED_ATTRIBUTE virtual unsigned char* getFileData(const std::string& filename, const char* mode, ssize_t *size) const;
 
     /**
      *  Gets resource file data from a zip file.
@@ -824,14 +807,6 @@ public:
     virtual std::vector<std::string> listFiles(const std::string& dirPath) const;
 
     /**
-     *  List all file paths in a directory.
-     *
-     *  @param dirPath The path of the directory, it could be a relative or an absolute path.
-     *  @return File paths in a string vector
-     */
-    virtual std::vector<std::string> listFilePaths(const std::string& dirPath) const;
-
-    /**
      * List all files in a directory async, off of the main cocos thread.
      *
      * @param dirPath The path of the directory, it could be a relative or an absolute path.
@@ -917,6 +892,9 @@ protected:
      */
     virtual std::string getPathForFilename(const std::string& filename, const std::string& resolutionDirectory, const std::string& searchPath) const;
 
+    virtual std::string getPathForDirectory(const std::string &dir, const std::string &resolutionDiretory, const std::string &searchPath) const;
+    
+    
     /**
      *  Gets full path for the directory and the filename.
      *

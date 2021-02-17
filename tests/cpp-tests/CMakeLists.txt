@@ -4,6 +4,12 @@ set(APP_NAME cpp-tests)
 
 project(${APP_NAME})
 
+if(XCODE)
+    if(NOT DEFINED CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET)
+        SET (CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET 8.0)
+    endif()
+endif()
+
 if(NOT DEFINED BUILD_ENGINE_DONE)
     set(COCOS2DX_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../..)
     set(CMAKE_MODULE_PATH ${COCOS2DX_ROOT_PATH}/cmake/Modules/)
@@ -68,7 +74,6 @@ elseif(APPLE)
             proj.mac/Icon.icns
             proj.mac/Info.plist
             proj.mac/Prefix.pch
-            proj.mac/en.lproj/MainMenu.xib
             proj.mac/en.lproj/InfoPlist.strings
             )
         list(APPEND GAME_SOURCE
@@ -87,14 +92,13 @@ list(APPEND GAME_HEADER
      Classes/precheader.h
      Classes/CurlTest/CurlTest.h
      Classes/UnitTest/UnitTest.h
-     Classes/UnitTest/RefPtrTest.h
+#    Classes/UnitTest/RefPtrTest.h
      Classes/ConfigurationTest/ConfigurationTest.h
      Classes/CurrentLanguageTest/CurrentLanguageTest.h
      Classes/AppDelegate.h
      Classes/LabelTest/LabelTestNew.h
-     Classes/LabelTest/LabelTest.h
+    #  Classes/LabelTest/LabelTest.h
      Classes/Particle3DTest/Particle3DTest.h
-     Classes/AllocatorTest/AllocatorTest.h
      Classes/VibrateTest/VibrateTest.h
      Classes/ClippingNodeTest/ClippingNodeTest.h
      Classes/UserDefaultTest/UserDefaultTest.h
@@ -151,10 +155,9 @@ list(APPEND GAME_HEADER
      Classes/BaseTest.h
      Classes/SceneTest/SceneTest.h
      Classes/ReleasePoolTest/ReleasePoolTest.h
-     Classes/CocosDenshionTest/CocosDenshionTest.h
      Classes/InputTest/MouseTest.h
      Classes/SpineTest/SpineTest.h
-     Classes/Scene3DTest/Scene3DTest.h
+    #  Classes/Scene3DTest/Scene3DTest.h
      Classes/ParticleTest/ParticleTest.h
      Classes/EffectsTest/EffectsTest.h
      Classes/UITest/UITest.h
@@ -207,6 +210,7 @@ list(APPEND GAME_HEADER
      Classes/OpenURLTest/OpenURLTest.h
      Classes/ConsoleTest/ConsoleTest.h
      Classes/MenuTest/MenuTest.h
+     Classes/ZipTest/ZipTests.h
      )
 
 list(APPEND GAME_SOURCE
@@ -214,7 +218,6 @@ list(APPEND GAME_SOURCE
      Classes/ActionsEaseTest/ActionsEaseTest.cpp
      Classes/ActionsProgressTest/ActionsProgressTest.cpp
      Classes/ActionsTest/ActionsTest.cpp
-     Classes/AllocatorTest/AllocatorTest.cpp
      Classes/AppDelegate.cpp
      Classes/BaseTest.cpp
      Classes/BillBoardTest/BillBoardTest.cpp
@@ -237,7 +240,6 @@ list(APPEND GAME_SOURCE
      Classes/Camera3DTest/Camera3DTest.cpp
      Classes/ClickAndMoveTest/ClickAndMoveTest.cpp
      Classes/ClippingNodeTest/ClippingNodeTest.cpp
-     Classes/CocosDenshionTest/CocosDenshionTest.cpp
      Classes/ConfigurationTest/ConfigurationTest.cpp
      Classes/ConsoleTest/ConsoleTest.cpp
      Classes/CurlTest/CurlTest.cpp
@@ -259,7 +261,7 @@ list(APPEND GAME_SOURCE
      Classes/FontTest/FontTest.cpp
      Classes/InputTest/MouseTest.cpp
      Classes/IntervalTest/IntervalTest.cpp
-     Classes/LabelTest/LabelTest.cpp
+    #  Classes/LabelTest/LabelTest.cpp
      Classes/LabelTest/LabelTestNew.cpp
      Classes/LayerTest/LayerTest.cpp
      Classes/LightTest/LightTest.cpp
@@ -283,7 +285,7 @@ list(APPEND GAME_SOURCE
      Classes/ShaderTest/ShaderTest.cpp
      Classes/ShaderTest/ShaderTest2.cpp
      Classes/SpineTest/SpineTest.cpp
-     Classes/Scene3DTest/Scene3DTest.cpp
+    #  Classes/Scene3DTest/Scene3DTest.cpp
      Classes/Sprite3DTest/DrawNode3D.cpp
      Classes/Sprite3DTest/Sprite3DTest.cpp
      Classes/SpritePolygonTest/SpritePolygonTest.cpp
@@ -322,7 +324,7 @@ list(APPEND GAME_SOURCE
      Classes/UITest/CocoStudioGUITest/UIWidgetAddNodeTest/UIWidgetAddNodeTest.cpp
      Classes/UITest/CocoStudioGUITest/UITabControlTest/UITabControlTest.cpp
      Classes/UITest/UITest.cpp
-     Classes/UnitTest/RefPtrTest.cpp
+#     Classes/UnitTest/RefPtrTest.cpp
      Classes/UnitTest/UnitTest.cpp
      Classes/UserDefaultTest/UserDefaultTest.cpp
      Classes/VisibleRect.cpp
@@ -330,8 +332,7 @@ list(APPEND GAME_SOURCE
      Classes/ZwoptexTest/ZwoptexTest.cpp
      Classes/SpriteFrameCacheTest/SpriteFrameCacheTest.cpp
      Classes/controller.cpp
-     # Classes/VRTest/VRTest.cpp
-     # Classes/VRTest/VRTest.h
+     Classes/ZipTest/ZipTests.cpp
      )
 
 if(ANDROID OR IOS)
@@ -355,70 +356,6 @@ if(WINDOWS OR MACOSX OR LINUX)
          Classes/BugsTest/Bug-14327.cpp
          )
 endif()
-
-list(APPEND GAME_HEADER
-     Classes/Box2DTest/Box2dTest.cpp
-     Classes/Box2DTestBed/Test.h
-     Classes/Box2DTestBed/Tests/Chain.h
-     Classes/Box2DTestBed/Tests/Confined.h
-     Classes/Box2DTestBed/Tests/PolyCollision.h
-     Classes/Box2DTestBed/Tests/EdgeTest.h
-     Classes/Box2DTestBed/Tests/ApplyForce.h
-     Classes/Box2DTestBed/Tests/Gears.h
-     Classes/Box2DTestBed/Tests/SliderCrank.h
-     Classes/Box2DTestBed/Tests/ContinuousTest.h
-     Classes/Box2DTestBed/Tests/Revolute.h
-     Classes/Box2DTestBed/Tests/TheoJansen.h
-     Classes/Box2DTestBed/Tests/Bridge.h
-     Classes/Box2DTestBed/Tests/CollisionProcessing.h
-     Classes/Box2DTestBed/Tests/DistanceTest.h
-     Classes/Box2DTestBed/Tests/PolyShapes.h
-     Classes/Box2DTestBed/Tests/TimeOfImpact.h
-     Classes/Box2DTestBed/Tests/ConveyorBelt.h
-     Classes/Box2DTestBed/Tests/Tiles.h
-     Classes/Box2DTestBed/Tests/BulletTest.h
-     Classes/Box2DTestBed/Tests/MotorJoint.h
-     Classes/Box2DTestBed/Tests/Car.h
-     Classes/Box2DTestBed/Tests/Mobile.h
-     Classes/Box2DTestBed/Tests/VaryingFriction.h
-     Classes/Box2DTestBed/Tests/Rope.h
-     Classes/Box2DTestBed/Tests/SensorTest.h
-     Classes/Box2DTestBed/Tests/Pyramid.h
-     Classes/Box2DTestBed/Tests/VaryingRestitution.h
-     Classes/Box2DTestBed/Tests/RopeJoint.h
-     Classes/Box2DTestBed/Tests/VerticalStack.h
-     Classes/Box2DTestBed/Tests/MobileBalanced.h
-     Classes/Box2DTestBed/Tests/CompoundShapes.h
-     Classes/Box2DTestBed/Tests/CollisionFiltering.h
-     Classes/Box2DTestBed/Tests/Pulleys.h
-     Classes/Box2DTestBed/Tests/Breakable.h
-     Classes/Box2DTestBed/Tests/BodyTypes.h
-     Classes/Box2DTestBed/Tests/DumpShell.h
-     Classes/Box2DTestBed/Tests/ShapeEditing.h
-     Classes/Box2DTestBed/Tests/SphereStack.h
-     Classes/Box2DTestBed/Tests/OneSidedPlatform.h
-     Classes/Box2DTestBed/Tests/AddPair.h
-     Classes/Box2DTestBed/Tests/Pinball.h
-     Classes/Box2DTestBed/Tests/Tumbler.h
-     Classes/Box2DTestBed/Tests/RayCast.h
-     Classes/Box2DTestBed/Tests/ConvexHull.h
-     Classes/Box2DTestBed/Tests/EdgeShapes.h
-     Classes/Box2DTestBed/Tests/Prismatic.h
-     Classes/Box2DTestBed/Tests/Dominos.h
-     Classes/Box2DTestBed/Tests/Web.h
-     Classes/Box2DTestBed/Tests/CharacterCollision.h
-     Classes/Box2DTestBed/Tests/DynamicTreeTest.h
-     Classes/Box2DTestBed/Tests/Cantilever.h
-     Classes/Box2DTestBed/Box2dView.h
-     Classes/Box2DTestBed/GLES-Render.h
-     )
-list(APPEND GAME_SOURCE
-     Classes/Box2DTest/Box2dTest.cpp
-     Classes/Box2DTestBed/Box2dView.cpp
-     Classes/Box2DTestBed/GLES-Render.cpp
-     Classes/Box2DTestBed/Test.cpp
-     Classes/Box2DTestBed/TestEntries.cpp
-     )
 
 list(APPEND GAME_HEADER
      Classes/Physics3DTest/Physics3DTest.h
@@ -466,16 +403,17 @@ target_include_directories(${APP_NAME}
 setup_cocos_app_config(${APP_NAME})
 if(APPLE)
     set_target_properties(${APP_NAME} PROPERTIES RESOURCE "${APP_UI_RES}")
+    set_xcode_property(${APP_NAME} INSTALL_PATH "\$(LOCAL_APPS_DIR)")
+
     if(MACOSX)
-        set_target_properties(${APP_NAME} PROPERTIES
-                              MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/proj.mac/Info.plist"
-                              )
+        set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/proj.mac/Info.plist")
     elseif(IOS)
-        cocos_pak_xcode(${APP_NAME} INFO_PLIST "iOSBundleInfo.plist.in")
+        set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/proj.ios/Info.plist")
         set_xcode_property(${APP_NAME} ASSETCATALOG_COMPILER_APPICON_NAME "AppIcon-${APP_NAME}")
-        set_xcode_property(${APP_NAME} DEVELOPMENT_TEAM "")
-        set_xcode_property(${APP_NAME} CODE_SIGN_IDENTITY "iPhone Developer")
     endif()
+
+    # For code-signing, set the DEVELOPMENT_TEAM:
+    #set_xcode_property(${APP_NAME} DEVELOPMENT_TEAM "GRLXXXX2K9")
 elseif(WINDOWS)
     # "too large PDB" error often occurs in cpp-tests when using default "/Zi"
     target_compile_options(${APP_NAME} PRIVATE /Z7)
@@ -483,13 +421,12 @@ elseif(WINDOWS)
 endif()
 
 if(LINUX OR WINDOWS)
-    set(APP_RES_DIR "$<TARGET_FILE_DIR:${APP_NAME}>/Resources")
-    cocos_copy_target_res(${APP_NAME} COPY_TO ${APP_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
+    cocos_get_resource_path(APP_RES_DIR ${APP_NAME})
+    cocos_copy_target_res(${APP_NAME} LINK_TO ${APP_RES_DIR} FOLDERS ${GAME_RES_FOLDER})
 endif()
 
-if(WINDOWS)
-    # precompiled header. Compilation time speedup ~4x.
-    target_sources(${APP_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Classes/precheader.cpp")
-    set_target_properties(${APP_NAME} PROPERTIES COMPILE_FLAGS "/Yuprecheader.h /FIprecheader.h")
-    set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/Classes/precheader.cpp" PROPERTIES COMPILE_FLAGS "/Ycprecheader.h")
+if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.16.0")
+    message("CMake 3.16 target_precompile_headers")
+    target_precompile_headers(${APP_NAME} PRIVATE 
+       "$<$<COMPILE_LANGUAGE:CXX>:precheader.h>")
 endif()

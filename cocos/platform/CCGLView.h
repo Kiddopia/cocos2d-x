@@ -94,7 +94,6 @@ NS_CC_BEGIN
 
 class Scene;
 class Renderer;
-class VRIRenderer;
 
 /**
  * @addtogroup platform
@@ -155,12 +154,6 @@ public:
     
     /** The OpenGL context attrs. */
     static GLContextAttrs _glContextAttrs;
-
-    /** @deprecated
-     * Polls input events. Subclass must implement methods if platform
-     * does not provide event callbacks.
-     */
-    CC_DEPRECATED_ATTRIBUTE virtual void pollInputEvents();
     
     /** Polls the events. */
     virtual void pollEvents();
@@ -441,14 +434,7 @@ public:
      * This method is called directly by the Director
      */
     void renderScene(Scene* scene, Renderer* renderer);
-
-    /**
-     * Sets a VR renderer. 
-     * if `vrrenderer` is `nullptr` VR will be disabled
-     */
-    void setVR(VRIRenderer* vrrenderer);
-    VRIRenderer* getVR() const;
-
+    
 protected:
     void updateDesignResolutionSize();
     
@@ -466,9 +452,6 @@ protected:
     float _scaleX;
     float _scaleY;
     ResolutionPolicy _resolutionPolicy;
-
-    // VR stuff
-    VRIRenderer* _vrImpl;
 };
 
 // end of platform group

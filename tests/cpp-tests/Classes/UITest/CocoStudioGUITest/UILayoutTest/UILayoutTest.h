@@ -162,4 +162,20 @@ public:
     CREATE_FUNC(UILayoutComponent_Berth_Stretch_Test);
 };
 
+class UILayoutTest_Issue19890 : public UIScene
+{
+public:
+    virtual bool init() override;
+
+    CREATE_FUNC(UILayoutTest_Issue19890);
+};
+
+class UILayout_Clipping_Test : public UILayoutComponentTest
+{
+public:
+    virtual bool init() override;
+
+    CREATE_FUNC(UILayout_Clipping_Test);
+};
+
 #endif /* defined(__TestCpp__UILayoutTest__) */

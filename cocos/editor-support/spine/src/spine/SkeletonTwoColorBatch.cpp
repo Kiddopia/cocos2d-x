@@ -26,11 +26,21 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *****************************************************************************/
+<<<<<<< HEAD:cocos/editor-support/spine/src/spine/SkeletonTwoColorBatch.cpp
 
 #include <spine/SkeletonTwoColorBatch.h>
 #include <spine/Extension.h>
 #include <algorithm>
 
+=======
+
+#include <spine/spine-cocos2dx.h>
+#if COCOS2D_VERSION < 0x00040000
+
+#include <spine/Extension.h>
+#include <algorithm>
+
+>>>>>>> upstream/v4:cocos/editor-support/spine/v3/SkeletonTwoColorBatch.cpp
 USING_NS_CC;
 #define EVENT_AFTER_DRAW_RESET_POSITION "director_after_draw"
 using std::max;
@@ -345,3 +355,5 @@ TwoColorTrianglesCommand* SkeletonTwoColorBatch::nextFreeCommand() {
 	return command;
 }
 }
+
+#endif

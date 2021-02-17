@@ -168,18 +168,17 @@ tests/lua-tests/project/proj.tizen/res/
 cmake-build-*/
 .vs
 cmake_build*
+metal-support*.zip
+**/.project
 
-# tmp android build files
-cocos/platform/android/libcocos2dx/.project
-tests/lua-tests/project/proj.android/.project
-tests/lua-tests/project/proj.android/app/.project
-tests/*/proj.android/.settings/org.eclipse.buildship.core.prefs
-tests/*/project/proj.android/.settings/org.eclipse.buildship.core.prefs
+**/.classpath
+**/org.eclipse.buildship.core.prefs
 
+desktop.ini
 # tmp folder for temp usage
 tmp/
 temp/
 
 # external libs zip
-#*.zip
+*.zip
 **/simulator/
