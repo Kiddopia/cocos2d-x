@@ -808,14 +808,6 @@ public:
     virtual void getFileSize(const std::string &filepath, std::function<void(long)> callback) const;
 
     /**
-     *  List all file paths in a directory.
-     *
-     *  @param dirPath The path of the directory, it could be a relative or an absolute path.
-     *  @return File paths in a string vector
-     */
-    virtual std::vector<std::string> listFilePaths(const std::string& dirPath) const;
-
-    /**
      *  List all files in a directory.
      *
      *  @param dirPath The path of the directory, it could be a relative or an absolute path.

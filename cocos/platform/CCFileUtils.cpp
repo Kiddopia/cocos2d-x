@@ -814,13 +814,7 @@ std::string FileUtils::getPathForFilename(const std::string& filename, const std
     return path;
 }
 
-std::vector<std::string> FileUtils::listFilePaths(const std::string& dirPath) const
-{
-    return listFiles(dirPath);
-}
-
-
-    std::string FileUtils::fullPathForFilename(const std::string &filename) const
+std::string FileUtils::fullPathForFilename(const std::string &filename) const
 {
     
     DECLARE_GUARD;
@@ -870,7 +864,6 @@ std::vector<std::string> FileUtils::listFilePaths(const std::string& dirPath) co
     // The file wasn't found, return empty string.
     return "";
 }
-
 
 std::string FileUtils::fullPathForDirectory(const std::string &dir) const
 {
