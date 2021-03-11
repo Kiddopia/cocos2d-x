@@ -925,7 +925,8 @@ void Widget::releaseUpEvent()
         (_touchEventListener->*_touchEventSelector)(this,TOUCH_EVENT_ENDED);
     }
 
-    if (_clickEventListener) {
+    // Adding a check to see if event dispatcher is enabled or not and then calling _clickEventListener
+    if (_clickEventListener && Director :: getInstance()->getEventDispatcher()->isEnabled()) {
         _clickEventListener(this);
     }
     this->release();
