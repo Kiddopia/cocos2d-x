@@ -1,0 +1,27 @@
+From 5926ab5f85ad0b08b9b95934dcce55c817e4788a Mon Sep 17 00:00:00 2001
+From: Kaushik Poria <kaushik@paperboatapps.com>
+Date: Thu, 11 Mar 2021 18:50:51 +0530
+Subject: [PATCH] Add additional condition to check if event dispatcher is
+ enabled or not before calling click event listener
+
+---
+ cocos/ui/UIWidget.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/cocos/ui/UIWidget.cpp b/cocos/ui/UIWidget.cpp
+index bf19ec5fa4..9f450714b8 100644
+--- a/cocos/ui/UIWidget.cpp
++++ b/cocos/ui/UIWidget.cpp
+@@ -925,7 +925,8 @@ void Widget::releaseUpEvent()
+         (_touchEventListener->*_touchEventSelector)(this,TOUCH_EVENT_ENDED);
+     }
+ 
+-    if (_clickEventListener) {
++    // Adding a check to see if event dispatcher is enabled or not and then calling _clickEventListener
++    if (_clickEventListener && Director :: getInstance()->getEventDispatcher()->isEnabled()) {
+         _clickEventListener(this);
+     }
+     this->release();
+-- 
+2.27.0
+
