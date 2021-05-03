@@ -58,6 +58,14 @@ NS_GAF_BEGIN
         CCLOG("RENDER recreated");
     }
 
+    void GAFShaderManager::destroyInstance() {
+        s_initialized = false;
+        
+        for(int i = 0; i < EFragmentShader::SIZE; ++i) {
+            CC_SAFE_RELEASE_NULL(s_programs[EPrograms::Alpha]);
+        }
+    }
+
     void GAFShaderManager::Initialize(bool force /*= false*/)
     {
         if (!s_initialized)

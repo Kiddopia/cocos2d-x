@@ -413,4 +413,13 @@ GAFFilterManager* GAFFilterManager::getInstance()
     return s_instance;
 }
 
+GAFFilterManager* GAFFilterManager::destroyInstance() {
+    CC_SAFE_DELETE(s_instance);
+    s_instance = nullptr;
+}
+
+GAFFilterManager::~GAFFilterManager() {
+    s_cache.clear();
+}
+
 NS_GAF_END
