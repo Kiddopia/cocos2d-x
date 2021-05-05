@@ -24,12 +24,12 @@
 
 
 
-#include "editor-support/cocostudio/WidgetReader/WidgetReader.h"
+#include "WidgetReader.h"
 
 #include "editor-support/cocostudio/CocoLoader.h"
 #include "ui/UIButton.h"
 #include "editor-support/cocostudio/ActionTimeline/CCActionTimeline.h"
-#include "editor-support/cocostudio/CCComExtensionData.h"
+#include "CCComExtensionData.h"
 #include "editor-support/cocostudio/CSParseBinary_generated.h"
 
 #include "tinyxml2.h"
