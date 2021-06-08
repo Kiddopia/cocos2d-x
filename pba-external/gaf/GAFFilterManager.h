@@ -17,7 +17,7 @@ class GAFFilterManager : public cocos2d::Ref
 public:
     bool init();
     static GAFFilterManager* getInstance();
-    static GAFFilterManager* destroyInstance();
+    static void destroyInstance();
     ~GAFFilterManager();
 
     cocos2d::Texture2D* applyFilter(cocos2d::Sprite*, GAFFilterData*);
