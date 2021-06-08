@@ -588,10 +588,11 @@ public:
      */
     bool isValid() const { return !_invalid; }
 
+    void purgeDirector();
+
 protected:
     void reset();
 
-    void purgeDirector();
     bool _purgeDirectorInNextLoop = false; // this flag will be set to true in end()
     
     void restartDirector();
