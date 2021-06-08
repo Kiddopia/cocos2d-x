@@ -78,7 +78,7 @@ public class Cocos2dxHelper {
     // ===========================================================
     // Constants
     // ===========================================================
-    private static final String PREFS_NAME = "Cocos2dxPrefsFile";
+    public static final String PREFS_NAME = "Cocos2dxPrefsFile";
     private static final int RUNNABLES_PER_FRAME = 5;
     private static final String TAG = Cocos2dxHelper.class.getSimpleName();
 
@@ -485,7 +485,7 @@ public class Cocos2dxHelper {
     }
     
     public static void terminateProcess() {
-        android.os.Process.killProcess(android.os.Process.myPid());
+        //android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     private static void showDialog(final String pTitle, final String pMessage) {
