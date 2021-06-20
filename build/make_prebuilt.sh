@@ -27,6 +27,10 @@ xcrun strip -S "${UNIVERSAL_OUTPUTFOLDER}/lib/libcocos2dx.a"
 
 # copy header files
 mkdir -p "${UNIVERSAL_OUTPUTFOLDER}/include/"
-rsync -zar --include "*/" --include "*.h" --include "*.inl" --exclude "*" ../cocos "${UNIVERSAL_OUTPUTFOLDER}/include/"
-rsync -zar --include "*/" --include "*.h" --exclude "*" --exclude "gaf/**" ../external "${UNIVERSAL_OUTPUTFOLDER}/include/"
-rsync -zar --include "*/" --include "*.h" --exclude "*" --exclude "gaf/**" ../pba-external "${UNIVERSAL_OUTPUTFOLDER}/include/"
+rsync -zar --exclude "editor-support/cocosbuilder/" --exclude "editor-support/spine/" --include "*/" --include "*.h" --include "*.inl" --exclude "*" ../cocos/ "${UNIVERSAL_OUTPUTFOLDER}/include/"
+rsync -zar --exclude "Box2D/" --include "*/" --include "*.h" --exclude "*" ../external/ "${UNIVERSAL_OUTPUTFOLDER}/include/"
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../cocos/editor-support/cocostudio "${UNIVERSAL_OUTPUTFOLDER}/include/"
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/Box2D/include/ "${UNIVERSAL_OUTPUTFOLDER}/include/"
+#rsync -zar --include "gaf/" --include "*.h" --exclude "*" ../pba-external/ "${UNIVERSAL_OUTPUTFOLDER}/include/"
+rsync -zar --include "*.h" --exclude "*" ../pba-external/gaf/ "${UNIVERSAL_OUTPUTFOLDER}/include/"
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../pba-external/spine/include/ "${UNIVERSAL_OUTPUTFOLDER}/include/"
