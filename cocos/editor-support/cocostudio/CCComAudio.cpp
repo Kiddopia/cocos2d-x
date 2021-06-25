@@ -165,7 +165,7 @@ ComAudio* ComAudio::create()
 
 void ComAudio::end()
 {
-   CocosDenshion::SimpleAudioEngine::end();
+   //CocosDenshion::SimpleAudioEngine::end();
 }
 
 void ComAudio::preloadBackgroundMusic(const char* pszFilePath)

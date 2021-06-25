@@ -52,7 +52,7 @@ public:
     static inline const char* getUniformName(EUniforms::Name n) { return s_uniformNames[n]; }
 
     static void Initialize(bool force = false);
-
+    static void destroyInstance();
 private:
     static const char* const s_fragmentShaders[EFragmentShader::SIZE];
     static cocos2d::GLProgram* s_programs[EPrograms::SIZE];

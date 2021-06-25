@@ -1,6 +1,5 @@
 /****************************************************************************
  Copyright (c) 2013 cocos2d-x.org
- Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
  
  http://www.cocos2d-x.org
  
@@ -31,7 +30,6 @@
 #include "ui/CocosGUI.h"
 #include "2d/CCSpriteFrameCache.h"
 #include "2d/CCParticleSystemQuad.h"
-#include "2d/CCTMXTiledMap.h"
 #include "platform/CCFileUtils.h"
 
 #include "editor-support/cocostudio/ActionTimeline/CCActionTimelineCache.h"
@@ -48,7 +46,6 @@
 #include "editor-support/cocostudio/WidgetReader/SingleNodeReader/SingleNodeReader.h"
 #include "editor-support/cocostudio/WidgetReader/SpriteReader/SpriteReader.h"
 #include "editor-support/cocostudio/WidgetReader/ParticleReader/ParticleReader.h"
-#include "editor-support/cocostudio/WidgetReader/GameMapReader/GameMapReader.h"
 #include "editor-support/cocostudio/WidgetReader/ProjectNodeReader/ProjectNodeReader.h"
 #include "editor-support/cocostudio/WidgetReader/ComAudioReader/ComAudioReader.h"
 
@@ -66,12 +63,6 @@
 #include "editor-support/cocostudio/WidgetReader/PageViewReader/PageViewReader.h"
 #include "editor-support/cocostudio/WidgetReader/ListViewReader/ListViewReader.h"
 #include "editor-support/cocostudio/WidgetReader/ArmatureNodeReader/ArmatureNodeReader.h"
-#include "editor-support/cocostudio/WidgetReader/Node3DReader/Node3DReader.h"
-#include "editor-support/cocostudio/WidgetReader/Sprite3DReader/Sprite3DReader.h"
-#include "editor-support/cocostudio/WidgetReader/UserCameraReader/UserCameraReader.h"
-#include "editor-support/cocostudio/WidgetReader/Particle3DReader/Particle3DReader.h"
-#include "editor-support/cocostudio/WidgetReader/GameNode3DReader/GameNode3DReader.h"
-#include "editor-support/cocostudio/WidgetReader/Light3DReader/Light3DReader.h"
 #include "editor-support/cocostudio/WidgetReader/TabControlReader/TabControlReader.h"
 
 #include "editor-support/cocostudio/WidgetReader/SkeletonReader/BoneNodeReader.h"
@@ -98,7 +89,6 @@ static const char* ClassName_Node     = "Node";
 static const char* ClassName_SubGraph = "SubGraph";
 static const char* ClassName_Sprite   = "Sprite";
 static const char* ClassName_Particle = "Particle";
-static const char* ClassName_TMXTiledMap = "TMXTiledMap";
 
 static const char* ClassName_Panel      = "Panel";
 static const char* ClassName_Button     = "Button";
@@ -127,8 +117,6 @@ static const char* CHILDREN    = "children";
 static const char* CLASSNAME   = "classname";
 static const char* FILE_PATH   = "fileName";
 static const char* PLIST_FILE  = "plistFile";
-static const char* TMX_FILE  = "tmxFile";
-static const char* TMX_STRING  = "tmxString";
 static const char* RESOURCE_PATH  = "resourcePath";
 
 static const char* COMPONENTS     = "components";
@@ -203,7 +191,6 @@ CSLoader::CSLoader()
     CREATE_CLASS_NODE_READER_INFO(SingleNodeReader);
     CREATE_CLASS_NODE_READER_INFO(SpriteReader);
     CREATE_CLASS_NODE_READER_INFO(ParticleReader);
-    CREATE_CLASS_NODE_READER_INFO(GameMapReader);
     
     CREATE_CLASS_NODE_READER_INFO(ButtonReader);
     CREATE_CLASS_NODE_READER_INFO(CheckBoxReader);
@@ -220,12 +207,6 @@ CSLoader::CSLoader()
     CREATE_CLASS_NODE_READER_INFO(ListViewReader);
     
     CREATE_CLASS_NODE_READER_INFO(ArmatureNodeReader);
-    CREATE_CLASS_NODE_READER_INFO(Node3DReader);
-    CREATE_CLASS_NODE_READER_INFO(Sprite3DReader);
-    CREATE_CLASS_NODE_READER_INFO(UserCameraReader);
-    CREATE_CLASS_NODE_READER_INFO(Particle3DReader);
-    CREATE_CLASS_NODE_READER_INFO(GameNode3DReader);
-    CREATE_CLASS_NODE_READER_INFO(Light3DReader);
     CREATE_CLASS_NODE_READER_INFO(TabControlReader);
 
     CREATE_CLASS_NODE_READER_INFO(BoneNodeReader);
@@ -244,7 +225,6 @@ void CSLoader::init()
     _funcs.insert(Pair(ClassName_SubGraph,  std::bind(&CSLoader::loadSubGraph,   this, _1)));
     _funcs.insert(Pair(ClassName_Sprite,    std::bind(&CSLoader::loadSprite,     this, _1)));
     _funcs.insert(Pair(ClassName_Particle,  std::bind(&CSLoader::loadParticle,   this, _1)));
-    _funcs.insert(Pair(ClassName_TMXTiledMap,  std::bind(&CSLoader::loadTMXTiledMap,   this, _1)));
     _funcs.insert(Pair(ClassName_LabelAtlas,std::bind(&CSLoader::loadWidget,   this, _1)));
     _funcs.insert(Pair(ClassName_LabelBMFont,std::bind(&CSLoader::loadWidget,   this, _1)));
     _funcs.insert(Pair(ClassName_Panel,     std::bind(&CSLoader::loadWidget,   this, _1)));
@@ -715,28 +695,6 @@ Node* CSLoader::loadParticle(const rapidjson::Value& json)
     initNode(particle, json);
     
     return particle;
-}
-
-Node* CSLoader::loadTMXTiledMap(const rapidjson::Value &json)
-{
-    const char* tmxFile = DICTOOL->getStringValue_json(json, TMX_FILE);
-    const char* tmxString = DICTOOL->getStringValue_json(json, TMX_STRING);
-    const char* resourcePath = DICTOOL->getStringValue_json(json, RESOURCE_PATH);
-    
-    TMXTiledMap* tmx = nullptr;
-    
-    if (tmxFile && strcmp("", tmxFile) != 0)
-    {
-        tmx = TMXTiledMap::create(tmxFile);
-    }
-    else if ((tmxString && strcmp("", tmxString) != 0)
-             && (resourcePath && strcmp("", resourcePath) != 0))
-    {
-        tmx = TMXTiledMap::createWithXML(tmxString, resourcePath);
-    }
-    
-    return tmx;
-    
 }
 
 Node* CSLoader::loadWidget(const rapidjson::Value& json)

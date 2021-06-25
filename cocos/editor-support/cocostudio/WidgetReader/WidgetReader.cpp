@@ -24,7 +24,7 @@
 
 
 
-#include "editor-support/cocostudio/WidgetReader/WidgetReader.h"
+#include "WidgetReader.h"
 
 #include "editor-support/cocostudio/CocoLoader.h"
 #include "ui/UIButton.h"

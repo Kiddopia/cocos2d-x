@@ -1,6 +1,5 @@
 /****************************************************************************
  Copyright (c) 2013 cocos2d-x.org
- Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
  
  http://www.cocos2d-x.org
  
@@ -23,7 +22,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "editor-support/cocostudio/FlatBuffersSerialize.h"
+#include "FlatBuffersSerialize.h"
 
 #include "base/ObjectFactory.h"
 #include "ui/CocosGUI.h"
@@ -39,7 +38,6 @@
 #include "editor-support/cocostudio/WidgetReader/SingleNodeReader/SingleNodeReader.h"
 #include "editor-support/cocostudio/WidgetReader/SpriteReader/SpriteReader.h"
 #include "editor-support/cocostudio/WidgetReader/ParticleReader/ParticleReader.h"
-#include "editor-support/cocostudio/WidgetReader/GameMapReader/GameMapReader.h"
 #include "editor-support/cocostudio/WidgetReader/ComAudioReader/ComAudioReader.h"
 #include "editor-support/cocostudio/WidgetReader/ProjectNodeReader/ProjectNodeReader.h"
 
@@ -95,7 +93,6 @@ FlatBuffersSerialize::FlatBuffersSerialize()
     CREATE_CLASS_NODE_READER_INFO(SingleNodeReader);
     CREATE_CLASS_NODE_READER_INFO(SpriteReader);
     CREATE_CLASS_NODE_READER_INFO(ParticleReader);
-    CREATE_CLASS_NODE_READER_INFO(GameMapReader);
     
     CREATE_CLASS_NODE_READER_INFO(ButtonReader);
     CREATE_CLASS_NODE_READER_INFO(CheckBoxReader);
