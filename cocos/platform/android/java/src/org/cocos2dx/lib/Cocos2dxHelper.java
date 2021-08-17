@@ -475,8 +475,8 @@ public class Cocos2dxHelper {
     }
 
     public static void onEnterBackground() {
-        getSound().onEnterBackground();
-        sCocos2dMusic.onEnterBackground();
+//        getSound().onEnterBackground();
+//        sCocos2dMusic.onEnterBackground();
     }
     
     public static void onEnterForeground() {
