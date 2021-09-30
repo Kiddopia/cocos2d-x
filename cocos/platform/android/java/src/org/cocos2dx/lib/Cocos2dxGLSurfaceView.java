@@ -94,6 +94,50 @@ public class Cocos2dxGLSurfaceView extends GLSurfaceView {
         this.initView();
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int screenWidth = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int screenHeight = MeasureSpec.getSize(heightMeasureSpec);
+
+        if(!calculateDimension(screenWidth,screenHeight)) {
+            super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+        }
+    }
+
+    boolean calculateDimension(int screenWidth,int screenHeight) {
+        boolean isPortrait = screenWidth < screenHeight;
+        int designWidth = 1663, designHeight = 768;
+        if(isPortrait) {
+            // landscape aspect ratio
+            float allowedAspectRatio = (float)designWidth/(float)designHeight;
+            float screenAspectRatio = (float)screenHeight/(float)screenWidth;
+
+            if(screenAspectRatio > allowedAspectRatio) {
+                int allowedWidth =  screenWidth;
+                int allowedHeight = (int)(allowedAspectRatio * (float)screenWidth);
+
+                setMeasuredDimension(allowedWidth,allowedHeight);
+                return true;
+            }
+        } else {
+            // landscape aspect ratio
+            float allowedAspectRatio = (float)designWidth/(float)designHeight;
+            float screenAspectRatio = (float)screenWidth/(float)screenHeight;
+
+            if(screenAspectRatio > allowedAspectRatio) {
+                int allowedWidth =  (int)(allowedAspectRatio * (float)screenHeight);
+                int allowedHeight = screenHeight;
+
+                setMeasuredDimension(allowedWidth,allowedHeight);
+                return true;
+            }
+        }
+        return false;
+    }
+
     protected void initView() {
         this.setEGLContextClientVersion(2);
         this.setFocusableInTouchMode(true);
