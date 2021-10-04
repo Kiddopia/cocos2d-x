@@ -290,7 +290,7 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
         this.mGLSurfaceView.setPreserveEGLContextOnPause(true);
 
         // ...add to FrameLayout
-        mFrameLayout.addView(this.mGLSurfaceView, new android.widget.FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.CENTER));
+        mFrameLayout.addView(this.mGLSurfaceView, new android.widget.FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
 
         // Switch to supported OpenGL (ARGB888) mode on emulator
         // this line dows not needed on new emulators and also it breaks stencil buffer
