@@ -183,3 +183,5 @@ temp/
 # external libs zip
 #*.zip
 **/simulator/
+pba-external/zip_file/build
+pba-external/zip_file/.gradle
