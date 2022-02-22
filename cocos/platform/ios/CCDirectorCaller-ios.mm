@@ -136,6 +136,9 @@ static id s_sharedDirectorCaller;
 {
     if (isAppActive) {
         cocos2d::Director* director = cocos2d::Director::getInstance();
+        // crash fix for issue 4ae87db29b5fcdf074a6c59740a782f5
+        if(!director->getOpenGLView() || !director->getOpenGLView()->getEAGLView())
+            return;
         EAGLContext* cocos2dxContext = [(CCEAGLView*)director->getOpenGLView()->getEAGLView() context];
         if (cocos2dxContext != [EAGLContext currentContext])
             glFlush();
