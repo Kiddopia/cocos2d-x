@@ -815,6 +815,9 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     }
 
     auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+    
+    if(!glview) return;
+    
     float scaleX = glview->getScaleX();
     float scaleY = glview->getScaleY();
     
@@ -899,6 +902,9 @@ UIInterfaceOrientation getFixedOrientation(UIInterfaceOrientation statusBarOrien
     if (dis < 0.0f) dis = 0.0f;
 
     auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+    
+    if(!glview) return;
+
     dis *= glview->getScaleY();
     
     dis /= self.contentScaleFactor;
