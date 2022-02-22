@@ -403,7 +403,7 @@ AudioCache* AudioEngineImpl::preload(const std::string& filePath, std::function<
 
     if (audioCache && callback)
     {
-        audioCache->addLoadCallback(callback);
+        audioCache->addLoadCallback(callback,blockThread);
     }
     return audioCache;
 }

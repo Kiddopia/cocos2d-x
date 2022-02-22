@@ -60,7 +60,7 @@ public:
 
     void addPlayCallback(const std::function<void()>& callback);
 
-    void addLoadCallback(const std::function<void(bool,float)>& callback);
+    void addLoadCallback(const std::function<void(bool,float)>& callback, bool blockThread = false);
 
 protected:
     void setSkipReadDataTask(bool isSkip) { _isSkipReadDataTask = isSkip; };
@@ -105,6 +105,7 @@ protected:
     unsigned int _id;
     bool _isLoadingFinished;
     bool _isSkipReadDataTask;
+    bool _blockThread = false;
 
     friend class AudioEngineImpl;
     friend class AudioPlayer;

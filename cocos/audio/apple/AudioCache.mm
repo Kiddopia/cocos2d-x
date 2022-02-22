@@ -358,8 +358,9 @@ void AudioCache::invokingPlayCallbacks()
     _playCallbacks.clear();
 }
 
-void AudioCache::addLoadCallback(const std::function<void(bool,float)>& callback)
+void AudioCache::addLoadCallback(const std::function<void(bool,float)>& callback, bool blockThread)
 {
+    _blockThread = blockThread;
     switch (_state)
     {
         case State::INITIAL:
@@ -382,36 +383,37 @@ void AudioCache::addLoadCallback(const std::function<void(bool,float)>& callback
 
 void AudioCache::invokingLoadCallbacks()
 {
-    if (*_isDestroyed)
-    {
-        ALOGV("AudioCache (%p) was destroyed, don't invoke preload callback ...", this);
-        return;
+    if(_blockThread) {
+        if (*_isDestroyed)
+        {
+            ALOGV("AudioCache (%p) was destroyed, don't invoke preload callback ...", this);
+            return;
+        }
+        //Calling load call backs on the thread
+        for (auto&& cb : _loadCallbacks)
+        {
+            cb(_state == State::READY,this->_duration);
+        }
+        
+        _loadCallbacks.clear();
+    } else {
+        auto isDestroyed = _isDestroyed;
+        auto scheduler = Director::getInstance()->getScheduler();
+        scheduler->performFunctionInCocosThread([&, isDestroyed](){
+            if (*isDestroyed)
+            {
+                ALOGV("invokingLoadCallbacks perform in cocos thread, AudioCache (%p) was destroyed!", this);
+                return;
+            }
+            
+            for (auto&& cb : _loadCallbacks)
+            {
+                cb(_state == State::READY,this->_duration);
+            }
+            
+            _loadCallbacks.clear();
+        });
     }
-
-//    auto isDestroyed = _isDestroyed;
-//    auto scheduler = Director::getInstance()->getScheduler();
-//    scheduler->performFunctionInCocosThread([&, isDestroyed](){
-//        if (*isDestroyed)
-//        {
-//            ALOGV("invokingLoadCallbacks perform in cocos thread, AudioCache (%p) was destroyed!", this);
-//            return;
-//        }
-//
-//        for (auto&& cb : _loadCallbacks)
-//        {
-//            cb(_state == State::READY,this->_duration);
-//        }
-//
-//        _loadCallbacks.clear();
-//    });
-    
-    //Calling load call backs on the thread
-    for (auto&& cb : _loadCallbacks)
-    {
-        cb(_state == State::READY,this->_duration);
-    }
-    
-    _loadCallbacks.clear();
 }
 
 #endif
