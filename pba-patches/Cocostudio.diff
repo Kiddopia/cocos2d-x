@@ -1,0 +1,52 @@
+From d3de6b4420d09149a8492a013fac05b5a00ec987 Mon Sep 17 00:00:00 2001
+From: Kaushik Poria <kaushik@paperboatapps.com>
+Date: Mon, 24 May 2021 11:58:25 +0530
+Subject: [PATCH] Update CocoStudio: - Remove
+ CocosDenshion::SimpleAudioEngine::end() method calls
+
+---
+ cocos/editor-support/cocostudio/CCComAudio.cpp     | 2 +-
+ cocos/editor-support/cocostudio/CCSSceneReader.cpp | 2 +-
+ cocos/editor-support/cocostudio/CocoStudio.cpp     | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/cocos/editor-support/cocostudio/CCComAudio.cpp b/cocos/editor-support/cocostudio/CCComAudio.cpp
+index d097034476..f87960107f 100644
+--- a/cocos/editor-support/cocostudio/CCComAudio.cpp
++++ b/cocos/editor-support/cocostudio/CCComAudio.cpp
+@@ -165,7 +165,7 @@ ComAudio* ComAudio::create()
+ 
+ void ComAudio::end()
+ {
+-   CocosDenshion::SimpleAudioEngine::end();
++   //CocosDenshion::SimpleAudioEngine::end();
+ }
+ 
+ void ComAudio::preloadBackgroundMusic(const char* pszFilePath)
+diff --git a/cocos/editor-support/cocostudio/CCSSceneReader.cpp b/cocos/editor-support/cocostudio/CCSSceneReader.cpp
+index bb98286e04..9f020968c7 100644
+--- a/cocos/editor-support/cocostudio/CCSSceneReader.cpp
++++ b/cocos/editor-support/cocostudio/CCSSceneReader.cpp
+@@ -577,7 +577,7 @@ void SceneReader::destroyInstance()
+ {
+     DictionaryHelper::destroyInstance();
+     TriggerMng::destroyInstance();
+-    CocosDenshion::SimpleAudioEngine::end();
++    //CocosDenshion::SimpleAudioEngine::end();
+     CC_SAFE_DELETE(s_sharedReader);
+ }
+ 
+diff --git a/cocos/editor-support/cocostudio/CocoStudio.cpp b/cocos/editor-support/cocostudio/CocoStudio.cpp
+index e98cd6178e..99ecc56e76 100644
+--- a/cocos/editor-support/cocostudio/CocoStudio.cpp
++++ b/cocos/editor-support/cocostudio/CocoStudio.cpp
+@@ -86,4 +86,4 @@ namespace cocostudio
+         ActionManagerEx::destroyInstance();
+         GUIReader::destroyInstance();
+     }
+-}
+\ No newline at end of file
++}
+-- 
+2.31.0
+

@@ -1,0 +1,130 @@
+From 45ba76b0c0bec1a9b2b48acafd715a19818fe957 Mon Sep 17 00:00:00 2001
+From: Kaushik Poria <kaushik@paperboatapps.com>
+Date: Thu, 8 Oct 2020 11:08:48 +0530
+Subject: [PATCH] [iOS] added support for blocking thread in AudioEngine
+
+---
+ cocos/audio/apple/AudioCache.h       |  3 +-
+ cocos/audio/apple/AudioCache.mm      | 62 ++++++++++++++--------------
+ cocos/audio/apple/AudioEngine-inl.mm |  2 +-
+ 3 files changed, 35 insertions(+), 32 deletions(-)
+
+diff --git a/cocos/audio/apple/AudioCache.h b/cocos/audio/apple/AudioCache.h
+index 30c77f3294..dd8ea437d8 100644
+--- a/cocos/audio/apple/AudioCache.h
++++ b/cocos/audio/apple/AudioCache.h
+@@ -60,7 +60,7 @@ public:
+ 
+     void addPlayCallback(const std::function<void()>& callback);
+ 
+-    void addLoadCallback(const std::function<void(bool,float)>& callback);
++    void addLoadCallback(const std::function<void(bool,float)>& callback, bool blockThread = false);
+ 
+ protected:
+     void setSkipReadDataTask(bool isSkip) { _isSkipReadDataTask = isSkip; };
+@@ -105,6 +105,7 @@ protected:
+     unsigned int _id;
+     bool _isLoadingFinished;
+     bool _isSkipReadDataTask;
++    bool _blockThread = false;
+ 
+     friend class AudioEngineImpl;
+     friend class AudioPlayer;
+diff --git a/cocos/audio/apple/AudioCache.mm b/cocos/audio/apple/AudioCache.mm
+index a0bc152086..d1e2cfaf76 100644
+--- a/cocos/audio/apple/AudioCache.mm
++++ b/cocos/audio/apple/AudioCache.mm
+@@ -358,8 +358,9 @@ void AudioCache::invokingPlayCallbacks()
+     _playCallbacks.clear();
+ }
+ 
+-void AudioCache::addLoadCallback(const std::function<void(bool,float)>& callback)
++void AudioCache::addLoadCallback(const std::function<void(bool,float)>& callback, bool blockThread)
+ {
++    _blockThread = blockThread;
+     switch (_state)
+     {
+         case State::INITIAL:
+@@ -382,36 +383,37 @@ void AudioCache::addLoadCallback(const std::function<void(bool,float)>& callback
+ 
+ void AudioCache::invokingLoadCallbacks()
+ {
+-    if (*_isDestroyed)
+-    {
+-        ALOGV("AudioCache (%p) was destroyed, don't invoke preload callback ...", this);
+-        return;
+-    }
+-
+-//    auto isDestroyed = _isDestroyed;
+-//    auto scheduler = Director::getInstance()->getScheduler();
+-//    scheduler->performFunctionInCocosThread([&, isDestroyed](){
+-//        if (*isDestroyed)
+-//        {
+-//            ALOGV("invokingLoadCallbacks perform in cocos thread, AudioCache (%p) was destroyed!", this);
+-//            return;
+-//        }
+-//
+-//        for (auto&& cb : _loadCallbacks)
+-//        {
+-//            cb(_state == State::READY,this->_duration);
+-//        }
+-//
+-//        _loadCallbacks.clear();
+-//    });
+-    
+-    //Calling load call backs on the thread
+-    for (auto&& cb : _loadCallbacks)
+-    {
+-        cb(_state == State::READY,this->_duration);
++    if(_blockThread) {
++        if (*_isDestroyed)
++        {
++            ALOGV("AudioCache (%p) was destroyed, don't invoke preload callback ...", this);
++            return;
++        }
++        //Calling load call backs on the thread
++        for (auto&& cb : _loadCallbacks)
++        {
++            cb(_state == State::READY,this->_duration);
++        }
++        
++        _loadCallbacks.clear();
++    } else {
++        auto isDestroyed = _isDestroyed;
++        auto scheduler = Director::getInstance()->getScheduler();
++        scheduler->performFunctionInCocosThread([&, isDestroyed](){
++            if (*isDestroyed)
++            {
++                ALOGV("invokingLoadCallbacks perform in cocos thread, AudioCache (%p) was destroyed!", this);
++                return;
++            }
++            
++            for (auto&& cb : _loadCallbacks)
++            {
++                cb(_state == State::READY,this->_duration);
++            }
++            
++            _loadCallbacks.clear();
++        });
+     }
+-    
+-    _loadCallbacks.clear();
+ }
+ 
+ #endif
+diff --git a/cocos/audio/apple/AudioEngine-inl.mm b/cocos/audio/apple/AudioEngine-inl.mm
+index e891e0c38d..3e43b0a230 100644
+--- a/cocos/audio/apple/AudioEngine-inl.mm
++++ b/cocos/audio/apple/AudioEngine-inl.mm
+@@ -403,7 +403,7 @@ AudioCache* AudioEngineImpl::preload(const std::string& filePath, std::function<
+ 
+     if (audioCache && callback)
+     {
+-        audioCache->addLoadCallback(callback);
++        audioCache->addLoadCallback(callback,blockThread);
+     }
+     return audioCache;
+ }
+-- 
+2.31.0
+
