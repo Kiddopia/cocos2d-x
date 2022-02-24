@@ -84,6 +84,14 @@ namespace experimental{
             CREATE_FUNC(VideoPlayer);
 
             /**
+             * Causes the video player view to be added behind the eaglview .
+             *
+             * @param behindGLView    Specify true to add the playerview behind the GLView.
+             *  Call this method before setting the file path or URL as a video source.
+             */
+            void setBehindGLView(bool behindGLView);
+            
+            /**
              * Sets a file path as a video source for VideoPlayer.
              */
             virtual void setFileName(const std::string& videoPath);
@@ -250,6 +258,7 @@ namespace experimental{
             bool _fullScreenDirty;
             bool _fullScreenEnabled;
             bool _keepAspectRatioEnabled;
+            bool _isBehindGLView;
 
             StyleType _styleType;
 
