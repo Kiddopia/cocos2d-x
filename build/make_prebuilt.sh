@@ -2,7 +2,7 @@
 BUILD_DIR=../build
 BUILD_ROOT=../build
 UNIVERSAL_OUTPUTFOLDER=../prebuilt/ios/
-
+UNIVERSAL_OUTPUT_INCLUDE_FOLDER=../prebuilt/ios/include/
 CONFIGURATION=Release
 
 # Build Simulator version
@@ -26,7 +26,33 @@ rm -rf "${BUILD_DIR}/${CONFIGURATION}-iphonesimulator"
 xcrun strip -S "${UNIVERSAL_OUTPUTFOLDER}/lib/libcocos2dx.a"
 
 # copy header files
-mkdir -p "${UNIVERSAL_OUTPUTFOLDER}/include/"
-rsync -zar --include "*/" --include "*.h" --include "*.inl" --exclude "*" ../cocos "${UNIVERSAL_OUTPUTFOLDER}/include/"
-rsync -zar --include "*/" --include "*.h" --exclude "*" --exclude "gaf/**" ../external "${UNIVERSAL_OUTPUTFOLDER}/include/"
-rsync -zar --include "*/" --include "*.h" --exclude "*" --exclude "gaf/**" ../pba-external "${UNIVERSAL_OUTPUTFOLDER}/include/"
+mkdir -p ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --include "*.inl" --exclude "*" ../cocos/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../cocos/editor-support/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/Box2D/include/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/bullet/include/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/chipmunk/include/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/curl/include/ios/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/freetype2/include/ios/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/jpeg/include/ios/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/openssl/include/ios/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/png/include/ios/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/webp/include/ios/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/websockets/include/ios/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/clipper ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/ConvertUTF/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/edtaa3func/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/flatbuffers/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/json ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/md5 ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/poly2tri ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/recast ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/sqlite3/include/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/tinydir ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/tinyxml2/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/unzip/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/uv/include/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/xxhash/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../external/zlib/include/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../pba-external/gaf/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
+rsync -zar --include "*/" --include "*.h" --exclude "*" ../pba-external/spine/include/ ${UNIVERSAL_OUTPUT_INCLUDE_FOLDER}
