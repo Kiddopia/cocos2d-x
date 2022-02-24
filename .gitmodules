@@ -10,3 +10,6 @@
 [submodule "web"]
         path = web
         url = git://github.com/cocos2d/cocos2d-html5.git
+[submodule "prebuilt/ios"]
+	path = prebuilt/ios
+	url = https://github.com/Kiddopia/cocos2dx-prebuilt.git
