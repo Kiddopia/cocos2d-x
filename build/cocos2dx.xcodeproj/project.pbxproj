@@ -1411,96 +1411,6 @@
 		B1366E2A263B00C1007F9D99 /* CCInteger.h in Headers */ = {isa = PBXBuildFile; fileRef = B1366E1A263B00C1007F9D99 /* CCInteger.h */; };
 		B1366E2B263B00C1007F9D99 /* CCArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1366E1B263B00C1007F9D99 /* CCArray.cpp */; };
 		B1366E2C263B00C1007F9D99 /* CCArray.h in Headers */ = {isa = PBXBuildFile; fileRef = B1366E1C263B00C1007F9D99 /* CCArray.h */; };
-		B19400CE245A8B8C00EBD17D /* TagDefineAnimationMasks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194006E245A8B8C00EBD17D /* TagDefineAnimationMasks.cpp */; };
-		B19400CF245A8B8C00EBD17D /* GAFResourcesInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B194006F245A8B8C00EBD17D /* GAFResourcesInfo.h */; };
-		B19400D0245A8B8C00EBD17D /* GAFHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940070245A8B8C00EBD17D /* GAFHeader.h */; };
-		B19400D1245A8B8C00EBD17D /* TagDefineTimeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940071245A8B8C00EBD17D /* TagDefineTimeline.cpp */; };
-		B19400D2245A8B8C00EBD17D /* GAFCachedTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940072245A8B8C00EBD17D /* GAFCachedTexture.cpp */; };
-		B19400D3245A8B8C00EBD17D /* GAFMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940073245A8B8C00EBD17D /* GAFMask.cpp */; };
-		B19400D4245A8B8C00EBD17D /* GAFFile.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940074245A8B8C00EBD17D /* GAFFile.h */; };
-		B19400D5245A8B8C00EBD17D /* GAFTextureAtlasElement.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940075245A8B8C00EBD17D /* GAFTextureAtlasElement.h */; };
-		B19400D6245A8B8C00EBD17D /* GAFTimeline.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940076245A8B8C00EBD17D /* GAFTimeline.h */; };
-		B19400D7245A8B8C00EBD17D /* TagDefineAnimationObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940077245A8B8C00EBD17D /* TagDefineAnimationObjects.h */; };
-		B19400D8245A8B8C00EBD17D /* TagDefineAnimationFrames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940078245A8B8C00EBD17D /* TagDefineAnimationFrames.cpp */; };
-		B19400D9245A8B8C00EBD17D /* GAFQuadCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194007A245A8B8C00EBD17D /* GAFQuadCommand.cpp */; };
-		B19400DA245A8B8C00EBD17D /* TagDefineAnimationFrames2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194007B245A8B8C00EBD17D /* TagDefineAnimationFrames2.cpp */; };
-		B19400DB245A8B8C00EBD17D /* GAFCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = B194007C245A8B8C00EBD17D /* GAFCollections.h */; };
-		B19400DC245A8B8C00EBD17D /* GAFAssetTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194007D245A8B8C00EBD17D /* GAFAssetTextureManager.cpp */; };
-		B19400DD245A8B8C00EBD17D /* GAFLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194007E245A8B8C00EBD17D /* GAFLoader.cpp */; };
-		B19400DE245A8B8C00EBD17D /* TagDefineAnimationObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194007F245A8B8C00EBD17D /* TagDefineAnimationObjects.cpp */; };
-		B19400DF245A8B8C00EBD17D /* TagDefineSounds.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940080245A8B8C00EBD17D /* TagDefineSounds.h */; };
-		B19400E0245A8B8C00EBD17D /* GAFTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940081245A8B8C00EBD17D /* GAFTextField.h */; };
-		B19400E1245A8B8C00EBD17D /* TagDefineTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940082245A8B8C00EBD17D /* TagDefineTextField.cpp */; };
-		B19400E2245A8B8C00EBD17D /* GAFTextData.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940083245A8B8C00EBD17D /* GAFTextData.h */; };
-		B19400E3245A8B8C00EBD17D /* GAFTextData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940084245A8B8C00EBD17D /* GAFTextData.cpp */; };
-		B19400E4245A8B8C00EBD17D /* PrimitiveDeserializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940085245A8B8C00EBD17D /* PrimitiveDeserializer.cpp */; };
-		B19400E5245A8B8C00EBD17D /* GAFAnimationSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940086245A8B8C00EBD17D /* GAFAnimationSequence.cpp */; };
-		B19400E6245A8B8C00EBD17D /* TagDefineSequences.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940087245A8B8C00EBD17D /* TagDefineSequences.h */; };
-		B19400E7245A8B8C00EBD17D /* TagDefineNamedParts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940088245A8B8C00EBD17D /* TagDefineNamedParts.cpp */; };
-		B19400E8245A8B8C00EBD17D /* TagDefineAnimationFrames.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940089245A8B8C00EBD17D /* TagDefineAnimationFrames.h */; };
-		B19400E9245A8B8C00EBD17D /* PrimitiveDeserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = B194008A245A8B8C00EBD17D /* PrimitiveDeserializer.h */; };
-		B19400EA245A8B8C00EBD17D /* GAFPrecompiled.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194008B245A8B8C00EBD17D /* GAFPrecompiled.cpp */; };
-		B19400EB245A8B8C00EBD17D /* GAFPrecompiled.h in Headers */ = {isa = PBXBuildFile; fileRef = B194008C245A8B8C00EBD17D /* GAFPrecompiled.h */; };
-		B19400EC245A8B8C00EBD17D /* GAFStream.h in Headers */ = {isa = PBXBuildFile; fileRef = B194008D245A8B8C00EBD17D /* GAFStream.h */; };
-		B19400ED245A8B8C00EBD17D /* GAFMask.h in Headers */ = {isa = PBXBuildFile; fileRef = B194008E245A8B8C00EBD17D /* GAFMask.h */; };
-		B19400EE245A8B8C00EBD17D /* TagDefineTimeline.h in Headers */ = {isa = PBXBuildFile; fileRef = B194008F245A8B8C00EBD17D /* TagDefineTimeline.h */; };
-		B19400EF245A8B8C00EBD17D /* GAFTextureAtlasElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940090245A8B8C00EBD17D /* GAFTextureAtlasElement.cpp */; };
-		B19400F0245A8B8C00EBD17D /* MySprite.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940091245A8B8C00EBD17D /* MySprite.h */; };
-		B19400F1245A8B8C00EBD17D /* GAFStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940092245A8B8C00EBD17D /* GAFStream.cpp */; };
-		B19400F2245A8B8C00EBD17D /* TagDefineAnimationMasks.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940093245A8B8C00EBD17D /* TagDefineAnimationMasks.h */; };
-		B19400F3245A8B8C00EBD17D /* GAFMovieClip.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940094245A8B8C00EBD17D /* GAFMovieClip.h */; };
-		B19400F4245A8B8C00EBD17D /* GAFTimelineAction.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940095245A8B8C00EBD17D /* GAFTimelineAction.h */; };
-		B19400F5245A8B8C00EBD17D /* GAFShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1940096245A8B8C00EBD17D /* GAFShaderManager.cpp */; };
-		B19400F6245A8B8C00EBD17D /* GAFFilterData.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940097245A8B8C00EBD17D /* GAFFilterData.h */; };
-		B19400F7245A8B8C00EBD17D /* GAFPlayer-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B1940098245A8B8C00EBD17D /* GAFPlayer-Prefix.pch */; };
-		B19400F8245A8B8C00EBD17D /* TagDefineAtlas3.h in Headers */ = {isa = PBXBuildFile; fileRef = B1940099245A8B8C00EBD17D /* TagDefineAtlas3.h */; };
-		B19400F9245A8B8C00EBD17D /* MySprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194009A245A8B8C00EBD17D /* MySprite.cpp */; };
-		B19400FA245A8B8C00EBD17D /* GAFTimelineAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194009B245A8B8C00EBD17D /* GAFTimelineAction.cpp */; };
-		B19400FB245A8B8C00EBD17D /* TagDefineStage.h in Headers */ = {isa = PBXBuildFile; fileRef = B194009C245A8B8C00EBD17D /* TagDefineStage.h */; };
-		B19400FC245A8B8C00EBD17D /* GAFAssetTextureManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B194009D245A8B8C00EBD17D /* GAFAssetTextureManager.h */; };
-		B19400FD245A8B8C00EBD17D /* TagDefineSequences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B194009E245A8B8C00EBD17D /* TagDefineSequences.cpp */; };
-		B19400FE245A8B8C00EBD17D /* GAFAnimationFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = B194009F245A8B8C00EBD17D /* GAFAnimationFrame.h */; };
-		B19400FF245A8B8C00EBD17D /* GAFMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400A0245A8B8C00EBD17D /* GAFMacros.h */; };
-		B1940100245A8B8C00EBD17D /* GAFAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400A1245A8B8C00EBD17D /* GAFAsset.cpp */; };
-		B1940101245A8B8C00EBD17D /* GAFTimeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400A2245A8B8C00EBD17D /* GAFTimeline.cpp */; };
-		B1940102245A8B8C00EBD17D /* TagDefineAtlas3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400A3245A8B8C00EBD17D /* TagDefineAtlas3.cpp */; };
-		B1940103245A8B8C00EBD17D /* GAFFilterData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400A4245A8B8C00EBD17D /* GAFFilterData.cpp */; };
-		B1940104245A8B8C00EBD17D /* GAFCachedTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400A5245A8B8C00EBD17D /* GAFCachedTexture.h */; };
-		B1940105245A8B8C00EBD17D /* GAFSubobjectState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400A6245A8B8C00EBD17D /* GAFSubobjectState.cpp */; };
-		B1940106245A8B8C00EBD17D /* GAFObject.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400A7245A8B8C00EBD17D /* GAFObject.h */; };
-		B1940107245A8B8C00EBD17D /* GAFFilterManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400A8245A8B8C00EBD17D /* GAFFilterManager.cpp */; };
-		B1940108245A8B8C00EBD17D /* GAFSubobjectState.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400A9245A8B8C00EBD17D /* GAFSubobjectState.h */; };
-		B1940109245A8B8C00EBD17D /* GAFQuadCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400AA245A8B8C00EBD17D /* GAFQuadCommand.h */; };
-		B194010A245A8B8C00EBD17D /* GAFObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400AB245A8B8C00EBD17D /* GAFObject.cpp */; };
-		B194010B245A8B8C00EBD17D /* GAFTextureAtlas.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400AC245A8B8C00EBD17D /* GAFTextureAtlas.h */; };
-		B194010C245A8B8C00EBD17D /* GAFSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400AD245A8B8C00EBD17D /* GAFSprite.cpp */; };
-		B194010D245A8B8C00EBD17D /* GAFSoundInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400AE245A8B8C00EBD17D /* GAFSoundInfo.cpp */; };
-		B194010E245A8B8C00EBD17D /* GAFShaderManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400AF245A8B8C00EBD17D /* GAFShaderManager.h */; };
-		B194010F245A8B8C00EBD17D /* GAFFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400B4245A8B8C00EBD17D /* GAFFile.cpp */; };
-		B1940110245A8B8C00EBD17D /* GAFSprite.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400B5245A8B8C00EBD17D /* GAFSprite.h */; };
-		B1940111245A8B8C00EBD17D /* GAFLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400B6245A8B8C00EBD17D /* GAFLoader.h */; };
-		B1940112245A8B8C00EBD17D /* TagDefineSounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400B7245A8B8C00EBD17D /* TagDefineSounds.cpp */; };
-		B1940113245A8B8C00EBD17D /* GAFDelegates.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400B8245A8B8C00EBD17D /* GAFDelegates.h */; };
-		B1940114245A8B8C00EBD17D /* TagDefineAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400B9245A8B8C00EBD17D /* TagDefineAtlas.cpp */; };
-		B1940115245A8B8C00EBD17D /* GAFTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400BA245A8B8C00EBD17D /* GAFTextField.cpp */; };
-		B1940116245A8B8C00EBD17D /* TagDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400BB245A8B8C00EBD17D /* TagDefines.h */; };
-		B1940117245A8B8C00EBD17D /* GAFTextureAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400BC245A8B8C00EBD17D /* GAFTextureAtlas.cpp */; };
-		B1940118245A8B8C00EBD17D /* TagDefineNamedParts.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400BD245A8B8C00EBD17D /* TagDefineNamedParts.h */; };
-		B1940119245A8B8C00EBD17D /* TagDefineStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400BE245A8B8C00EBD17D /* TagDefineStage.cpp */; };
-		B194011A245A8B8C00EBD17D /* GAF.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400BF245A8B8C00EBD17D /* GAF.h */; };
-		B194011B245A8B8C00EBD17D /* GAFAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400C0245A8B8C00EBD17D /* GAFAsset.h */; };
-		B194011C245A8B8C00EBD17D /* GAF_JS.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400C1245A8B8C00EBD17D /* GAF_JS.h */; };
-		B194011D245A8B8C00EBD17D /* TagDefineAnimationFrames2.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400C2245A8B8C00EBD17D /* TagDefineAnimationFrames2.h */; };
-		B194011E245A8B8C00EBD17D /* DefinitionTagBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400C3245A8B8C00EBD17D /* DefinitionTagBase.h */; };
-		B194011F245A8B8C00EBD17D /* GAFAnimationFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400C4245A8B8C00EBD17D /* GAFAnimationFrame.cpp */; };
-		B1940120245A8B8C00EBD17D /* GAFMovieClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19400C5245A8B8C00EBD17D /* GAFMovieClip.cpp */; };
-		B1940121245A8B8C00EBD17D /* TagDefineAtlas.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400C6245A8B8C00EBD17D /* TagDefineAtlas.h */; };
-		B1940122245A8B8C00EBD17D /* GAFFilterManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400C7245A8B8C00EBD17D /* GAFFilterManager.h */; };
-		B1940123245A8B8C00EBD17D /* GAFSoundInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400C8245A8B8C00EBD17D /* GAFSoundInfo.h */; };
-		B1940124245A8B8C00EBD17D /* TagDefineTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400C9245A8B8C00EBD17D /* TagDefineTextField.h */; };
-		B1940125245A8B8C00EBD17D /* GAFAnimationSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400CA245A8B8C00EBD17D /* GAFAnimationSequence.h */; };
-		B1940126245A8B8C00EBD17D /* GAFPrecompiledShaders.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400CC245A8B8C00EBD17D /* GAFPrecompiledShaders.h */; };
-		B1940127245A8B8C00EBD17D /* GAF_LUA.h in Headers */ = {isa = PBXBuildFile; fileRef = B19400CD245A8B8C00EBD17D /* GAF_LUA.h */; };
 		B1B17541235732C70011C4D7 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B17538235732C70011C4D7 /* libbox2d.a */; };
 		B2165EEA19921124000BE3E6 /* CCPrimitiveCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B257B45E198A353E00D9A687 /* CCPrimitiveCommand.cpp */; };
 		B230ED7219B417AE00364AA8 /* CCTrianglesCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B230ED6F19B417AE00364AA8 /* CCTrianglesCommand.cpp */; };
@@ -3044,100 +2954,6 @@
 		B1366E1A263B00C1007F9D99 /* CCInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCInteger.h; sourceTree = "<group>"; };
 		B1366E1B263B00C1007F9D99 /* CCArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCArray.cpp; sourceTree = "<group>"; };
 		B1366E1C263B00C1007F9D99 /* CCArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCArray.h; sourceTree = "<group>"; };
-		B194006E245A8B8C00EBD17D /* TagDefineAnimationMasks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineAnimationMasks.cpp; sourceTree = "<group>"; };
-		B194006F245A8B8C00EBD17D /* GAFResourcesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFResourcesInfo.h; sourceTree = "<group>"; };
-		B1940070245A8B8C00EBD17D /* GAFHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFHeader.h; sourceTree = "<group>"; };
-		B1940071245A8B8C00EBD17D /* TagDefineTimeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineTimeline.cpp; sourceTree = "<group>"; };
-		B1940072245A8B8C00EBD17D /* GAFCachedTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFCachedTexture.cpp; sourceTree = "<group>"; };
-		B1940073245A8B8C00EBD17D /* GAFMask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFMask.cpp; sourceTree = "<group>"; };
-		B1940074245A8B8C00EBD17D /* GAFFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFFile.h; sourceTree = "<group>"; };
-		B1940075245A8B8C00EBD17D /* GAFTextureAtlasElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFTextureAtlasElement.h; sourceTree = "<group>"; };
-		B1940076245A8B8C00EBD17D /* GAFTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFTimeline.h; sourceTree = "<group>"; };
-		B1940077245A8B8C00EBD17D /* TagDefineAnimationObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineAnimationObjects.h; sourceTree = "<group>"; };
-		B1940078245A8B8C00EBD17D /* TagDefineAnimationFrames.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineAnimationFrames.cpp; sourceTree = "<group>"; };
-		B1940079245A8B8C00EBD17D /* Android.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Android.mk; sourceTree = "<group>"; };
-		B194007A245A8B8C00EBD17D /* GAFQuadCommand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFQuadCommand.cpp; sourceTree = "<group>"; };
-		B194007B245A8B8C00EBD17D /* TagDefineAnimationFrames2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineAnimationFrames2.cpp; sourceTree = "<group>"; };
-		B194007C245A8B8C00EBD17D /* GAFCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFCollections.h; sourceTree = "<group>"; };
-		B194007D245A8B8C00EBD17D /* GAFAssetTextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFAssetTextureManager.cpp; sourceTree = "<group>"; };
-		B194007E245A8B8C00EBD17D /* GAFLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFLoader.cpp; sourceTree = "<group>"; };
-		B194007F245A8B8C00EBD17D /* TagDefineAnimationObjects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineAnimationObjects.cpp; sourceTree = "<group>"; };
-		B1940080245A8B8C00EBD17D /* TagDefineSounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineSounds.h; sourceTree = "<group>"; };
-		B1940081245A8B8C00EBD17D /* GAFTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFTextField.h; sourceTree = "<group>"; };
-		B1940082245A8B8C00EBD17D /* TagDefineTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineTextField.cpp; sourceTree = "<group>"; };
-		B1940083245A8B8C00EBD17D /* GAFTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFTextData.h; sourceTree = "<group>"; };
-		B1940084245A8B8C00EBD17D /* GAFTextData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFTextData.cpp; sourceTree = "<group>"; };
-		B1940085245A8B8C00EBD17D /* PrimitiveDeserializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PrimitiveDeserializer.cpp; sourceTree = "<group>"; };
-		B1940086245A8B8C00EBD17D /* GAFAnimationSequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFAnimationSequence.cpp; sourceTree = "<group>"; };
-		B1940087245A8B8C00EBD17D /* TagDefineSequences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineSequences.h; sourceTree = "<group>"; };
-		B1940088245A8B8C00EBD17D /* TagDefineNamedParts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineNamedParts.cpp; sourceTree = "<group>"; };
-		B1940089245A8B8C00EBD17D /* TagDefineAnimationFrames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineAnimationFrames.h; sourceTree = "<group>"; };
-		B194008A245A8B8C00EBD17D /* PrimitiveDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimitiveDeserializer.h; sourceTree = "<group>"; };
-		B194008B245A8B8C00EBD17D /* GAFPrecompiled.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFPrecompiled.cpp; sourceTree = "<group>"; };
-		B194008C245A8B8C00EBD17D /* GAFPrecompiled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFPrecompiled.h; sourceTree = "<group>"; };
-		B194008D245A8B8C00EBD17D /* GAFStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFStream.h; sourceTree = "<group>"; };
-		B194008E245A8B8C00EBD17D /* GAFMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFMask.h; sourceTree = "<group>"; };
-		B194008F245A8B8C00EBD17D /* TagDefineTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineTimeline.h; sourceTree = "<group>"; };
-		B1940090245A8B8C00EBD17D /* GAFTextureAtlasElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFTextureAtlasElement.cpp; sourceTree = "<group>"; };
-		B1940091245A8B8C00EBD17D /* MySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySprite.h; sourceTree = "<group>"; };
-		B1940092245A8B8C00EBD17D /* GAFStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFStream.cpp; sourceTree = "<group>"; };
-		B1940093245A8B8C00EBD17D /* TagDefineAnimationMasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineAnimationMasks.h; sourceTree = "<group>"; };
-		B1940094245A8B8C00EBD17D /* GAFMovieClip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFMovieClip.h; sourceTree = "<group>"; };
-		B1940095245A8B8C00EBD17D /* GAFTimelineAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFTimelineAction.h; sourceTree = "<group>"; };
-		B1940096245A8B8C00EBD17D /* GAFShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFShaderManager.cpp; sourceTree = "<group>"; };
-		B1940097245A8B8C00EBD17D /* GAFFilterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFFilterData.h; sourceTree = "<group>"; };
-		B1940098245A8B8C00EBD17D /* GAFPlayer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GAFPlayer-Prefix.pch"; sourceTree = "<group>"; };
-		B1940099245A8B8C00EBD17D /* TagDefineAtlas3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineAtlas3.h; sourceTree = "<group>"; };
-		B194009A245A8B8C00EBD17D /* MySprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MySprite.cpp; sourceTree = "<group>"; };
-		B194009B245A8B8C00EBD17D /* GAFTimelineAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFTimelineAction.cpp; sourceTree = "<group>"; };
-		B194009C245A8B8C00EBD17D /* TagDefineStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineStage.h; sourceTree = "<group>"; };
-		B194009D245A8B8C00EBD17D /* GAFAssetTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFAssetTextureManager.h; sourceTree = "<group>"; };
-		B194009E245A8B8C00EBD17D /* TagDefineSequences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineSequences.cpp; sourceTree = "<group>"; };
-		B194009F245A8B8C00EBD17D /* GAFAnimationFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFAnimationFrame.h; sourceTree = "<group>"; };
-		B19400A0245A8B8C00EBD17D /* GAFMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFMacros.h; sourceTree = "<group>"; };
-		B19400A1245A8B8C00EBD17D /* GAFAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFAsset.cpp; sourceTree = "<group>"; };
-		B19400A2245A8B8C00EBD17D /* GAFTimeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFTimeline.cpp; sourceTree = "<group>"; };
-		B19400A3245A8B8C00EBD17D /* TagDefineAtlas3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineAtlas3.cpp; sourceTree = "<group>"; };
-		B19400A4245A8B8C00EBD17D /* GAFFilterData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFFilterData.cpp; sourceTree = "<group>"; };
-		B19400A5245A8B8C00EBD17D /* GAFCachedTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFCachedTexture.h; sourceTree = "<group>"; };
-		B19400A6245A8B8C00EBD17D /* GAFSubobjectState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFSubobjectState.cpp; sourceTree = "<group>"; };
-		B19400A7245A8B8C00EBD17D /* GAFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFObject.h; sourceTree = "<group>"; };
-		B19400A8245A8B8C00EBD17D /* GAFFilterManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFFilterManager.cpp; sourceTree = "<group>"; };
-		B19400A9245A8B8C00EBD17D /* GAFSubobjectState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFSubobjectState.h; sourceTree = "<group>"; };
-		B19400AA245A8B8C00EBD17D /* GAFQuadCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFQuadCommand.h; sourceTree = "<group>"; };
-		B19400AB245A8B8C00EBD17D /* GAFObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFObject.cpp; sourceTree = "<group>"; };
-		B19400AC245A8B8C00EBD17D /* GAFTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFTextureAtlas.h; sourceTree = "<group>"; };
-		B19400AD245A8B8C00EBD17D /* GAFSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFSprite.cpp; sourceTree = "<group>"; };
-		B19400AE245A8B8C00EBD17D /* GAFSoundInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFSoundInfo.cpp; sourceTree = "<group>"; };
-		B19400AF245A8B8C00EBD17D /* GAFShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFShaderManager.h; sourceTree = "<group>"; };
-		B19400B1245A8B8C00EBD17D /* GaussianBlurFragmentShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GaussianBlurFragmentShader.frag; sourceTree = "<group>"; };
-		B19400B2245A8B8C00EBD17D /* pcShader_PositionTextureAlpha_frag.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = pcShader_PositionTextureAlpha_frag.frag; sourceTree = "<group>"; };
-		B19400B3245A8B8C00EBD17D /* GlowFragmentShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GlowFragmentShader.frag; sourceTree = "<group>"; };
-		B19400B4245A8B8C00EBD17D /* GAFFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFFile.cpp; sourceTree = "<group>"; };
-		B19400B5245A8B8C00EBD17D /* GAFSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFSprite.h; sourceTree = "<group>"; };
-		B19400B6245A8B8C00EBD17D /* GAFLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFLoader.h; sourceTree = "<group>"; };
-		B19400B7245A8B8C00EBD17D /* TagDefineSounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineSounds.cpp; sourceTree = "<group>"; };
-		B19400B8245A8B8C00EBD17D /* GAFDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFDelegates.h; sourceTree = "<group>"; };
-		B19400B9245A8B8C00EBD17D /* TagDefineAtlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineAtlas.cpp; sourceTree = "<group>"; };
-		B19400BA245A8B8C00EBD17D /* GAFTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFTextField.cpp; sourceTree = "<group>"; };
-		B19400BB245A8B8C00EBD17D /* TagDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefines.h; sourceTree = "<group>"; };
-		B19400BC245A8B8C00EBD17D /* GAFTextureAtlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFTextureAtlas.cpp; sourceTree = "<group>"; };
-		B19400BD245A8B8C00EBD17D /* TagDefineNamedParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineNamedParts.h; sourceTree = "<group>"; };
-		B19400BE245A8B8C00EBD17D /* TagDefineStage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TagDefineStage.cpp; sourceTree = "<group>"; };
-		B19400BF245A8B8C00EBD17D /* GAF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAF.h; sourceTree = "<group>"; };
-		B19400C0245A8B8C00EBD17D /* GAFAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFAsset.h; sourceTree = "<group>"; };
-		B19400C1245A8B8C00EBD17D /* GAF_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAF_JS.h; sourceTree = "<group>"; };
-		B19400C2245A8B8C00EBD17D /* TagDefineAnimationFrames2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineAnimationFrames2.h; sourceTree = "<group>"; };
-		B19400C3245A8B8C00EBD17D /* DefinitionTagBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionTagBase.h; sourceTree = "<group>"; };
-		B19400C4245A8B8C00EBD17D /* GAFAnimationFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFAnimationFrame.cpp; sourceTree = "<group>"; };
-		B19400C5245A8B8C00EBD17D /* GAFMovieClip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GAFMovieClip.cpp; sourceTree = "<group>"; };
-		B19400C6245A8B8C00EBD17D /* TagDefineAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineAtlas.h; sourceTree = "<group>"; };
-		B19400C7245A8B8C00EBD17D /* GAFFilterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFFilterManager.h; sourceTree = "<group>"; };
-		B19400C8245A8B8C00EBD17D /* GAFSoundInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFSoundInfo.h; sourceTree = "<group>"; };
-		B19400C9245A8B8C00EBD17D /* TagDefineTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDefineTextField.h; sourceTree = "<group>"; };
-		B19400CA245A8B8C00EBD17D /* GAFAnimationSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFAnimationSequence.h; sourceTree = "<group>"; };
-		B19400CC245A8B8C00EBD17D /* GAFPrecompiledShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFPrecompiledShaders.h; sourceTree = "<group>"; };
-		B19400CD245A8B8C00EBD17D /* GAF_LUA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAF_LUA.h; sourceTree = "<group>"; };
 		B1B17538235732C70011C4D7 /* libbox2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbox2d.a; sourceTree = "<group>"; };
 		B20564AA1A6E5744001C1B6E /* ccShader_PositionColorTextureAsPointsize.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ccShader_PositionColorTextureAsPointsize.vert; sourceTree = "<group>"; };
 		B217703B1977ECB4009EE11B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -3344,7 +3160,6 @@
 				1A57033E180BD0490088DEC7 /* external */,
 				1551A341158F2AB200E66CFE /* Frameworks */,
 				46A170851807CE87005B8026 /* math */,
-				B194006C245A8B8B00EBD17D /* pba-external */,
 				50ABBEDB1926664700A911A9 /* platform */,
 				1551A340158F2AB200E66CFE /* Products */,
 				50DC5180187B817900A9C23F /* RELEASE_NOTES.md */,
@@ -5733,132 +5548,6 @@
 			path = ../cocos/deprecated;
 			sourceTree = "<group>";
 		};
-		B194006C245A8B8B00EBD17D /* pba-external */ = {
-			isa = PBXGroup;
-			children = (
-				B194006D245A8B8C00EBD17D /* gaf */,
-			);
-			name = "pba-external";
-			path = "../pba-external";
-			sourceTree = "<group>";
-		};
-		B194006D245A8B8C00EBD17D /* gaf */ = {
-			isa = PBXGroup;
-			children = (
-				B194006E245A8B8C00EBD17D /* TagDefineAnimationMasks.cpp */,
-				B194006F245A8B8C00EBD17D /* GAFResourcesInfo.h */,
-				B1940070245A8B8C00EBD17D /* GAFHeader.h */,
-				B1940071245A8B8C00EBD17D /* TagDefineTimeline.cpp */,
-				B1940072245A8B8C00EBD17D /* GAFCachedTexture.cpp */,
-				B1940073245A8B8C00EBD17D /* GAFMask.cpp */,
-				B1940074245A8B8C00EBD17D /* GAFFile.h */,
-				B1940075245A8B8C00EBD17D /* GAFTextureAtlasElement.h */,
-				B1940076245A8B8C00EBD17D /* GAFTimeline.h */,
-				B1940077245A8B8C00EBD17D /* TagDefineAnimationObjects.h */,
-				B1940078245A8B8C00EBD17D /* TagDefineAnimationFrames.cpp */,
-				B1940079245A8B8C00EBD17D /* Android.mk */,
-				B194007A245A8B8C00EBD17D /* GAFQuadCommand.cpp */,
-				B194007B245A8B8C00EBD17D /* TagDefineAnimationFrames2.cpp */,
-				B194007C245A8B8C00EBD17D /* GAFCollections.h */,
-				B194007D245A8B8C00EBD17D /* GAFAssetTextureManager.cpp */,
-				B194007E245A8B8C00EBD17D /* GAFLoader.cpp */,
-				B194007F245A8B8C00EBD17D /* TagDefineAnimationObjects.cpp */,
-				B1940080245A8B8C00EBD17D /* TagDefineSounds.h */,
-				B1940081245A8B8C00EBD17D /* GAFTextField.h */,
-				B1940082245A8B8C00EBD17D /* TagDefineTextField.cpp */,
-				B1940083245A8B8C00EBD17D /* GAFTextData.h */,
-				B1940084245A8B8C00EBD17D /* GAFTextData.cpp */,
-				B1940085245A8B8C00EBD17D /* PrimitiveDeserializer.cpp */,
-				B1940086245A8B8C00EBD17D /* GAFAnimationSequence.cpp */,
-				B1940087245A8B8C00EBD17D /* TagDefineSequences.h */,
-				B1940088245A8B8C00EBD17D /* TagDefineNamedParts.cpp */,
-				B1940089245A8B8C00EBD17D /* TagDefineAnimationFrames.h */,
-				B194008A245A8B8C00EBD17D /* PrimitiveDeserializer.h */,
-				B194008B245A8B8C00EBD17D /* GAFPrecompiled.cpp */,
-				B194008C245A8B8C00EBD17D /* GAFPrecompiled.h */,
-				B194008D245A8B8C00EBD17D /* GAFStream.h */,
-				B194008E245A8B8C00EBD17D /* GAFMask.h */,
-				B194008F245A8B8C00EBD17D /* TagDefineTimeline.h */,
-				B1940090245A8B8C00EBD17D /* GAFTextureAtlasElement.cpp */,
-				B1940091245A8B8C00EBD17D /* MySprite.h */,
-				B1940092245A8B8C00EBD17D /* GAFStream.cpp */,
-				B1940093245A8B8C00EBD17D /* TagDefineAnimationMasks.h */,
-				B1940094245A8B8C00EBD17D /* GAFMovieClip.h */,
-				B1940095245A8B8C00EBD17D /* GAFTimelineAction.h */,
-				B1940096245A8B8C00EBD17D /* GAFShaderManager.cpp */,
-				B1940097245A8B8C00EBD17D /* GAFFilterData.h */,
-				B1940098245A8B8C00EBD17D /* GAFPlayer-Prefix.pch */,
-				B1940099245A8B8C00EBD17D /* TagDefineAtlas3.h */,
-				B194009A245A8B8C00EBD17D /* MySprite.cpp */,
-				B194009B245A8B8C00EBD17D /* GAFTimelineAction.cpp */,
-				B194009C245A8B8C00EBD17D /* TagDefineStage.h */,
-				B194009D245A8B8C00EBD17D /* GAFAssetTextureManager.h */,
-				B194009E245A8B8C00EBD17D /* TagDefineSequences.cpp */,
-				B194009F245A8B8C00EBD17D /* GAFAnimationFrame.h */,
-				B19400A0245A8B8C00EBD17D /* GAFMacros.h */,
-				B19400A1245A8B8C00EBD17D /* GAFAsset.cpp */,
-				B19400A2245A8B8C00EBD17D /* GAFTimeline.cpp */,
-				B19400A3245A8B8C00EBD17D /* TagDefineAtlas3.cpp */,
-				B19400A4245A8B8C00EBD17D /* GAFFilterData.cpp */,
-				B19400A5245A8B8C00EBD17D /* GAFCachedTexture.h */,
-				B19400A6245A8B8C00EBD17D /* GAFSubobjectState.cpp */,
-				B19400A7245A8B8C00EBD17D /* GAFObject.h */,
-				B19400A8245A8B8C00EBD17D /* GAFFilterManager.cpp */,
-				B19400A9245A8B8C00EBD17D /* GAFSubobjectState.h */,
-				B19400AA245A8B8C00EBD17D /* GAFQuadCommand.h */,
-				B19400AB245A8B8C00EBD17D /* GAFObject.cpp */,
-				B19400AC245A8B8C00EBD17D /* GAFTextureAtlas.h */,
-				B19400AD245A8B8C00EBD17D /* GAFSprite.cpp */,
-				B19400AE245A8B8C00EBD17D /* GAFSoundInfo.cpp */,
-				B19400AF245A8B8C00EBD17D /* GAFShaderManager.h */,
-				B19400B0245A8B8C00EBD17D /* Shaders */,
-				B19400B4245A8B8C00EBD17D /* GAFFile.cpp */,
-				B19400B5245A8B8C00EBD17D /* GAFSprite.h */,
-				B19400B6245A8B8C00EBD17D /* GAFLoader.h */,
-				B19400B7245A8B8C00EBD17D /* TagDefineSounds.cpp */,
-				B19400B8245A8B8C00EBD17D /* GAFDelegates.h */,
-				B19400B9245A8B8C00EBD17D /* TagDefineAtlas.cpp */,
-				B19400BA245A8B8C00EBD17D /* GAFTextField.cpp */,
-				B19400BB245A8B8C00EBD17D /* TagDefines.h */,
-				B19400BC245A8B8C00EBD17D /* GAFTextureAtlas.cpp */,
-				B19400BD245A8B8C00EBD17D /* TagDefineNamedParts.h */,
-				B19400BE245A8B8C00EBD17D /* TagDefineStage.cpp */,
-				B19400BF245A8B8C00EBD17D /* GAF.h */,
-				B19400C0245A8B8C00EBD17D /* GAFAsset.h */,
-				B19400C1245A8B8C00EBD17D /* GAF_JS.h */,
-				B19400C2245A8B8C00EBD17D /* TagDefineAnimationFrames2.h */,
-				B19400C3245A8B8C00EBD17D /* DefinitionTagBase.h */,
-				B19400C4245A8B8C00EBD17D /* GAFAnimationFrame.cpp */,
-				B19400C5245A8B8C00EBD17D /* GAFMovieClip.cpp */,
-				B19400C6245A8B8C00EBD17D /* TagDefineAtlas.h */,
-				B19400C7245A8B8C00EBD17D /* GAFFilterManager.h */,
-				B19400C8245A8B8C00EBD17D /* GAFSoundInfo.h */,
-				B19400C9245A8B8C00EBD17D /* TagDefineTextField.h */,
-				B19400CA245A8B8C00EBD17D /* GAFAnimationSequence.h */,
-				B19400CB245A8B8C00EBD17D /* ShadersPrecompiled */,
-				B19400CD245A8B8C00EBD17D /* GAF_LUA.h */,
-			);
-			path = gaf;
-			sourceTree = "<group>";
-		};
-		B19400B0245A8B8C00EBD17D /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				B19400B1245A8B8C00EBD17D /* GaussianBlurFragmentShader.frag */,
-				B19400B2245A8B8C00EBD17D /* pcShader_PositionTextureAlpha_frag.frag */,
-				B19400B3245A8B8C00EBD17D /* GlowFragmentShader.frag */,
-			);
-			path = Shaders;
-			sourceTree = "<group>";
-		};
-		B19400CB245A8B8C00EBD17D /* ShadersPrecompiled */ = {
-			isa = PBXGroup;
-			children = (
-				B19400CC245A8B8C00EBD17D /* GAFPrecompiledShaders.h */,
-			);
-			path = ShadersPrecompiled;
-			sourceTree = "<group>";
-		};
 		B1B17536235732C70011C4D7 /* prebuilt */ = {
 			isa = PBXGroup;
 			children = (
@@ -6119,7 +5808,6 @@
 				B13669F1263AF7DD007F9D99 /* TagDefineSounds.h in Headers */,
 				B1366A18263AF7DD007F9D99 /* GAFObject.h in Headers */,
 				1A40D10A1E8E56C6002E363A /* allocators.h in Headers */,
-				B19400CF245A8B8C00EBD17D /* GAFResourcesInfo.h in Headers */,
 				15AE1B8119AADA9A00C27E9E /* UITextAtlas.h in Headers */,
 				B1366D99263AFF35007F9D99 /* CCPUOnQuotaObserverTranslator.h in Headers */,
 				B13669FD263AF7DD007F9D99 /* GAFPrecompiled.h in Headers */,
@@ -6129,13 +5817,11 @@
 				1A40D1281E8E56C7002E363A /* biginteger.h in Headers */,
 				D0FD03521A3B51AA00825BB5 /* CCAllocatorGlobal.h in Headers */,
 				B1366A42263AF7DD007F9D99 /* Pool.h in Headers */,
-				B19400F7245A8B8C00EBD17D /* GAFPlayer-Prefix.pch in Headers */,
 				94A6DF091C7304120094AEF7 /* LocalizationManager.h in Headers */,
 				1A40D1221E8E56C7002E363A /* filewritestream.h in Headers */,
 				50ABBE7C1925AB6F00A911A9 /* CCEventMouse.h in Headers */,
 				B1366A4A263AF7DD007F9D99 /* SpineObject.h in Headers */,
 				B1366CF4263AFF33007F9D99 /* CCPUVortexAffectorTranslator.h in Headers */,
-				B194011B245A8B8C00EBD17D /* GAFAsset.h in Headers */,
 				B1366DCF263AFF36007F9D99 /* CCPUForceFieldAffectorTranslator.h in Headers */,
 				B1366A4D263AF7DD007F9D99 /* Bone.h in Headers */,
 				15FB208E1AE7C57D00C31518 /* poly2tri.h in Headers */,
@@ -6147,7 +5833,6 @@
 				B13669F2263AF7DD007F9D99 /* GAFTextField.h in Headers */,
 				50ABBDB41925AB4100A911A9 /* ccShaders.h in Headers */,
 				B1366A63263AF7DD007F9D99 /* TransformMode.h in Headers */,
-				B19400DF245A8B8C00EBD17D /* TagDefineSounds.h in Headers */,
 				B10C52112213E8D1002D7B16 /* b2WheelJoint.h in Headers */,
 				15AE19B319AAD39700C27E9E /* SliderReader.h in Headers */,
 				15AE1B7919AADA9A00C27E9E /* UIRichText.h in Headers */,
@@ -6165,7 +5850,6 @@
 				B1366DEA263AFF36007F9D99 /* CCControlSlider.h in Headers */,
 				1A40D10D1E8E56C7002E363A /* document-wrapper.h in Headers */,
 				B1366DC4263AFF35007F9D99 /* CCPUFlockCenteringAffectorTranslator.h in Headers */,
-				B19400DB245A8B8C00EBD17D /* GAFCollections.h in Headers */,
 				B1366D3C263AFF34007F9D99 /* CCPUSphereSurfaceEmitterTranslator.h in Headers */,
 				50ABC0041926664800A911A9 /* CCLock-apple.h in Headers */,
 				1A40D15E1E8E56C7002E363A /* pointer.h in Headers */,
@@ -6180,7 +5864,6 @@
 				B6DD2FD41B04825B00E47F5F /* DetourStatus.h in Headers */,
 				B5CE6DCB1B3C05BA002B0419 /* UIRadioButton.h in Headers */,
 				B1366A7A263AF7DD007F9D99 /* TransformConstraintData.h in Headers */,
-				B1940111245A8B8C00EBD17D /* GAFLoader.h in Headers */,
 				B10C51FF2213E8D1002D7B16 /* b2CircleContact.h in Headers */,
 				1A40D16D1E8E56C7002E363A /* stream.h in Headers */,
 				B1366A58263AF7DD007F9D99 /* PathConstraintPositionTimeline.h in Headers */,
@@ -6229,7 +5912,6 @@
 				1A570068180BC5A10088DEC7 /* CCActionCamera.h in Headers */,
 				1A40D14C1E8E56C7002E363A /* istreamwrapper.h in Headers */,
 				1A57006C180BC5A10088DEC7 /* CCActionCatmullRom.h in Headers */,
-				B19400E6245A8B8C00EBD17D /* TagDefineSequences.h in Headers */,
 				15AE195C19AAD35100C27E9E /* CCSGUIReader.h in Headers */,
 				B1366DB6263AFF35007F9D99 /* CCPUOnVelocityObserver.h in Headers */,
 				1A40D1161E8E56C7002E363A /* encodings.h in Headers */,
@@ -6238,7 +5920,6 @@
 				B1366CFA263AFF33007F9D99 /* CCPUInterParticleCollider.h in Headers */,
 				D0FD034E1A3B51AA00825BB5 /* CCAllocatorDiagnostics.h in Headers */,
 				DABC9FAC19E7DFA900FA252C /* CCClippingRectangleNode.h in Headers */,
-				B19400E2245A8B8C00EBD17D /* GAFTextData.h in Headers */,
 				B6DD2FF81B04825B00E47F5F /* fastlz.h in Headers */,
 				B13669E7263AF7DC007F9D99 /* GAFTextureAtlasElement.h in Headers */,
 				B1366D20263AFF34007F9D99 /* CCPUForceFieldAffector.h in Headers */,
@@ -6278,7 +5959,6 @@
 				1A57007C180BC5A10088DEC7 /* CCActionInstant.h in Headers */,
 				B10C51F22213E8D1002D7B16 /* b2Math.h in Headers */,
 				3E6176751960F89B00DE83F5 /* CCEventController.h in Headers */,
-				B1940110245A8B8C00EBD17D /* GAFSprite.h in Headers */,
 				382384121A259092002C4610 /* NodeReaderDefine.h in Headers */,
 				B10C52052213E8D1002D7B16 /* b2PolygonContact.h in Headers */,
 				B1366A6F263AF7DD007F9D99 /* Json.h in Headers */,
@@ -6289,7 +5969,6 @@
 				1A40D1251E8E56C7002E363A /* fwd.h in Headers */,
 				1A570080180BC5A10088DEC7 /* CCActionInterval.h in Headers */,
 				15AE192D19AAD35100C27E9E /* CCActionFrame.h in Headers */,
-				B19400D4245A8B8C00EBD17D /* GAFFile.h in Headers */,
 				15AE192F19AAD35100C27E9E /* CCActionFrameEasing.h in Headers */,
 				1A570084180BC5A10088DEC7 /* CCActionManager.h in Headers */,
 				B1366A22263AF7DD007F9D99 /* GAFSprite.h in Headers */,
@@ -6316,8 +5995,6 @@
 				1A570094180BC5A10088DEC7 /* CCActionTween.h in Headers */,
 				1A57009B180BC5C10088DEC7 /* CCAtlasNode.h in Headers */,
 				B10C51EB2213E8D1002D7B16 /* b2CircleShape.h in Headers */,
-				B19400F2245A8B8C00EBD17D /* TagDefineAnimationMasks.h in Headers */,
-				B194010E245A8B8C00EBD17D /* GAFShaderManager.h in Headers */,
 				B1366DCC263AFF36007F9D99 /* CCPUSlaveEmitterTranslator.h in Headers */,
 				15AE184919AAD2F700C27E9E /* cocos3d.h in Headers */,
 				1A5700A1180BC5D20088DEC7 /* CCNode.h in Headers */,
@@ -6330,7 +6007,6 @@
 				B1366D76263AFF35007F9D99 /* CCPUColorAffectorTranslator.h in Headers */,
 				15AE1B7719AADA9A00C27E9E /* UIPageView.h in Headers */,
 				50ABBD8A1925AB4100A911A9 /* CCCustomCommand.h in Headers */,
-				B19400EB245A8B8C00EBD17D /* GAFPrecompiled.h in Headers */,
 				85505F0C1B60E3D5003F2CD4 /* CSBoneBinary_generated.h in Headers */,
 				B1366E22263B00C1007F9D99 /* CCNotificationCenter.h in Headers */,
 				B1366A33263AF7DD007F9D99 /* TagDefineAtlas.h in Headers */,
@@ -6349,7 +6025,6 @@
 				15AE19A919AAD39700C27E9E /* LayoutReader.h in Headers */,
 				15AE1B7B19AADA9A00C27E9E /* UIScrollView.h in Headers */,
 				B10C51EE2213E8D1002D7B16 /* b2Shape.h in Headers */,
-				B19400F6245A8B8C00EBD17D /* GAFFilterData.h in Headers */,
 				5034CA30191D591100CE6051 /* ccShader_PositionTexture.vert in Headers */,
 				B1366A41263AF7DD007F9D99 /* SkeletonClipping.h in Headers */,
 				382384391A259126002C4610 /* ProjectNodeReader.h in Headers */,
@@ -6360,8 +6035,6 @@
 				503DD8E61926736A00CD74DD /* CCEAGLView-ios.h in Headers */,
 				B1366A1A263AF7DD007F9D99 /* GAFSubobjectState.h in Headers */,
 				50ABBE4C1925AB6F00A911A9 /* CCEventAcceleration.h in Headers */,
-				B194011A245A8B8C00EBD17D /* GAF.h in Headers */,
-				B19400D0245A8B8C00EBD17D /* GAFHeader.h in Headers */,
 				B1366DEB263AFF36007F9D99 /* CCControlStepper.h in Headers */,
 				B1366A7B263AF7DD007F9D99 /* Extension.h in Headers */,
 				B10C52072213E8D1002D7B16 /* b2FrictionJoint.h in Headers */,
@@ -6402,7 +6075,6 @@
 				50ABBFFE1926664800A911A9 /* CCFileUtils-apple.h in Headers */,
 				1A5701A4180BCB590088DEC7 /* CCFontAtlas.h in Headers */,
 				1A5701A8180BCB590088DEC7 /* CCFontAtlasCache.h in Headers */,
-				B19400E0245A8B8C00EBD17D /* GAFTextField.h in Headers */,
 				182C5CE81A9D725400C30D34 /* UserCameraReader.h in Headers */,
 				B6DD2FB21B04825B00E47F5F /* RecastDebugDraw.h in Headers */,
 				1A5701B4180BCB590088DEC7 /* CCFontFNT.h in Headers */,
@@ -6415,7 +6087,6 @@
 				B1366CF8263AFF33007F9D99 /* CCPUDoEnableComponentEventHandler.h in Headers */,
 				3823842B1A2590F9002C4610 /* NodeReader.h in Headers */,
 				B10C51F02213E8D1002D7B16 /* b2Draw.h in Headers */,
-				B1940113245A8B8C00EBD17D /* GAFDelegates.h in Headers */,
 				1A5701B8180BCB5A0088DEC7 /* CCFontFreeType.h in Headers */,
 				B1366DF7263AFF36007F9D99 /* ExtensionExport.h in Headers */,
 				B1366CCF263AFF33007F9D99 /* CCPUOnRandomObserver.h in Headers */,
@@ -6426,7 +6097,6 @@
 				B1366A02263AF7DD007F9D99 /* MySprite.h in Headers */,
 				1A5701BC180BCB5A0088DEC7 /* CCLabel.h in Headers */,
 				B1366CAA263AFF33007F9D99 /* CCParticleSystem3D.h in Headers */,
-				B1940104245A8B8C00EBD17D /* GAFCachedTexture.h in Headers */,
 				1A5701C0180BCB5A0088DEC7 /* CCLabelAtlas.h in Headers */,
 				50ABBE681925AB6F00A911A9 /* CCEventListenerCustom.h in Headers */,
 				15AE196B19AAD35100C27E9E /* DictionaryHelper.h in Headers */,
@@ -6453,7 +6123,6 @@
 				15AE1BB019AADFDF00C27E9E /* UILayoutManager.h in Headers */,
 				50ABBE9E1925AB6F00A911A9 /* CCRefPtr.h in Headers */,
 				B1366A53263AF7DD007F9D99 /* AttachmentType.h in Headers */,
-				B19400FF245A8B8C00EBD17D /* GAFMacros.h in Headers */,
 				BA6249A91E77D2850096291C /* tinydir.h in Headers */,
 				B1366A5A263AF7DD007F9D99 /* spine-cocos2dx.h in Headers */,
 				B1366A23263AF7DD007F9D99 /* GAFLoader.h in Headers */,
@@ -6472,7 +6141,6 @@
 				15AE1BAA19AADFDF00C27E9E /* UIVBox.h in Headers */,
 				B1366A5E263AF7DD007F9D99 /* RegionAttachment.h in Headers */,
 				B1366CE4263AFF33007F9D99 /* CCPUOnEmissionObserver.h in Headers */,
-				B19400ED245A8B8C00EBD17D /* GAFMask.h in Headers */,
 				3EACC9A719F5014D00EB3C5E /* CCLight.h in Headers */,
 				5E9F61291A3FFE3D0038DE01 /* CCFrustum.h in Headers */,
 				B1366DF5263AFF36007F9D99 /* CCTableView.h in Headers */,
@@ -6502,7 +6170,6 @@
 				B6DD2FD81B04825B00E47F5F /* DetourCrowd.h in Headers */,
 				B1366DD0263AFF36007F9D99 /* CCPUOnPositionObserver.h in Headers */,
 				B10C51F62213E8D1002D7B16 /* b2Body.h in Headers */,
-				B19400EE245A8B8C00EBD17D /* TagDefineTimeline.h in Headers */,
 				B1366A36263AF7DD007F9D99 /* TagDefineTextField.h in Headers */,
 				B1366A3B263AF7DD007F9D99 /* Animation.h in Headers */,
 				B1366A08263AF7DD007F9D99 /* GAFFilterData.h in Headers */,
@@ -6517,7 +6184,6 @@
 				B1366D80263AFF35007F9D99 /* CCPUColorAffector.h in Headers */,
 				1A5701FA180BCBAD0088DEC7 /* CCMenu.h in Headers */,
 				B1366A3A263AF7DD007F9D99 /* DeformTimeline.h in Headers */,
-				B19400FC245A8B8C00EBD17D /* GAFAssetTextureManager.h in Headers */,
 				1A5701FE180BCBAD0088DEC7 /* CCMenuItem.h in Headers */,
 				B1366E2A263B00C1007F9D99 /* CCInteger.h in Headers */,
 				B1366CAD263AFF33007F9D99 /* CCPUDoExpireEventHandler.h in Headers */,
@@ -6527,17 +6193,13 @@
 				1A570205180BCBD40088DEC7 /* CCClippingNode.h in Headers */,
 				15AE1B8919AADA9A00C27E9E /* UICheckBox.h in Headers */,
 				5034CA34191D591100CE6051 /* ccShader_PositionTexture_uColor.frag in Headers */,
-				B1940123245A8B8C00EBD17D /* GAFSoundInfo.h in Headers */,
 				15AE197C19AAD35700C27E9E /* CCFrame.h in Headers */,
-				B19400D6245A8B8C00EBD17D /* GAFTimeline.h in Headers */,
 				15FB208A1AE7C57D00C31518 /* shapes.h in Headers */,
 				50ABBEA21925AB6F00A911A9 /* CCScheduler.h in Headers */,
 				B1366D55263AFF34007F9D99 /* CCPUSimpleSpline.h in Headers */,
 				1A57020B180BCBDF0088DEC7 /* CCMotionStreak.h in Headers */,
 				15AE195219AAD35100C27E9E /* CCDecorativeDisplay.h in Headers */,
 				B6DD2FAA1B04825B00E47F5F /* DebugDraw.h in Headers */,
-				B19400FE245A8B8C00EBD17D /* GAFAnimationFrame.h in Headers */,
-				B19400E9245A8B8C00EBD17D /* PrimitiveDeserializer.h in Headers */,
 				15AE196619AAD35100C27E9E /* CCTween.h in Headers */,
 				15AE194619AAD35100C27E9E /* CCComAttribute.h in Headers */,
 				B1366A69263AF7DD007F9D99 /* Skeleton.h in Headers */,
@@ -6561,7 +6223,6 @@
 				B1366A4F263AF7DD007F9D99 /* DrawOrderTimeline.h in Headers */,
 				503DD8F61926B0DB00CD74DD /* CCIMEDelegate.h in Headers */,
 				B10C51FB2213E8D1002D7B16 /* b2World.h in Headers */,
-				B194011C245A8B8C00EBD17D /* GAF_JS.h in Headers */,
 				B1366A04263AF7DD007F9D99 /* TagDefineAnimationMasks.h in Headers */,
 				B1366A59263AF7DD007F9D99 /* RotateTimeline.h in Headers */,
 				1A570228180BCC1A0088DEC7 /* CCParticleExamples.h in Headers */,
@@ -6586,7 +6247,6 @@
 				B24AA988195A675C007B4522 /* CCFastTMXLayer.h in Headers */,
 				15AE1B7319AADA9A00C27E9E /* UIListView.h in Headers */,
 				15AE192A19AAD35100C27E9E /* TriggerMng.h in Headers */,
-				B1940106245A8B8C00EBD17D /* GAFObject.h in Headers */,
 				B13669FA263AF7DD007F9D99 /* TagDefineAnimationFrames.h in Headers */,
 				5034CA2C191D591100CE6051 /* ccShader_PositionTextureA8Color.vert in Headers */,
 				B13669E8263AF7DC007F9D99 /* GAFTimeline.h in Headers */,
@@ -6627,10 +6287,7 @@
 				1A57028D180BCC900088DEC7 /* CCSpriteFrameCache.h in Headers */,
 				B1366CCE263AFF33007F9D99 /* CCPUDynamicAttributeTranslator.h in Headers */,
 				B1366DE8263AFF36007F9D99 /* CCControlButton.h in Headers */,
-				B1940122245A8B8C00EBD17D /* GAFFilterManager.h in Headers */,
 				B1366D9F263AFF35007F9D99 /* CCPUGeometryRotatorTranslator.h in Headers */,
-				B1940116245A8B8C00EBD17D /* TagDefines.h in Headers */,
-				B19400E8245A8B8C00EBD17D /* TagDefineAnimationFrames.h in Headers */,
 				B1366A8A263AF7DD007F9D99 /* BoneData.h in Headers */,
 				B1366D6E263AFF35007F9D99 /* CCPUOnExpireObserver.h in Headers */,
 				B1366A0A263AF7DD007F9D99 /* TagDefineAtlas3.h in Headers */,
@@ -6644,7 +6301,6 @@
 				B10C51E72213E8D1002D7B16 /* b2Distance.h in Headers */,
 				1A570299180BCCAB0088DEC7 /* CCAnimationCache.h in Headers */,
 				B1366CF7263AFF33007F9D99 /* CCPUGravityAffectorTranslator.h in Headers */,
-				B1940125245A8B8C00EBD17D /* GAFAnimationSequence.h in Headers */,
 				B1366A06263AF7DD007F9D99 /* GAFTimelineAction.h in Headers */,
 				50ABBEAA1925AB6F00A911A9 /* CCTouch.h in Headers */,
 				B10C52022213E8D1002D7B16 /* b2EdgeAndCircleContact.h in Headers */,
@@ -6659,7 +6315,6 @@
 				D0FD03581A3B51AA00825BB5 /* CCAllocatorMutex.h in Headers */,
 				1A40D13D1E8E56C7002E363A /* regex.h in Headers */,
 				B1366A73263AF7DD007F9D99 /* AttachmentTimeline.h in Headers */,
-				B19400EC245A8B8C00EBD17D /* GAFStream.h in Headers */,
 				1A5702CB180BCE370088DEC7 /* CCTextFieldTTF.h in Headers */,
 				1A5702ED180BCE750088DEC7 /* CCTileMapAtlas.h in Headers */,
 				B1366E24263B00C1007F9D99 /* CCString.h in Headers */,
@@ -6672,7 +6327,6 @@
 				15AE197819AAD35700C27E9E /* CCActionTimeline.h in Headers */,
 				B1366D35263AFF34007F9D99 /* CCPUVertexEmitter.h in Headers */,
 				5034CA44191D591100CE6051 /* ccShader_Label.vert in Headers */,
-				B194011E245A8B8C00EBD17D /* DefinitionTagBase.h in Headers */,
 				1A5702F5180BCE750088DEC7 /* CCTMXObjectGroup.h in Headers */,
 				B1366A81263AF7DD007F9D99 /* BoundingBoxAttachment.h in Headers */,
 				B1366DE9263AFF36007F9D99 /* CCInvocation.h in Headers */,
@@ -6707,7 +6361,6 @@
 				B10C51EF2213E8D1002D7B16 /* b2BlockAllocator.h in Headers */,
 				D0FD035C1A3B51AA00825BB5 /* CCAllocatorStrategyFixedBlock.h in Headers */,
 				B1366A8B263AF7DD007F9D99 /* TranslateTimeline.h in Headers */,
-				B194010B245A8B8C00EBD17D /* GAFTextureAtlas.h in Headers */,
 				15AE185A19AAD31200C27E9E /* CDConfig.h in Headers */,
 				1A57034E180BD09B0088DEC7 /* tinyxml2.h in Headers */,
 				1A570357180BD0B00088DEC7 /* ioapi.h in Headers */,
@@ -6723,7 +6376,6 @@
 				1A57035B180BD0B00088DEC7 /* unzip.h in Headers */,
 				B1366A78263AF7DD007F9D99 /* SkeletonBatch.h in Headers */,
 				B10C51F12213E8D1002D7B16 /* b2GrowableStack.h in Headers */,
-				B19400D7245A8B8C00EBD17D /* TagDefineAnimationObjects.h in Headers */,
 				15AE1BA619AADFDF00C27E9E /* UIHBox.h in Headers */,
 				B1366A85263AF7DD007F9D99 /* SkeletonTwoColorBatch.h in Headers */,
 				505385031B01887A00793096 /* CCProperties.h in Headers */,
@@ -6753,7 +6405,6 @@
 				50ABBE301925AB6F00A911A9 /* ccConfig.h in Headers */,
 				B6DD2FE41B04825B00E47F5F /* DetourPathCorridor.h in Headers */,
 				15AE195819AAD35100C27E9E /* CCInputDelegate.h in Headers */,
-				B19400FB245A8B8C00EBD17D /* TagDefineStage.h in Headers */,
 				B6DD2FB61B04825B00E47F5F /* RecastDump.h in Headers */,
 				50ABBDAC1925AB4100A911A9 /* CCRenderCommandPool.h in Headers */,
 				5034CA3C191D591100CE6051 /* ccShader_PositionColor.vert in Headers */,
@@ -6788,7 +6439,6 @@
 				50ABBEC81925AB6F00A911A9 /* etc1.h in Headers */,
 				50ABBDB01925AB4100A911A9 /* CCRenderer.h in Headers */,
 				B29594B71926D5EC003EEF37 /* CCMeshCommand.h in Headers */,
-				B1940127245A8B8C00EBD17D /* GAF_LUA.h in Headers */,
 				3E6176771960F89B00DE83F5 /* CCEventListenerController.h in Headers */,
 				50ABBD861925AB4100A911A9 /* CCBatchCommand.h in Headers */,
 				50ABBE481925AB6F00A911A9 /* CCEvent.h in Headers */,
@@ -6797,22 +6447,18 @@
 				3823841D1A2590D2002C4610 /* ComAudioReader.h in Headers */,
 				3E6176781960F89B00DE83F5 /* CCGameController.h in Headers */,
 				15AE19BB19AAD39700C27E9E /* TextReader.h in Headers */,
-				B1940109245A8B8C00EBD17D /* GAFQuadCommand.h in Headers */,
 				B1366A2F263AF7DD007F9D99 /* TagDefineAnimationFrames2.h in Headers */,
 				B1366D03263AFF34007F9D99 /* CCPUOnEventFlagObserver.h in Headers */,
 				50ABBE641925AB6F00A911A9 /* CCEventListenerAcceleration.h in Headers */,
 				B1366D53263AFF34007F9D99 /* CCPUDoFreezeEventHandlerTranslator.h in Headers */,
-				B1940118245A8B8C00EBD17D /* TagDefineNamedParts.h in Headers */,
 				B1366A43263AF7DD007F9D99 /* TimelineType.h in Headers */,
 				15AE180B19AAD2F700C27E9E /* CCAABB.h in Headers */,
 				B1366CB4263AFF33007F9D99 /* CCPUObserver.h in Headers */,
 				50ABBD921925AB4100A911A9 /* CCGLProgramCache.h in Headers */,
 				50ABBE961925AB6F00A911A9 /* CCProfiling.h in Headers */,
 				B1366CCB263AFF33007F9D99 /* CCPUBoxCollider.h in Headers */,
-				B1940124245A8B8C00EBD17D /* TagDefineTextField.h in Headers */,
 				B1366DED263AFF36007F9D99 /* CCControlSaturationBrightnessPicker.h in Headers */,
 				15AE19B519AAD39700C27E9E /* TextAtlasReader.h in Headers */,
-				B19400F0245A8B8C00EBD17D /* MySprite.h in Headers */,
 				15AE182B19AAD2F700C27E9E /* CCMeshSkin.h in Headers */,
 				B10C520F2213E8D1002D7B16 /* b2RopeJoint.h in Headers */,
 				B10C52082213E8D1002D7B16 /* b2GearJoint.h in Headers */,
@@ -6829,7 +6475,6 @@
 				B1366CD5263AFF33007F9D99 /* CCPUOnCollisionObserver.h in Headers */,
 				B1366A6A263AF7DD007F9D99 /* ColorTimeline.h in Headers */,
 				1A40D1101E8E56C7002E363A /* document.h in Headers */,
-				B19400F3245A8B8C00EBD17D /* GAFMovieClip.h in Headers */,
 				B1366DF3263AFF36007F9D99 /* CCScrollView.h in Headers */,
 				38B8E2D819E66581002D7CE7 /* CSLoader.h in Headers */,
 				B1366DB4263AFF35007F9D99 /* CCPUDoPlacementParticleEventHandler.h in Headers */,
@@ -6844,7 +6489,6 @@
 				1A40D1701E8E56C7002E363A /* stringbuffer.h in Headers */,
 				B1366D31263AFF34007F9D99 /* CCPUBaseColliderTranslator.h in Headers */,
 				D0FD03601A3B51AA00825BB5 /* CCAllocatorStrategyPool.h in Headers */,
-				B19400D5245A8B8C00EBD17D /* GAFTextureAtlasElement.h in Headers */,
 				15AE198019AAD35700C27E9E /* CCTimeLine.h in Headers */,
 				38B8E2E419E671D2002D7CE7 /* UILayoutComponent.h in Headers */,
 				B1366D0F263AFF34007F9D99 /* CCPUParticleFollower.h in Headers */,
@@ -6858,8 +6502,6 @@
 				B1366A2E263AF7DD007F9D99 /* GAF_JS.h in Headers */,
 				B1366A7E263AF7DD007F9D99 /* PathConstraintSpacingTimeline.h in Headers */,
 				5053850F1B02819E00793096 /* CCVertexAttribBinding.h in Headers */,
-				B194011D245A8B8C00EBD17D /* TagDefineAnimationFrames2.h in Headers */,
-				B1940108245A8B8C00EBD17D /* GAFSubobjectState.h in Headers */,
 				50ABBEBE1925AB6F00A911A9 /* ccUtils.h in Headers */,
 				B1366D38263AFF34007F9D99 /* CCPUMaterialManager.h in Headers */,
 				15AE183719AAD2F700C27E9E /* CCObjLoader.h in Headers */,
@@ -6880,7 +6522,6 @@
 				50643BD519BFAECF00EF68ED /* CCGL.h in Headers */,
 				B1366D8C263AFF35007F9D99 /* CCPUDoScaleEventHandlerTranslator.h in Headers */,
 				B1366A3F263AF7DD007F9D99 /* SlotData.h in Headers */,
-				B1940121245A8B8C00EBD17D /* TagDefineAtlas.h in Headers */,
 				15AE193919AAD35100C27E9E /* CCArmatureAnimation.h in Headers */,
 				B1366D17263AFF34007F9D99 /* CCPUOnQuotaObserver.h in Headers */,
 				B1366CDF263AFF33007F9D99 /* CCPUMaterialTranslator.h in Headers */,
@@ -6928,7 +6569,6 @@
 				B276EF641988D1D500CD400F /* CCVertexIndexBuffer.h in Headers */,
 				1A40D11F1E8E56C7002E363A /* filereadstream.h in Headers */,
 				ED9C6A9718599AD8000A5232 /* CCNodeGrid.h in Headers */,
-				B1940126245A8B8C00EBD17D /* GAFPrecompiledShaders.h in Headers */,
 				50ABC0201926664800A911A9 /* CCThread.h in Headers */,
 				B1366A50263AF7DD007F9D99 /* TransformConstraintTimeline.h in Headers */,
 				15AE1B8519AADA9A00C27E9E /* UITextField.h in Headers */,
@@ -6951,7 +6591,6 @@
 				382384321A259112002C4610 /* ParticleReader.h in Headers */,
 				B1366CC4263AFF33007F9D99 /* CCPUParticleSystem3DTranslator.h in Headers */,
 				503DD8EA1926736A00CD74DD /* CCESRenderer-ios.h in Headers */,
-				B19400F8245A8B8C00EBD17D /* TagDefineAtlas3.h in Headers */,
 				50ABBE581925AB6F00A911A9 /* CCEventFocus.h in Headers */,
 				15AE196419AAD35100C27E9E /* CCTransformHelp.h in Headers */,
 				B1366A87263AF7DD007F9D99 /* Timeline.h in Headers */,
@@ -6961,7 +6600,6 @@
 				A045F6DF1BA816A1005076C7 /* CCCameraBackgroundBrush.h in Headers */,
 				B10C51F92213E8D1002D7B16 /* b2Island.h in Headers */,
 				15AE19AD19AAD39700C27E9E /* LoadingBarReader.h in Headers */,
-				B19400F4245A8B8C00EBD17D /* GAFTimelineAction.h in Headers */,
 				B10C51F32213E8D1002D7B16 /* b2Settings.h in Headers */,
 				B1366E1F263B00C1007F9D99 /* CCBool.h in Headers */,
 				15FB209E1AE7C57D00C31518 /* sweep_context.h in Headers */,
@@ -7075,11 +6713,9 @@
 				B1366AC9263AF7DD007F9D99 /* Event.cpp in Sources */,
 				B6DD2FF21B04825B00E47F5F /* DetourTileCacheBuilder.cpp in Sources */,
 				503DD8E11926736A00CD74DD /* CCApplication-ios.mm in Sources */,
-				B1940115245A8B8C00EBD17D /* GAFTextField.cpp in Sources */,
 				B1366AC3263AF7DD007F9D99 /* Slot.cpp in Sources */,
 				B6DD2FF61B04825B00E47F5F /* fastlz.c in Sources */,
 				50ABC01A1926664800A911A9 /* CCSAXParser.cpp in Sources */,
-				B19400DC245A8B8C00EBD17D /* GAFAssetTextureManager.cpp in Sources */,
 				182C5CE61A9D725400C30D34 /* UserCameraReader.cpp in Sources */,
 				B1366E26263B00C1007F9D99 /* CCDictionary.cpp in Sources */,
 				B1366D79263AFF35007F9D99 /* CCPUAlignAffectorTranslator.cpp in Sources */,
@@ -7110,12 +6746,10 @@
 				B257B44F1989D5E800D9A687 /* CCPrimitive.cpp in Sources */,
 				50ABBE281925AB6F00A911A9 /* CCAutoreleasePool.cpp in Sources */,
 				B1366DD3263AFF36007F9D99 /* CCParticle3DRender.cpp in Sources */,
-				B19400DE245A8B8C00EBD17D /* TagDefineAnimationObjects.cpp in Sources */,
 				B1366CD0263AFF33007F9D99 /* CCPUBoxColliderTranslator.cpp in Sources */,
 				15AE192919AAD35100C27E9E /* TriggerMng.cpp in Sources */,
 				15AE185E19AAD31200C27E9E /* CocosDenshion.m in Sources */,
 				B1366AB4263AF7DD007F9D99 /* LinkedMesh.cpp in Sources */,
-				B1940117245A8B8C00EBD17D /* GAFTextureAtlas.cpp in Sources */,
 				B6DD2FB01B04825B00E47F5F /* RecastDebugDraw.cpp in Sources */,
 				1A570062180BC5A10088DEC7 /* CCAction.cpp in Sources */,
 				1A570066180BC5A10088DEC7 /* CCActionCamera.cpp in Sources */,
@@ -7135,18 +6769,14 @@
 				15AE1B8419AADA9A00C27E9E /* UITextField.cpp in Sources */,
 				15AE198E19AAD36E00C27E9E /* CheckBoxReader.cpp in Sources */,
 				B13669F3263AF7DD007F9D99 /* TagDefineTextField.cpp in Sources */,
-				B1940103245A8B8C00EBD17D /* GAFFilterData.cpp in Sources */,
 				50ABBE621925AB6F00A911A9 /* CCEventListenerAcceleration.cpp in Sources */,
-				B19400E3245A8B8C00EBD17D /* GAFTextData.cpp in Sources */,
 				292DB13E19B4574100A80320 /* UIEditBox.cpp in Sources */,
 				B1366DAB263AFF35007F9D99 /* CCPUScriptParser.cpp in Sources */,
-				B1940107245A8B8C00EBD17D /* GAFFilterManager.cpp in Sources */,
 				3E6176681960F89B00DE83F5 /* CCController-apple.mm in Sources */,
 				B1366CE7263AFF33007F9D99 /* CCPUParticleSystem3D.cpp in Sources */,
 				15AE193C19AAD35100C27E9E /* CCArmatureDefine.cpp in Sources */,
 				B29594B51926D5EC003EEF37 /* CCMeshCommand.cpp in Sources */,
 				298C75D61C0465D1006BAE63 /* CCStencilStateManager.cpp in Sources */,
-				B1940102245A8B8C00EBD17D /* TagDefineAtlas3.cpp in Sources */,
 				B1366D51263AFF34007F9D99 /* CCPUVelocityMatchingAffectorTranslator.cpp in Sources */,
 				15AE194B19AAD35100C27E9E /* CCComRender.cpp in Sources */,
 				B1366D52263AFF34007F9D99 /* CCPUOnEventFlagObserver.cpp in Sources */,
@@ -7163,7 +6793,6 @@
 				15FB20881AE7C57D00C31518 /* shapes.cc in Sources */,
 				B1366A9A263AF7DD007F9D99 /* AttachmentVertices.cpp in Sources */,
 				50ABBEA01925AB6F00A911A9 /* CCScheduler.cpp in Sources */,
-				B19400E5245A8B8C00EBD17D /* GAFAnimationSequence.cpp in Sources */,
 				50ABBE4E1925AB6F00A911A9 /* CCEventCustom.cpp in Sources */,
 				15AE181719AAD2F700C27E9E /* CCAttachNode.cpp in Sources */,
 				1A40D0DD1E8E4C76002E363A /* md5.c in Sources */,
@@ -7176,12 +6805,9 @@
 				15AE184119AAD2F700C27E9E /* CCSprite3D.cpp in Sources */,
 				50ABBE5A1925AB6F00A911A9 /* CCEventKeyboard.cpp in Sources */,
 				B1366AC7263AF7DD007F9D99 /* IkConstraintTimeline.cpp in Sources */,
-				B194010A245A8B8C00EBD17D /* GAFObject.cpp in Sources */,
-				B1940105245A8B8C00EBD17D /* GAFSubobjectState.cpp in Sources */,
 				15AE193A19AAD35100C27E9E /* CCArmatureDataManager.cpp in Sources */,
 				3EACC9A519F5014D00EB3C5E /* CCLight.cpp in Sources */,
 				B1366AD1263AF7DE007F9D99 /* SkeletonRenderer.cpp in Sources */,
-				B194011F245A8B8C00EBD17D /* GAFAnimationFrame.cpp in Sources */,
 				15AE1B7A19AADA9A00C27E9E /* UIScrollView.cpp in Sources */,
 				B1366AA8263AF7DD007F9D99 /* MeshAttachment.cpp in Sources */,
 				1A570076180BC5A10088DEC7 /* CCActionGrid3D.cpp in Sources */,
@@ -7198,9 +6824,7 @@
 				1A57007A180BC5A10088DEC7 /* CCActionInstant.cpp in Sources */,
 				B6DD2FDE1B04825B00E47F5F /* DetourObstacleAvoidance.cpp in Sources */,
 				B1366A14263AF7DD007F9D99 /* TagDefineAtlas3.cpp in Sources */,
-				B19400D8245A8B8C00EBD17D /* TagDefineAnimationFrames.cpp in Sources */,
 				3823841B1A2590D2002C4610 /* ComAudioReader.cpp in Sources */,
-				B19400D1245A8B8C00EBD17D /* TagDefineTimeline.cpp in Sources */,
 				50ABBEC01925AB6F00A911A9 /* CCValue.cpp in Sources */,
 				50ABBD591925AB0000A911A9 /* Vec2.cpp in Sources */,
 				B1366DA0263AFF35007F9D99 /* CCPUSphere.cpp in Sources */,
@@ -7213,13 +6837,11 @@
 				50ABBE421925AB6F00A911A9 /* CCDirector.cpp in Sources */,
 				B1366DF0263AFF36007F9D99 /* CCScrollView.cpp in Sources */,
 				1A57007E180BC5A10088DEC7 /* CCActionInterval.cpp in Sources */,
-				B1940100245A8B8C00EBD17D /* GAFAsset.cpp in Sources */,
 				1A570082180BC5A10088DEC7 /* CCActionManager.cpp in Sources */,
 				1A570086180BC5A10088DEC7 /* CCActionPageTurn3D.cpp in Sources */,
 				B1366DE0263AFF36007F9D99 /* CCControl.cpp in Sources */,
 				1A57008A180BC5A10088DEC7 /* CCActionProgressTimer.cpp in Sources */,
 				B1366AAA263AF7DD007F9D99 /* Skin.cpp in Sources */,
-				B19400DD245A8B8C00EBD17D /* GAFLoader.cpp in Sources */,
 				468A14F61EF223B700ECA675 /* idl_parser.cpp in Sources */,
 				B1366D68263AFF35007F9D99 /* CCPUCircleEmitter.cpp in Sources */,
 				50ABBED81925AB6F00A911A9 /* ZipUtils.cpp in Sources */,
@@ -7293,7 +6915,6 @@
 				15AE1B7219AADA9A00C27E9E /* UIListView.cpp in Sources */,
 				1A5701BE180BCB5A0088DEC7 /* CCLabelAtlas.cpp in Sources */,
 				B1366A24263AF7DD007F9D99 /* TagDefineSounds.cpp in Sources */,
-				B19400E7245A8B8C00EBD17D /* TagDefineNamedParts.cpp in Sources */,
 				15FB20751AE7BF8600C31518 /* CCAutoPolygon.cpp in Sources */,
 				B1366AB7263AF7DD007F9D99 /* DeformTimeline.cpp in Sources */,
 				B1366D0C263AFF34007F9D99 /* CCPUOnRandomObserverTranslator.cpp in Sources */,
@@ -7335,7 +6956,6 @@
 				15FB20941AE7C57D00C31518 /* cdt.cc in Sources */,
 				85505F081B60E3BD003F2CD4 /* CCSkinNode.cpp in Sources */,
 				299754F5193EC95400A54AC3 /* ObjectFactory.cpp in Sources */,
-				B19400DA245A8B8C00EBD17D /* TagDefineAnimationFrames2.cpp in Sources */,
 				1A5701DF180BCB8C0088DEC7 /* CCLayer.cpp in Sources */,
 				50ABBDBE1925AB4100A911A9 /* CCTextureCache.cpp in Sources */,
 				B1366D46263AFF34007F9D99 /* CCPUOnCollisionObserverTranslator.cpp in Sources */,
@@ -7343,7 +6963,6 @@
 				1A5701E3180BCB8C0088DEC7 /* CCScene.cpp in Sources */,
 				50ABBD611925AB0000A911A9 /* Vec4.cpp in Sources */,
 				B60C5BD519AC68B10056FBDE /* CCBillBoard.cpp in Sources */,
-				B19400E1245A8B8C00EBD17D /* TagDefineTextField.cpp in Sources */,
 				B1366DE5263AFF36007F9D99 /* CCControlHuePicker.cpp in Sources */,
 				B1366D5C263AFF34007F9D99 /* CCPUBehaviour.cpp in Sources */,
 				18956BB31A9DFBFD006E9155 /* Particle3DReader.cpp in Sources */,
@@ -7388,7 +7007,6 @@
 				15AE193819AAD35100C27E9E /* CCArmatureAnimation.cpp in Sources */,
 				503DD8ED1926736A00CD74DD /* CCGLViewImpl-ios.mm in Sources */,
 				15AE197719AAD35700C27E9E /* CCActionTimeline.cpp in Sources */,
-				B1940119245A8B8C00EBD17D /* TagDefineStage.cpp in Sources */,
 				15AE19B419AAD39700C27E9E /* TextAtlasReader.cpp in Sources */,
 				B6DD2FA81B04825B00E47F5F /* DebugDraw.cpp in Sources */,
 				B1366D36263AFF34007F9D99 /* CCPUCircleEmitterTranslator.cpp in Sources */,
@@ -7409,17 +7027,14 @@
 				B603F1A91AC8EA0900A9579C /* CCTerrain.cpp in Sources */,
 				B1366CB8263AFF33007F9D99 /* CCPULineEmitter.cpp in Sources */,
 				1A57022A180BCC1A0088DEC7 /* CCParticleSystem.cpp in Sources */,
-				B19400D2245A8B8C00EBD17D /* GAFCachedTexture.cpp in Sources */,
 				15AE182919AAD2F700C27E9E /* CCMeshSkin.cpp in Sources */,
 				B1366DAC263AFF35007F9D99 /* CCPURandomiser.cpp in Sources */,
-				B19400EF245A8B8C00EBD17D /* GAFTextureAtlasElement.cpp in Sources */,
 				B1366D60263AFF34007F9D99 /* CCPUSphereColliderTranslator.cpp in Sources */,
 				B1366D02263AFF33007F9D99 /* CCPUTextureAnimator.cpp in Sources */,
 				B1366ACA263AF7DD007F9D99 /* RotateTimeline.cpp in Sources */,
 				B1366DE7263AFF36007F9D99 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				B1366D16263AFF34007F9D99 /* CCPUEventHandler.cpp in Sources */,
 				B1366AC1263AF7DD007F9D99 /* SkeletonClipping.cpp in Sources */,
-				B19400D3245A8B8C00EBD17D /* GAFMask.cpp in Sources */,
 				3EACC9A119F5014D00EB3C5E /* CCCamera.cpp in Sources */,
 				B1366A0B263AF7DD007F9D99 /* MySprite.cpp in Sources */,
 				B6DD2FC81B04825B00E47F5F /* DetourNavMeshBuilder.cpp in Sources */,
@@ -7427,10 +7042,8 @@
 				B6DD2FBE1B04825B00E47F5F /* DetourCommon.cpp in Sources */,
 				B1366AA6263AF7DD007F9D99 /* SkeletonTwoColorBatch.cpp in Sources */,
 				B1366DC5263AFF35007F9D99 /* CCPULinearForceAffector.cpp in Sources */,
-				B194010D245A8B8C00EBD17D /* GAFSoundInfo.cpp in Sources */,
 				B13669EE263AF7DC007F9D99 /* GAFAssetTextureManager.cpp in Sources */,
 				B24AA98A195A675C007B4522 /* CCFastTMXTiledMap.cpp in Sources */,
-				B19400E4245A8B8C00EBD17D /* PrimitiveDeserializer.cpp in Sources */,
 				B13669F9263AF7DD007F9D99 /* TagDefineNamedParts.cpp in Sources */,
 				B1366AB1263AF7DD007F9D99 /* Timeline.cpp in Sources */,
 				38F5263F1A48363B000DB7F7 /* ArmatureNodeReader.cpp in Sources */,
@@ -7444,7 +7057,6 @@
 				15AE197F19AAD35700C27E9E /* CCTimeLine.cpp in Sources */,
 				1A57027F180BCC900088DEC7 /* CCSprite.cpp in Sources */,
 				15AE194719AAD35100C27E9E /* CCComAudio.cpp in Sources */,
-				B19400FA245A8B8C00EBD17D /* GAFTimelineAction.cpp in Sources */,
 				15AE192719AAD35100C27E9E /* TriggerBase.cpp in Sources */,
 				B1366ABD263AF7DD007F9D99 /* EventData.cpp in Sources */,
 				15AE1B8819AADA9A00C27E9E /* UICheckBox.cpp in Sources */,
@@ -7457,9 +7069,7 @@
 				B1366D0D263AFF34007F9D99 /* CCPUEmitterTranslator.cpp in Sources */,
 				B1366E20263B00C1007F9D99 /* CCSet.cpp in Sources */,
 				B1366D63263AFF34007F9D99 /* CCPUParticleFollowerTranslator.cpp in Sources */,
-				B19400F1245A8B8C00EBD17D /* GAFStream.cpp in Sources */,
 				B1366D50263AFF34007F9D99 /* CCPUOnCountObserverTranslator.cpp in Sources */,
-				B19400D9245A8B8C00EBD17D /* GAFQuadCommand.cpp in Sources */,
 				B1366A15263AF7DD007F9D99 /* GAFFilterData.cpp in Sources */,
 				B1366D37263AFF34007F9D99 /* CCPUPlaneColliderTranslator.cpp in Sources */,
 				B1366CB1263AFF33007F9D99 /* CCPULinearForceAffectorTranslator.cpp in Sources */,
@@ -7467,7 +7077,6 @@
 				B1366DC7263AFF35007F9D99 /* CCPUDoAffectorEventHandlerTranslator.cpp in Sources */,
 				B1366D2A263AFF34007F9D99 /* CCPUAffectorTranslator.cpp in Sources */,
 				B1366D34263AFF34007F9D99 /* CCPUDoPlacementParticleEventHandler.cpp in Sources */,
-				B194010C245A8B8C00EBD17D /* GAFSprite.cpp in Sources */,
 				B13669E3263AF7DC007F9D99 /* TagDefineTimeline.cpp in Sources */,
 				15AE185919AAD31200C27E9E /* CDAudioManager.m in Sources */,
 				B1366A9B263AF7DD007F9D99 /* SkeletonBatch.cpp in Sources */,
@@ -7484,7 +7093,6 @@
 				5053850D1B02819E00793096 /* CCVertexAttribBinding.cpp in Sources */,
 				15FB20901AE7C57D00C31518 /* advancing_front.cc in Sources */,
 				15AE1B8C19AADA9A00C27E9E /* UIScale9Sprite.cpp in Sources */,
-				B19400CE245A8B8C00EBD17D /* TagDefineAnimationMasks.cpp in Sources */,
 				15AE19AE19AAD39700C27E9E /* PageViewReader.cpp in Sources */,
 				1A570297180BCCAB0088DEC7 /* CCAnimationCache.cpp in Sources */,
 				B1366DDE263AFF36007F9D99 /* CCInvocation.cpp in Sources */,
@@ -7524,13 +7132,11 @@
 				50ABBE8C1925AB6F00A911A9 /* CCNS.cpp in Sources */,
 				B6DD2FAC1B04825B00E47F5F /* DetourDebugDraw.cpp in Sources */,
 				85505F0D1B60E3D8003F2CD4 /* SkeletonNodeReader.cpp in Sources */,
-				B19400EA245A8B8C00EBD17D /* GAFPrecompiled.cpp in Sources */,
 				B1366DD2263AFF36007F9D99 /* CCPUSphereSurfaceEmitter.cpp in Sources */,
 				B1366DEC263AFF36007F9D99 /* CCControlSlider.cpp in Sources */,
 				D0FD03501A3B51AA00825BB5 /* CCAllocatorGlobal.cpp in Sources */,
 				B1366DDB263AFF36007F9D99 /* CCControlColourPicker.cpp in Sources */,
 				15AE1BA919AADFDF00C27E9E /* UIVBox.cpp in Sources */,
-				B1940112245A8B8C00EBD17D /* TagDefineSounds.cpp in Sources */,
 				B1366AA4263AF7DD007F9D99 /* AnimationStateData.cpp in Sources */,
 				50ABBDAE1925AB4100A911A9 /* CCRenderer.cpp in Sources */,
 				38D9629E1ACA9721007C6FAF /* CocoStudio.cpp in Sources */,
@@ -7566,13 +7172,11 @@
 				B1366ABF263AF7DD007F9D99 /* PathConstraintPositionTimeline.cpp in Sources */,
 				B13669FC263AF7DD007F9D99 /* GAFPrecompiled.cpp in Sources */,
 				50ABBDB61925AB4100A911A9 /* CCTexture2D.cpp in Sources */,
-				B1940120245A8B8C00EBD17D /* GAFMovieClip.cpp in Sources */,
 				15AE1BAB19AADFDF00C27E9E /* UILayout.cpp in Sources */,
 				B1366D29263AFF34007F9D99 /* CCPUBaseForceAffectorTranslator.cpp in Sources */,
 				1A570355180BD0B00088DEC7 /* ioapi.cpp in Sources */,
 				1A570359180BD0B00088DEC7 /* unzip.cpp in Sources */,
 				15AE19B819AAD39700C27E9E /* TextFieldReader.cpp in Sources */,
-				B1940101245A8B8C00EBD17D /* GAFTimeline.cpp in Sources */,
 				382384101A259092002C4610 /* NodeReaderDefine.cpp in Sources */,
 				B13669F5263AF7DD007F9D99 /* GAFTextData.cpp in Sources */,
 				15AE195B19AAD35100C27E9E /* CCSGUIReader.cpp in Sources */,
@@ -7611,9 +7215,7 @@
 				B1366D94263AFF35007F9D99 /* CCPUEventHandlerManager.cpp in Sources */,
 				B1366DAE263AFF35007F9D99 /* CCPUGravityAffectorTranslator.cpp in Sources */,
 				50ABBD451925AB0000A911A9 /* CCVertex.cpp in Sources */,
-				B19400F9245A8B8C00EBD17D /* MySprite.cpp in Sources */,
 				B1366CD2263AFF33007F9D99 /* CCPUOnPositionObserver.cpp in Sources */,
-				B194010F245A8B8C00EBD17D /* GAFFile.cpp in Sources */,
 				50ABBEB01925AB6F00A911A9 /* CCUserDefault.cpp in Sources */,
 				50ABBE521925AB6F00A911A9 /* CCEventDispatcher.cpp in Sources */,
 				B1366A01263AF7DD007F9D99 /* GAFTextureAtlasElement.cpp in Sources */,
@@ -7666,7 +7268,6 @@
 				15AE196719AAD35100C27E9E /* CCUtilMath.cpp in Sources */,
 				50ABBE201925AB6F00A911A9 /* atitc.cpp in Sources */,
 				50CB248019D9C5A100687767 /* AudioPlayer.mm in Sources */,
-				B1940114245A8B8C00EBD17D /* TagDefineAtlas.cpp in Sources */,
 				50ABBE9A1925AB6F00A911A9 /* CCRef.cpp in Sources */,
 				2980F0251BA9A5550059E678 /* CCUIMultilineTextField.mm in Sources */,
 				85B3743B1B204B9400C488D6 /* clipper.cpp in Sources */,
@@ -7688,7 +7289,6 @@
 				50ABBD5D1925AB0000A911A9 /* Vec3.cpp in Sources */,
 				B1366DD1263AFF36007F9D99 /* CCPUObserverManager.cpp in Sources */,
 				38B8E2D619E66581002D7CE7 /* CSLoader.cpp in Sources */,
-				B19400FD245A8B8C00EBD17D /* TagDefineSequences.cpp in Sources */,
 				50ABC0121926664800A911A9 /* CCGLView.cpp in Sources */,
 				50ABC0021926664800A911A9 /* CCLock-apple.cpp in Sources */,
 				50ABBEBC1925AB6F00A911A9 /* ccUtils.cpp in Sources */,
@@ -7727,7 +7327,6 @@
 				B1366ACF263AF7DE007F9D99 /* SlotData.cpp in Sources */,
 				B6DD2FEA1B04825B00E47F5F /* DetourProximityGrid.cpp in Sources */,
 				1ABA68AF1888D700007D1BB4 /* CCFontCharMap.cpp in Sources */,
-				B19400F5245A8B8C00EBD17D /* GAFShaderManager.cpp in Sources */,
 				B6DD2FD01B04825B00E47F5F /* DetourNode.cpp in Sources */,
 				15AE180D19AAD2F700C27E9E /* CCAnimate3D.cpp in Sources */,
 				B1366A1C263AF7DD007F9D99 /* GAFObject.cpp in Sources */,
