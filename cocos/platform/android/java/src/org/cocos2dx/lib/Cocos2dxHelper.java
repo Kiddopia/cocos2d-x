@@ -95,7 +95,7 @@ public class Cocos2dxHelper {
     private static boolean sActivityVisible;
     private static String sPackageName;
     private static Activity sActivity = null;
-    private static Cocos2dxHelperListener sCocos2dxHelperListener;
+    public static Cocos2dxHelperListener sCocos2dxHelperListener;
     private static Set<OnActivityResultListener> onActivityResultListeners = new LinkedHashSet<OnActivityResultListener>();
     private static Vibrator sVibrateService = null;
     //Enhance API modification begin
@@ -475,8 +475,8 @@ public class Cocos2dxHelper {
     }
 
     public static void onEnterBackground() {
-        getSound().onEnterBackground();
-        sCocos2dMusic.onEnterBackground();
+//        getSound().onEnterBackground();
+//        sCocos2dMusic.onEnterBackground();
     }
     
     public static void onEnterForeground() {
@@ -485,7 +485,7 @@ public class Cocos2dxHelper {
     }
     
     public static void terminateProcess() {
-        android.os.Process.killProcess(android.os.Process.myPid());
+        //android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     private static void showDialog(final String pTitle, final String pMessage) {

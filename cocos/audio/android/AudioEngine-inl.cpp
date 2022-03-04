@@ -203,39 +203,39 @@ void AudioEngineImpl::onEnterBackground(EventCustom* event)
 {
     // _audioPlayerProvider->pause() pauses AudioMixer and PcmAudioService,
     // but UrlAudioPlayers could not be paused.
-    if (_audioPlayerProvider != nullptr)
-    {
-        _audioPlayerProvider->pause();
-    }
-
-    // pause UrlAudioPlayers which are playing.
-    for (auto&& e : _audioPlayers)
-    {
-        auto player = e.second;
-        if (dynamic_cast<UrlAudioPlayer*>(player) != nullptr
-            && player->getState() == IAudioPlayer::State::PLAYING)
-        {
-            _urlAudioPlayersNeedResume.emplace(e.first, player);
-            player->pause();
-        }
-    }
+//    if (_audioPlayerProvider != nullptr)
+//    {
+//        _audioPlayerProvider->pause();
+//    }
+//
+//    // pause UrlAudioPlayers which are playing.
+//    for (auto&& e : _audioPlayers)
+//    {
+//        auto player = e.second;
+//        if (dynamic_cast<UrlAudioPlayer*>(player) != nullptr
+//            && player->getState() == IAudioPlayer::State::PLAYING)
+//        {
+//            _urlAudioPlayersNeedResume.emplace(e.first, player);
+//            player->pause();
+//        }
+//    }
 }
 
 void AudioEngineImpl::onEnterForeground(EventCustom* event)
 {
     // _audioPlayerProvider->resume() resumes AudioMixer and PcmAudioService,
     // but UrlAudioPlayers could not be resumed.
-    if (_audioPlayerProvider != nullptr)
-    {
-        _audioPlayerProvider->resume();
-    }
-
-    // resume UrlAudioPlayers
-    for (auto&& iter : _urlAudioPlayersNeedResume)
-    {
-        iter.second->resume();
-    }
-    _urlAudioPlayersNeedResume.clear();
+//    if (_audioPlayerProvider != nullptr)
+//    {
+//        _audioPlayerProvider->resume();
+//    }
+//
+//    // resume UrlAudioPlayers
+//    for (auto&& iter : _urlAudioPlayersNeedResume)
+//    {
+//        iter.second->resume();
+//    }
+//    _urlAudioPlayersNeedResume.clear();
 }
 
 void AudioEngineImpl::setAudioFocusForAllPlayers(bool isFocus)

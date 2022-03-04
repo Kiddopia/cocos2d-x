@@ -38,7 +38,9 @@ import android.os.Bundle;
 import android.os.Message;
 import android.os.PowerManager;
 import android.preference.PreferenceManager.OnActivityResultListener;
+import android.transition.Visibility;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -128,14 +130,14 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
         super.onCreate(savedInstanceState);
 
         // Workaround in https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508
-        if (!isTaskRoot()) {
-            // Android launched another instance of the root activity into an existing task
-            //  so just quietly finish and go away, dropping the user back into the activity
-            //  at the top of the stack (ie: the last state of this task)
-            finish();
-            Log.w(TAG, "[Workaround] Ignore the activity started from icon!");
-            return;
-        }
+//        if (!isTaskRoot()) {
+//            // Android launched another instance of the root activity into an existing task
+//            //  so just quietly finish and go away, dropping the user back into the activity
+//            //  at the top of the stack (ie: the last state of this task)
+//            finish();
+//            Log.w(TAG, "[Workaround] Ignore the activity started from icon!");
+//            return;
+//        }
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -276,6 +278,8 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
             new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                        ViewGroup.LayoutParams.WRAP_CONTENT);
         Cocos2dxEditBox edittext = new Cocos2dxEditBox(this);
+        edittext.setEnabled(false);
+        edittext.setVisibility(View.GONE);
         edittext.setLayoutParams(edittext_layout_params);
 
 
@@ -286,7 +290,7 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
         this.mGLSurfaceView.setPreserveEGLContextOnPause(true);
 
         // ...add to FrameLayout
-        mFrameLayout.addView(this.mGLSurfaceView);
+        mFrameLayout.addView(this.mGLSurfaceView, new android.widget.FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
 
         // Switch to supported OpenGL (ARGB888) mode on emulator
         // this line dows not needed on new emulators and also it breaks stencil buffer
