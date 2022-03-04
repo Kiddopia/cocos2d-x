@@ -95,7 +95,7 @@ public class Cocos2dxHelper {
     private static boolean sActivityVisible;
     private static String sPackageName;
     private static Activity sActivity = null;
-    public static Cocos2dxHelperListener sCocos2dxHelperListener;
+    private static Cocos2dxHelperListener sCocos2dxHelperListener;
     private static Set<OnActivityResultListener> onActivityResultListeners = new LinkedHashSet<OnActivityResultListener>();
     private static Vibrator sVibrateService = null;
     //Enhance API modification begin

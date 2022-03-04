@@ -25,7 +25,6 @@ THE SOFTWARE.
 package org.cocos2dx.lib;
 
 import android.opengl.GLSurfaceView;
-import android.util.Log;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -72,7 +71,6 @@ public class Cocos2dxRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceCreated(final GL10 GL10, final EGLConfig EGLConfig) {
-        Log.d("Screen","[Cocos2dxRenderer::nativeInit] w : " + this.mScreenWidth + " , h : " + this.mScreenHeight);
         Cocos2dxRenderer.nativeInit(this.mScreenWidth, this.mScreenHeight);
         this.mLastTickInNanoSeconds = System.nanoTime();
         GL10.glClearColor(0,0,0,0);
@@ -81,7 +79,6 @@ public class Cocos2dxRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceChanged(final GL10 GL10, final int width, final int height) {
-        Log.d("Screen","[Cocos2dxRenderer::onSurfaceChanged] w : " + width + " , h : " + height);
         Cocos2dxRenderer.nativeOnSurfaceChanged(width, height);
         GL10.glClearColor(0,0,0,0);
     }
