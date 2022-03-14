@@ -70,8 +70,7 @@ AudioEngine::AudioEngineThreadPool* AudioEngine::s_threadPool = nullptr;
 bool AudioEngine::_isEnabled = true;
 
 AudioEngine::AudioInfo::AudioInfo()
-: filePath(nullptr)
-, profileHelper(nullptr)
+: profileHelper(nullptr)
 , volume(1.0f)
 , loop(false)
 , duration(TIME_UNKNOWN)
@@ -247,7 +246,7 @@ int AudioEngine::play2d(const std::string& filePath, bool loop, float volume, co
             auto& audioRef = _audioIDInfoMap[ret];
             audioRef.volume = volume;
             audioRef.loop = loop;
-            audioRef.filePath = &it->first;
+            audioRef.filePath = it->first;
 
             if (profileHelper) {
                 profileHelper->lastPlayTime = utils::gettime();
@@ -348,7 +347,7 @@ void AudioEngine::remove(int audioID)
         if (it->second.profileHelper) {
             it->second.profileHelper->audioIDs.remove(audioID);
         }
-        _audioPathIDMap[*it->second.filePath].remove(audioID);
+        _audioPathIDMap[it->second.filePath].remove(audioID);
         _audioIDInfoMap.erase(audioID);
     }
 }
