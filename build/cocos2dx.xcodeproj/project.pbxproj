@@ -1411,6 +1411,28 @@
 		B1366E2A263B00C1007F9D99 /* CCInteger.h in Headers */ = {isa = PBXBuildFile; fileRef = B1366E1A263B00C1007F9D99 /* CCInteger.h */; };
 		B1366E2B263B00C1007F9D99 /* CCArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1366E1B263B00C1007F9D99 /* CCArray.cpp */; };
 		B1366E2C263B00C1007F9D99 /* CCArray.h in Headers */ = {isa = PBXBuildFile; fileRef = B1366E1C263B00C1007F9D99 /* CCArray.h */; };
+		B19A4F8B27D7393D005B63BF /* SocketIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F6D27D7393C005B63BF /* SocketIO.cpp */; };
+		B19A4F8C27D7393D005B63BF /* CCDownloader-curl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F6E27D7393C005B63BF /* CCDownloader-curl.cpp */; };
+		B19A4F8E27D7393D005B63BF /* CCDownloader-curl.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F7027D7393C005B63BF /* CCDownloader-curl.h */; };
+		B19A4F8F27D7393D005B63BF /* HttpCookie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F7127D7393C005B63BF /* HttpCookie.cpp */; };
+		B19A4F9027D7393D005B63BF /* CCIDownloaderImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F7427D7393C005B63BF /* CCIDownloaderImpl.h */; };
+		B19A4F9127D7393D005B63BF /* CCDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F7527D7393C005B63BF /* CCDownloader.h */; };
+		B19A4F9227D7393D005B63BF /* WebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F7627D7393C005B63BF /* WebSocket.h */; };
+		B19A4F9327D7393D005B63BF /* Uri.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F7727D7393C005B63BF /* Uri.h */; };
+		B19A4F9427D7393D005B63BF /* HttpClient-apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F7827D7393C005B63BF /* HttpClient-apple.mm */; };
+		B19A4F9527D7393D005B63BF /* SocketIO.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F7927D7393C005B63BF /* SocketIO.h */; };
+		B19A4F9627D7393D005B63BF /* Uri.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F7A27D7393C005B63BF /* Uri.cpp */; };
+		B19A4F9727D7393D005B63BF /* HttpAsynConnection-apple.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F7B27D7393C005B63BF /* HttpAsynConnection-apple.m */; };
+		B19A4F9827D7393D005B63BF /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F7C27D7393C005B63BF /* HttpClient.h */; };
+		B19A4F9927D7393D005B63BF /* CCDownloader-apple.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F7D27D7393C005B63BF /* CCDownloader-apple.h */; };
+		B19A4F9C27D7393D005B63BF /* HttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F8027D7393C005B63BF /* HttpResponse.h */; };
+		B19A4F9E27D7393D005B63BF /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F8227D7393C005B63BF /* HttpClient.cpp */; };
+		B19A4FA027D7393D005B63BF /* HttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F8427D7393C005B63BF /* HttpRequest.h */; };
+		B19A4FA127D7393D005B63BF /* WebSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F8527D7393C005B63BF /* WebSocket.cpp */; };
+		B19A4FA227D7393D005B63BF /* HttpAsynConnection-apple.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F8627D7393C005B63BF /* HttpAsynConnection-apple.h */; };
+		B19A4FA327D7393D005B63BF /* CCDownloader-apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F8727D7393C005B63BF /* CCDownloader-apple.mm */; };
+		B19A4FA427D7393D005B63BF /* CCDownloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B19A4F8827D7393C005B63BF /* CCDownloader.cpp */; };
+		B19A4FA627D7393D005B63BF /* HttpCookie.h in Headers */ = {isa = PBXBuildFile; fileRef = B19A4F8A27D7393C005B63BF /* HttpCookie.h */; };
 		B1B17541235732C70011C4D7 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B17538235732C70011C4D7 /* libbox2d.a */; };
 		B2165EEA19921124000BE3E6 /* CCPrimitiveCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B257B45E198A353E00D9A687 /* CCPrimitiveCommand.cpp */; };
 		B230ED7219B417AE00364AA8 /* CCTrianglesCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B230ED6F19B417AE00364AA8 /* CCTrianglesCommand.cpp */; };
@@ -2954,6 +2976,28 @@
 		B1366E1A263B00C1007F9D99 /* CCInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCInteger.h; sourceTree = "<group>"; };
 		B1366E1B263B00C1007F9D99 /* CCArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCArray.cpp; sourceTree = "<group>"; };
 		B1366E1C263B00C1007F9D99 /* CCArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCArray.h; sourceTree = "<group>"; };
+		B19A4F6D27D7393C005B63BF /* SocketIO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketIO.cpp; sourceTree = "<group>"; };
+		B19A4F6E27D7393C005B63BF /* CCDownloader-curl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "CCDownloader-curl.cpp"; sourceTree = "<group>"; };
+		B19A4F7027D7393C005B63BF /* CCDownloader-curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCDownloader-curl.h"; sourceTree = "<group>"; };
+		B19A4F7127D7393C005B63BF /* HttpCookie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpCookie.cpp; sourceTree = "<group>"; };
+		B19A4F7427D7393C005B63BF /* CCIDownloaderImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIDownloaderImpl.h; sourceTree = "<group>"; };
+		B19A4F7527D7393C005B63BF /* CCDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDownloader.h; sourceTree = "<group>"; };
+		B19A4F7627D7393C005B63BF /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
+		B19A4F7727D7393C005B63BF /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uri.h; sourceTree = "<group>"; };
+		B19A4F7827D7393C005B63BF /* HttpClient-apple.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "HttpClient-apple.mm"; sourceTree = "<group>"; };
+		B19A4F7927D7393C005B63BF /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
+		B19A4F7A27D7393C005B63BF /* Uri.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Uri.cpp; sourceTree = "<group>"; };
+		B19A4F7B27D7393C005B63BF /* HttpAsynConnection-apple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HttpAsynConnection-apple.m"; sourceTree = "<group>"; };
+		B19A4F7C27D7393C005B63BF /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		B19A4F7D27D7393C005B63BF /* CCDownloader-apple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCDownloader-apple.h"; sourceTree = "<group>"; };
+		B19A4F8027D7393C005B63BF /* HttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpResponse.h; sourceTree = "<group>"; };
+		B19A4F8227D7393C005B63BF /* HttpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpClient.cpp; sourceTree = "<group>"; };
+		B19A4F8427D7393C005B63BF /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
+		B19A4F8527D7393C005B63BF /* WebSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WebSocket.cpp; sourceTree = "<group>"; };
+		B19A4F8627D7393C005B63BF /* HttpAsynConnection-apple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HttpAsynConnection-apple.h"; sourceTree = "<group>"; };
+		B19A4F8727D7393C005B63BF /* CCDownloader-apple.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "CCDownloader-apple.mm"; sourceTree = "<group>"; };
+		B19A4F8827D7393C005B63BF /* CCDownloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCDownloader.cpp; sourceTree = "<group>"; };
+		B19A4F8A27D7393C005B63BF /* HttpCookie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpCookie.h; sourceTree = "<group>"; };
 		B1B17538235732C70011C4D7 /* libbox2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbox2d.a; sourceTree = "<group>"; };
 		B20564AA1A6E5744001C1B6E /* ccShader_PositionColorTextureAsPointsize.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ccShader_PositionColorTextureAsPointsize.vert; sourceTree = "<group>"; };
 		B217703B1977ECB4009EE11B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -3146,6 +3190,7 @@
 		1551A334158F2AB200E66CFE = {
 			isa = PBXGroup;
 			children = (
+				B19A4F6C27D7393C005B63BF /* network */,
 				B1366E0B263B00C1007F9D99 /* deprecated */,
 				B1366B33263AFF2B007F9D99 /* extensions */,
 				B13668DC263AF7DA007F9D99 /* pba-external */,
@@ -5548,6 +5593,36 @@
 			path = ../cocos/deprecated;
 			sourceTree = "<group>";
 		};
+		B19A4F6C27D7393C005B63BF /* network */ = {
+			isa = PBXGroup;
+			children = (
+				B19A4F7D27D7393C005B63BF /* CCDownloader-apple.h */,
+				B19A4F8727D7393C005B63BF /* CCDownloader-apple.mm */,
+				B19A4F6E27D7393C005B63BF /* CCDownloader-curl.cpp */,
+				B19A4F7027D7393C005B63BF /* CCDownloader-curl.h */,
+				B19A4F8827D7393C005B63BF /* CCDownloader.cpp */,
+				B19A4F7527D7393C005B63BF /* CCDownloader.h */,
+				B19A4F7427D7393C005B63BF /* CCIDownloaderImpl.h */,
+				B19A4F8627D7393C005B63BF /* HttpAsynConnection-apple.h */,
+				B19A4F7B27D7393C005B63BF /* HttpAsynConnection-apple.m */,
+				B19A4F7827D7393C005B63BF /* HttpClient-apple.mm */,
+				B19A4F8227D7393C005B63BF /* HttpClient.cpp */,
+				B19A4F7C27D7393C005B63BF /* HttpClient.h */,
+				B19A4F7127D7393C005B63BF /* HttpCookie.cpp */,
+				B19A4F8A27D7393C005B63BF /* HttpCookie.h */,
+				B19A4F8427D7393C005B63BF /* HttpRequest.h */,
+				B19A4F8027D7393C005B63BF /* HttpResponse.h */,
+				B19A4F6D27D7393C005B63BF /* SocketIO.cpp */,
+				B19A4F7927D7393C005B63BF /* SocketIO.h */,
+				B19A4F7A27D7393C005B63BF /* Uri.cpp */,
+				B19A4F7727D7393C005B63BF /* Uri.h */,
+				B19A4F8527D7393C005B63BF /* WebSocket.cpp */,
+				B19A4F7627D7393C005B63BF /* WebSocket.h */,
+			);
+			name = network;
+			path = ../cocos/network;
+			sourceTree = "<group>";
+		};
 		B1B17536235732C70011C4D7 /* prebuilt */ = {
 			isa = PBXGroup;
 			children = (
@@ -5850,6 +5925,7 @@
 				B1366DEA263AFF36007F9D99 /* CCControlSlider.h in Headers */,
 				1A40D10D1E8E56C7002E363A /* document-wrapper.h in Headers */,
 				B1366DC4263AFF35007F9D99 /* CCPUFlockCenteringAffectorTranslator.h in Headers */,
+				B19A4F9C27D7393D005B63BF /* HttpResponse.h in Headers */,
 				B1366D3C263AFF34007F9D99 /* CCPUSphereSurfaceEmitterTranslator.h in Headers */,
 				50ABC0041926664800A911A9 /* CCLock-apple.h in Headers */,
 				1A40D15E1E8E56C7002E363A /* pointer.h in Headers */,
@@ -5931,6 +6007,7 @@
 				1A570074180BC5A10088DEC7 /* CCActionGrid.h in Headers */,
 				B1366A56263AF7DD007F9D99 /* spine.h in Headers */,
 				15AE194A19AAD35100C27E9E /* CCComController.h in Headers */,
+				B19A4F9127D7393D005B63BF /* CCDownloader.h in Headers */,
 				382384161A259092002C4610 /* NodeReaderProtocol.h in Headers */,
 				B1366DA8263AFF35007F9D99 /* CCPUSineForceAffector.h in Headers */,
 				5034CA46191D591100CE6051 /* ccShader_Label_outline.frag in Headers */,
@@ -5963,6 +6040,7 @@
 				B10C52052213E8D1002D7B16 /* b2PolygonContact.h in Headers */,
 				B1366A6F263AF7DD007F9D99 /* Json.h in Headers */,
 				B1366D6D263AFF35007F9D99 /* CCPUScriptLexer.h in Headers */,
+				B19A4FA227D7393D005B63BF /* HttpAsynConnection-apple.h in Headers */,
 				50ABBE781925AB6F00A911A9 /* CCEventListenerTouch.h in Headers */,
 				3823840A1A25900F002C4610 /* FlatBuffersSerialize.h in Headers */,
 				B10C52012213E8D1002D7B16 /* b2ContactSolver.h in Headers */,
@@ -6017,6 +6095,7 @@
 				B1366DC0263AFF35007F9D99 /* CCPUVortexAffector.h in Headers */,
 				B1366A62263AF7DD007F9D99 /* dll.h in Headers */,
 				B1366CFE263AFF33007F9D99 /* CCPUGeometryRotator.h in Headers */,
+				B19A4FA027D7393D005B63BF /* HttpRequest.h in Headers */,
 				B1366A3D263AF7DD007F9D99 /* SkeletonAnimation.h in Headers */,
 				B1366D06263AFF34007F9D99 /* CCPUOnTimeObserverTranslator.h in Headers */,
 				B1366D22263AFF34007F9D99 /* CCPUOnClearObserverTranslator.h in Headers */,
@@ -6279,6 +6358,7 @@
 				15AE193B19AAD35100C27E9E /* CCArmatureDataManager.h in Headers */,
 				B1366A51263AF7DD007F9D99 /* IkConstraintTimeline.h in Headers */,
 				1A570289180BCC900088DEC7 /* CCSpriteFrame.h in Headers */,
+				B19A4FA627D7393D005B63BF /* HttpCookie.h in Headers */,
 				B13669FF263AF7DD007F9D99 /* GAFMask.h in Headers */,
 				15AE1B7F19AADA9A00C27E9E /* UIText.h in Headers */,
 				B1366CC7263AFF33007F9D99 /* CCPUCircleEmitterTranslator.h in Headers */,
@@ -6287,6 +6367,7 @@
 				1A57028D180BCC900088DEC7 /* CCSpriteFrameCache.h in Headers */,
 				B1366CCE263AFF33007F9D99 /* CCPUDynamicAttributeTranslator.h in Headers */,
 				B1366DE8263AFF36007F9D99 /* CCControlButton.h in Headers */,
+				B19A4F9927D7393D005B63BF /* CCDownloader-apple.h in Headers */,
 				B1366D9F263AFF35007F9D99 /* CCPUGeometryRotatorTranslator.h in Headers */,
 				B1366A8A263AF7DD007F9D99 /* BoneData.h in Headers */,
 				B1366D6E263AFF35007F9D99 /* CCPUOnExpireObserver.h in Headers */,
@@ -6342,6 +6423,7 @@
 				1A570303180BCE890088DEC7 /* CCParallaxNode.h in Headers */,
 				50ABBE2A1925AB6F00A911A9 /* CCAutoreleasePool.h in Headers */,
 				B1366D2E263AFF34007F9D99 /* CCPUBaseCollider.h in Headers */,
+				B19A4F9327D7393D005B63BF /* Uri.h in Headers */,
 				501216971AC47393009A4BEA /* CCPass.h in Headers */,
 				B1366D97263AFF35007F9D99 /* CCPUPathFollowerTranslator.h in Headers */,
 				B1366DBB263AFF35007F9D99 /* CCPUInterParticleColliderTranslator.h in Headers */,
@@ -6445,6 +6527,7 @@
 				291901441B05895600F8B4BA /* CCNinePatchImageParser.h in Headers */,
 				3E6176691960F89B00DE83F5 /* CCController.h in Headers */,
 				3823841D1A2590D2002C4610 /* ComAudioReader.h in Headers */,
+				B19A4F9227D7393D005B63BF /* WebSocket.h in Headers */,
 				3E6176781960F89B00DE83F5 /* CCGameController.h in Headers */,
 				15AE19BB19AAD39700C27E9E /* TextReader.h in Headers */,
 				B1366A2F263AF7DD007F9D99 /* TagDefineAnimationFrames2.h in Headers */,
@@ -6455,10 +6538,12 @@
 				15AE180B19AAD2F700C27E9E /* CCAABB.h in Headers */,
 				B1366CB4263AFF33007F9D99 /* CCPUObserver.h in Headers */,
 				50ABBD921925AB4100A911A9 /* CCGLProgramCache.h in Headers */,
+				B19A4F9527D7393D005B63BF /* SocketIO.h in Headers */,
 				50ABBE961925AB6F00A911A9 /* CCProfiling.h in Headers */,
 				B1366CCB263AFF33007F9D99 /* CCPUBoxCollider.h in Headers */,
 				B1366DED263AFF36007F9D99 /* CCControlSaturationBrightnessPicker.h in Headers */,
 				15AE19B519AAD39700C27E9E /* TextAtlasReader.h in Headers */,
+				B19A4F9027D7393D005B63BF /* CCIDownloaderImpl.h in Headers */,
 				15AE182B19AAD2F700C27E9E /* CCMeshSkin.h in Headers */,
 				B10C520F2213E8D1002D7B16 /* b2RopeJoint.h in Headers */,
 				B10C52082213E8D1002D7B16 /* b2GearJoint.h in Headers */,
@@ -6492,6 +6577,7 @@
 				15AE198019AAD35700C27E9E /* CCTimeLine.h in Headers */,
 				38B8E2E419E671D2002D7CE7 /* UILayoutComponent.h in Headers */,
 				B1366D0F263AFF34007F9D99 /* CCPUParticleFollower.h in Headers */,
+				B19A4F9827D7393D005B63BF /* HttpClient.h in Headers */,
 				B1366A05263AF7DD007F9D99 /* GAFMovieClip.h in Headers */,
 				50ABBD4F1925AB0000A911A9 /* MathUtil.h in Headers */,
 				B1366A46263AF7DD007F9D99 /* RTTI.h in Headers */,
@@ -6601,6 +6687,7 @@
 				B10C51F92213E8D1002D7B16 /* b2Island.h in Headers */,
 				15AE19AD19AAD39700C27E9E /* LoadingBarReader.h in Headers */,
 				B10C51F32213E8D1002D7B16 /* b2Settings.h in Headers */,
+				B19A4F8E27D7393D005B63BF /* CCDownloader-curl.h in Headers */,
 				B1366E1F263B00C1007F9D99 /* CCBool.h in Headers */,
 				15FB209E1AE7C57D00C31518 /* sweep_context.h in Headers */,
 				50ABBE5C1925AB6F00A911A9 /* CCEventKeyboard.h in Headers */,
@@ -6716,8 +6803,10 @@
 				B1366AC3263AF7DD007F9D99 /* Slot.cpp in Sources */,
 				B6DD2FF61B04825B00E47F5F /* fastlz.c in Sources */,
 				50ABC01A1926664800A911A9 /* CCSAXParser.cpp in Sources */,
+				B19A4F9427D7393D005B63BF /* HttpClient-apple.mm in Sources */,
 				182C5CE61A9D725400C30D34 /* UserCameraReader.cpp in Sources */,
 				B1366E26263B00C1007F9D99 /* CCDictionary.cpp in Sources */,
+				B19A4F9727D7393D005B63BF /* HttpAsynConnection-apple.m in Sources */,
 				B1366D79263AFF35007F9D99 /* CCPUAlignAffectorTranslator.cpp in Sources */,
 				38B8E2E219E671D2002D7CE7 /* UILayoutComponent.cpp in Sources */,
 				B1366AA3263AF7DD007F9D99 /* CurveTimeline.cpp in Sources */,
@@ -6759,6 +6848,7 @@
 				B13669E5263AF7DC007F9D99 /* GAFMask.cpp in Sources */,
 				1A57006E180BC5A10088DEC7 /* CCActionEase.cpp in Sources */,
 				50ABBD8C1925AB4100A911A9 /* CCGLProgram.cpp in Sources */,
+				B19A4F8F27D7393D005B63BF /* HttpCookie.cpp in Sources */,
 				15AE196119AAD35100C27E9E /* CCSSceneReader.cpp in Sources */,
 				B1366DB3263AFF35007F9D99 /* CCPUForceFieldAffectorTranslator.cpp in Sources */,
 				1A570072180BC5A10088DEC7 /* CCActionGrid.cpp in Sources */,
@@ -6818,6 +6908,7 @@
 				468A14F31EF223B700ECA675 /* idl_gen_text.cpp in Sources */,
 				B6DD2FDA1B04825B00E47F5F /* DetourLocalBoundary.cpp in Sources */,
 				50ABBD551925AB0000A911A9 /* TransformUtils.cpp in Sources */,
+				B19A4F8B27D7393D005B63BF /* SocketIO.cpp in Sources */,
 				292DB14419B4574100A80320 /* UIEditBoxImpl-android.cpp in Sources */,
 				15AE193619AAD35100C27E9E /* CCArmature.cpp in Sources */,
 				B1366AB8263AF7DD007F9D99 /* Animation.cpp in Sources */,
@@ -6917,6 +7008,7 @@
 				B1366A24263AF7DD007F9D99 /* TagDefineSounds.cpp in Sources */,
 				15FB20751AE7BF8600C31518 /* CCAutoPolygon.cpp in Sources */,
 				B1366AB7263AF7DD007F9D99 /* DeformTimeline.cpp in Sources */,
+				B19A4F9E27D7393D005B63BF /* HttpClient.cpp in Sources */,
 				B1366D0C263AFF34007F9D99 /* CCPUOnRandomObserverTranslator.cpp in Sources */,
 				A0E749F81BA8FD7F001A8332 /* UIEditBoxImpl-common.cpp in Sources */,
 				B1366D41263AFF34007F9D99 /* CCPUScaleAffectorTranslator.cpp in Sources */,
@@ -6954,6 +7046,7 @@
 				15AE193419AAD35100C27E9E /* CCActionObject.cpp in Sources */,
 				B1366DAD263AFF35007F9D99 /* CCPUMeshSurfaceEmitter.cpp in Sources */,
 				15FB20941AE7C57D00C31518 /* cdt.cc in Sources */,
+				B19A4FA327D7393D005B63BF /* CCDownloader-apple.mm in Sources */,
 				85505F081B60E3BD003F2CD4 /* CCSkinNode.cpp in Sources */,
 				299754F5193EC95400A54AC3 /* ObjectFactory.cpp in Sources */,
 				1A5701DF180BCB8C0088DEC7 /* CCLayer.cpp in Sources */,
@@ -7074,7 +7167,9 @@
 				B1366D37263AFF34007F9D99 /* CCPUPlaneColliderTranslator.cpp in Sources */,
 				B1366CB1263AFF33007F9D99 /* CCPULinearForceAffectorTranslator.cpp in Sources */,
 				15AE193E19AAD35100C27E9E /* CCBatchNode.cpp in Sources */,
+				B19A4F9627D7393D005B63BF /* Uri.cpp in Sources */,
 				B1366DC7263AFF35007F9D99 /* CCPUDoAffectorEventHandlerTranslator.cpp in Sources */,
+				B19A4F8C27D7393D005B63BF /* CCDownloader-curl.cpp in Sources */,
 				B1366D2A263AFF34007F9D99 /* CCPUAffectorTranslator.cpp in Sources */,
 				B1366D34263AFF34007F9D99 /* CCPUDoPlacementParticleEventHandler.cpp in Sources */,
 				B13669E3263AF7DC007F9D99 /* TagDefineTimeline.cpp in Sources */,
@@ -7114,6 +7209,7 @@
 				382384221A2590DA002C4610 /* GameMapReader.cpp in Sources */,
 				15AE1BAF19AADFDF00C27E9E /* UILayoutManager.cpp in Sources */,
 				B1366CB9263AFF33007F9D99 /* CCPUSlaveEmitterTranslator.cpp in Sources */,
+				B19A4FA127D7393D005B63BF /* WebSocket.cpp in Sources */,
 				15AE182119AAD2F700C27E9E /* CCBundleReader.cpp in Sources */,
 				B1366D40263AFF34007F9D99 /* CCPURandomiserTranslator.cpp in Sources */,
 				50ABBD3D1925AB0000A911A9 /* CCGeometry.cpp in Sources */,
@@ -7204,6 +7300,7 @@
 				15AE1B8219AADA9A00C27E9E /* UITextBMFont.cpp in Sources */,
 				50ABBE6A1925AB6F00A911A9 /* CCEventListenerFocus.cpp in Sources */,
 				B1366D1E263AFF34007F9D99 /* CCPURibbonTrail.cpp in Sources */,
+				B19A4FA427D7393D005B63BF /* CCDownloader.cpp in Sources */,
 				B1366D1D263AFF34007F9D99 /* CCPUVortexAffector.cpp in Sources */,
 				B1366A29263AF7DD007F9D99 /* GAFTextureAtlas.cpp in Sources */,
 				50ABBE661925AB6F00A911A9 /* CCEventListenerCustom.cpp in Sources */,
