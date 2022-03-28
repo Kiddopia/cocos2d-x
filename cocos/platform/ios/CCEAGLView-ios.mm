@@ -498,6 +498,11 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    // crash fix for issue : 306557c10d133c2b9522dd87925e7e25
+    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
+    if(!glview)
+        return;
+    
     UITouch* ids[IOS_MAX_TOUCHES_COUNT] = {0};
     float xs[IOS_MAX_TOUCHES_COUNT] = {0.0f};
     float ys[IOS_MAX_TOUCHES_COUNT] = {0.0f};
@@ -515,7 +520,6 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
         ++i;
     }
 
-    auto glview = cocos2d::Director::getInstance()->getOpenGLView();
     glview->handleTouchesCancel(i, (intptr_t*)ids, xs, ys);
 }
 
