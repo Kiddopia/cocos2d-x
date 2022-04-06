@@ -1,0 +1,25 @@
+From 8cb309b030619ff0f84c9f2f46bb5d3c35203bcd Mon Sep 17 00:00:00 2001
+From: Kaushik <kaushik@paperboatapps.com>
+Date: Wed, 6 Apr 2022 11:55:04 +0530
+Subject: [PATCH] Disable CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL
+
+---
+ cocos/base/ccConfig.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cocos/base/ccConfig.h b/cocos/base/ccConfig.h
+index 9af8dc652d..6825b7e273 100644
+--- a/cocos/base/ccConfig.h
++++ b/cocos/base/ccConfig.h
+@@ -88,7 +88,7 @@ THE SOFTWARE.
+  * @since v0.99.5
+  */
+ #ifndef CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL
+-#define CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL 1
++#define CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL 0
+ #endif
+ 
+ /** @def CC_DIRECTOR_STATS_INTERVAL
+-- 
+2.31.0
+
