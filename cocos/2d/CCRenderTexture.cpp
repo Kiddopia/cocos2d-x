@@ -91,6 +91,9 @@ RenderTexture::~RenderTexture()
     }
 
     CC_SAFE_DELETE(_UITextureImage);
+    
+    // Issue: if we dont clear renderqueue then there is chance that it might crash when RenderTexture is removed but queue still has reference to it
+    Director::getInstance()->getRenderer()->clean();
 }
 
 void RenderTexture::listenToBackground(EventCustom* /*event*/)

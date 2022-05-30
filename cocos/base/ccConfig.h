@@ -88,7 +88,7 @@ THE SOFTWARE.
  * @since v0.99.5
  */
 #ifndef CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL
-#define CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL 1
+#define CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL 0
 #endif
 
 /** @def CC_DIRECTOR_STATS_INTERVAL
@@ -290,7 +290,7 @@ THE SOFTWARE.
 
 /** Use culling or not. */
 #ifndef CC_USE_CULLING
-#define CC_USE_CULLING 0
+#define CC_USE_CULLING 1
 #endif
 
 /** Support PNG or not. If your application don't use png format picture, you can undefine this macro to save package size.
