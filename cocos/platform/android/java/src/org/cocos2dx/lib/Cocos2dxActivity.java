@@ -278,6 +278,8 @@ public abstract class Cocos2dxActivity extends Activity implements Cocos2dxHelpe
             new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                        ViewGroup.LayoutParams.WRAP_CONTENT);
         Cocos2dxEditBox edittext = new Cocos2dxEditBox(this);
+        edittext.setEnabled(false);
+        edittext.setVisibility(View.GONE);
         edittext.setLayoutParams(edittext_layout_params);
 
 
