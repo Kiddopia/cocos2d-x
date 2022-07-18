@@ -183,3 +183,5 @@ temp/
 # external libs zip
 #*.zip
 **/simulator/
+.gradle
+build
